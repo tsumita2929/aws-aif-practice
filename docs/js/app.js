@@ -128,7 +128,14 @@ function setupEventListeners() {
     
     // 戻るボタン
     document.getElementById('back-to-domains').addEventListener('click', () => {
-        showView('practice');
+        if (AppState.reviewMode) {
+            // 復習モードの場合は復習画面に戻る
+            showView('review');
+            AppState.reviewMode = false; // フラグをリセット
+        } else {
+            // 通常の練習モードの場合はドメイン選択に戻る
+            showView('practice');
+        }
     });
     
     // 回答送信

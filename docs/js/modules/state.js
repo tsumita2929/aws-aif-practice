@@ -18,7 +18,8 @@ export const AppState = {
     randomQuestions: [],
     shuffleEnabled: false,
     shuffledOrder: {},
-    originalQuestionIndex: null
+    originalQuestionIndex: null,
+    reviewMode: false
 };
 
 // ローカルストレージのキー
@@ -62,6 +63,7 @@ export function resetState() {
     AppState.selectedAnswers = [];
     AppState.examMode = false;
     AppState.randomMode = false;
+    AppState.reviewMode = false;
 }
 
 // 練習モードの初期化

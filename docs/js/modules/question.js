@@ -60,6 +60,21 @@ export async function displayQuestion() {
     
     // ジェスチャーとブックマークの設定
     setupQuestionGestures();
+    
+    // 戻るボタンのテキストを更新
+    updateBackButtonText();
+}
+
+// 戻るボタンのテキストを更新
+function updateBackButtonText() {
+    const backButtonText = document.getElementById('back-button-text');
+    if (backButtonText) {
+        if (AppState.reviewMode) {
+            backButtonText.textContent = '復習一覧に戻る';
+        } else {
+            backButtonText.textContent = 'ドメイン選択に戻る';
+        }
+    }
 }
 
 // 質問ヘッダーの更新

@@ -346,9 +346,10 @@ function createReviewItem(domain, index, question, answered, questionId) {
     `;
     
     item.addEventListener('click', async () => {
-        // 練習開始
+        // 練習開始（復習モードとして）
         initPracticeMode(domain);
         AppState.currentQuestionIndex = index;
+        AppState.reviewMode = true; // 復習モードフラグを設定
         
         // ビューを切り替え
         document.getElementById('review-view').style.display = 'none';
