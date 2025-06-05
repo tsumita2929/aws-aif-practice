@@ -7,7 +7,7 @@ window.QuestionsLoader = {
     },
 
     // デバッグモードフラグ
-    debugMode: true,
+    debugMode: false,
 
     // ログ出力ヘルパー
     log(message, data = null) {
@@ -259,11 +259,8 @@ window.getTotalQuestionCount = async function() {
     return total;
 };
 
-// ページ読み込み時に自動テスト
+// ページ読み込み時の初期化（テストは実行しない）
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Questions Loader initialized');
-    // テストを実行（開発時のみ）
-    if (window.location.hostname === 'localhost' || window.location.protocol === 'file:') {
-        window.QuestionsLoader.testLoader();
-    }
+    // console.log('Questions Loader initialized');
+    // テストは必要に応じて手動で実行: window.QuestionsLoader.testLoader()
 });

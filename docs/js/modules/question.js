@@ -532,7 +532,7 @@ function updateBookmarkUI() {
     }
 }
 
-function showToast(message) {
-    const { showToast: showUIToast } = import('./ui.js');
+async function showToast(message) {
+    const { showToast: showUIToast } = await import('./ui.js');
     showUIToast(message);
 }

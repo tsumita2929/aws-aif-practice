@@ -1,14 +1,59 @@
 // メインアプリケーションファイル
-import { AppState, STORAGE_KEYS, loadProgress, saveProgress, initPracticeMode, initRandomMode, toggleShuffle, loadShuffleSettings, resetShuffledOrder } from './modules/state.js';
-import { displayQuestion, submitAnswer, nextQuestion, toggleFlag, selectChoice } from './modules/question.js';
-import { updateProgressDisplay, updateStreak, updateAllDomainProgress, filterReviewQuestions } from './modules/progress.js';
-import { startExam, reviewExamQuestions } from './modules/exam.js';
-import { showView, toggleTheme, updateThemeToggle, startTimer, showLoadingMessage, hideLoadingMessage, showKeyboardHelp, showToast } from './modules/ui.js';
-import { shuffleArray } from './modules/utils.js';
+// 必須モジュールのみ初期読み込み
+import { AppState, STORAGE_KEYS, loadProgress, loadShuffleSettings } from './modules/state.js';
+import { showView, toggleTheme, updateThemeToggle, showToast } from './modules/ui.js';
+
+// 遅延読み込み用の関数
+const lazyModules = {
+    question: null,
+    progress: null,
+    exam: null,
+    utils: null,
+    stateFull: null
+};
+
+// モジュールの遅延読み込み
+async function loadQuestionModule() {
+    if (!lazyModules.question) {
+        lazyModules.question = await import('./modules/question.js');
+    }
+    return lazyModules.question;
+}
+
+async function loadProgressModule() {
+    if (!lazyModules.progress) {
+        lazyModules.progress = await import('./modules/progress.js');
+    }
+    return lazyModules.progress;
+}
+
+async function loadExamModule() {
+    if (!lazyModules.exam) {
+        lazyModules.exam = await import('./modules/exam.js');
+    }
+    return lazyModules.exam;
+}
+
+async function loadUtilsModule() {
+    if (!lazyModules.utils) {
+        lazyModules.utils = await import('./modules/utils.js');
+    }
+    return lazyModules.utils;
+}
+
+async function loadStateFullModule() {
+    if (!lazyModules.stateFull) {
+        lazyModules.stateFull = await import('./modules/state.js');
+    }
+    return lazyModules.stateFull;
+}
 
 // グローバルに公開する関数
 window.showView = showView;
-window.reviewExamQuestions = reviewExamQuestions;
+window.reviewExamQuestions = async (...args) => {
+    const exam = await loadExamModule();
+    return exam.reviewExamQuestions(...args);
+};
 
 // 初期化
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,12 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
     setupEventListeners();
     setupKeyboardShortcuts();
     improveFocusManagement();
-    updateStreak();
-    
-    // 初期進捗表示の更新
-    setTimeout(async () => {
-        await updateAllDomainProgress();
-    }, 500);
+    // Streakとドメイン進捗の遅延読み込み
+    requestIdleCallback(async () => {
+        const progress = await loadProgressModule();
+        await progress.updateStreak();
+        await progress.updateAllDomainProgress();
+    }, { timeout: 1000 });
 });
 
 function initializeApp() {
@@ -87,32 +132,47 @@ function setupEventListeners() {
     });
     
     // 回答送信
-    document.getElementById('submit-answer').addEventListener('click', submitAnswer);
-    document.getElementById('next-question').addEventListener('click', nextQuestion);
+    document.getElementById('submit-answer').addEventListener('click', async () => {
+        const question = await loadQuestionModule();
+        return question.submitAnswer();
+    });
+    document.getElementById('next-question').addEventListener('click', async () => {
+        const question = await loadQuestionModule();
+        return question.nextQuestion();
+    });
     
     // フラグボタン
-    document.getElementById('flag-btn').addEventListener('click', toggleFlag);
+    document.getElementById('flag-btn').addEventListener('click', async () => {
+        const question = await loadQuestionModule();
+        return question.toggleFlag();
+    });
     
     // シャッフルボタン
     document.getElementById('shuffle-btn').addEventListener('click', handleShuffleToggle);
     setupShuffleLongPress();
     
     // 模擬試験開始
-    document.getElementById('start-exam').addEventListener('click', startExam);
+    document.getElementById('start-exam').addEventListener('click', async () => {
+        const exam = await loadExamModule();
+        return exam.startExam();
+    });
     
     // 復習フィルター
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', async (e) => {
             document.querySelector('.filter-btn.active').classList.remove('active');
             e.target.classList.add('active');
-            await filterReviewQuestions(e.target.dataset.filter);
+            const progress = await loadProgressModule();
+            await progress.filterReviewQuestions(e.target.dataset.filter);
         });
     });
 }
 
 // 練習開始
 async function startPractice(domain) {
-    initPracticeMode(domain);
+    // state.jsからinitPracticeModeをインポート
+    const stateMod = await loadStateFullModule();
+    stateMod.initPracticeMode(domain);
     
     // 問題を事前に読み込む
     showLoadingMessage('問題を読み込んでいます...');
@@ -132,7 +192,8 @@ async function startPractice(domain) {
     startTimer();
     
     // 最初の質問を表示
-    await displayQuestion();
+    const questionMod = await loadQuestionModule();
+    await questionMod.displayQuestion();
 }
 
 // ランダム5問練習開始
@@ -156,7 +217,9 @@ async function startRandomPractice() {
                 });
             });
         }
-        randomQuestions = shuffleArray(allQuestions).slice(0, 5);
+        // utilsモジュールからshuffleArrayを取得
+        const utilsMod = await loadUtilsModule();
+        randomQuestions = utilsMod.shuffleArray(allQuestions).slice(0, 5);
     }
     
     hideLoadingMessage();
@@ -166,7 +229,9 @@ async function startRandomPractice() {
         return;
     }
     
-    initRandomMode(randomQuestions);
+    // state.jsからinitRandomModeをインポート
+    const stateMod = await loadStateFullModule();
+    stateMod.initRandomMode(randomQuestions);
     
     // 質問ビューを表示
     document.getElementById('practice-view').style.display = 'none';
@@ -176,7 +241,8 @@ async function startRandomPractice() {
     startTimer();
     
     // 最初の質問を表示
-    await displayQuestion();
+    const questionMod = await loadQuestionModule();
+    await questionMod.displayQuestion();
 }
 
 // キーボードショートカット
@@ -192,9 +258,11 @@ function setupKeyboardShortcuts() {
                     const submitBtn = document.getElementById('submit-answer');
                     
                     if (nextBtn && nextBtn.style.display !== 'none') {
-                        await nextQuestion();
+                        const questionMod = await loadQuestionModule();
+                        await questionMod.nextQuestion();
                     } else if (submitBtn && !submitBtn.disabled) {
-                        await submitAnswer();
+                        const questionMod = await loadQuestionModule();
+                        await questionMod.submitAnswer();
                     }
                     break;
                     
@@ -202,7 +270,8 @@ function setupKeyboardShortcuts() {
                     e.preventDefault();
                     const nextVisible = document.getElementById('next-question');
                     if (nextVisible && nextVisible.style.display !== 'none') {
-                        await nextQuestion();
+                        const questionMod = await loadQuestionModule();
+                        await questionMod.nextQuestion();
                     }
                     break;
                     
@@ -216,7 +285,8 @@ function setupKeyboardShortcuts() {
                     const choices = document.querySelectorAll('.choice');
                     if (choices[choiceIndex]) {
                         const isMultiple = document.getElementById('question-type').textContent.includes('複数');
-                        selectChoice(choiceIndex, isMultiple);
+                        const questionMod = await loadQuestionModule();
+                        questionMod.selectChoice(choiceIndex, isMultiple);
                         // フォーカスを該当の選択肢に移動
                         choices[choiceIndex].focus();
                     }
@@ -281,10 +351,10 @@ function improveFocusManagement() {
 }
 
 // 練習終了時の進捗更新
-const originalUpdateProgressDisplay = updateProgressDisplay;
 window.updateProgressDisplay = async function() {
-    await originalUpdateProgressDisplay();
-    await updateAllDomainProgress();
+    const progressMod = await loadProgressModule();
+    await progressMod.updateProgressDisplay();
+    await progressMod.updateAllDomainProgress();
 };
 
 // シャッフルボタンの更新
@@ -318,24 +388,27 @@ async function handleShuffleToggle() {
         questionContent.classList.remove('shuffle-animation');
     }
     
-    const isEnabled = toggleShuffle();
+    const stateMod = await loadStateFullModule();
+    const isEnabled = stateMod.toggleShuffle();
     updateShuffleButton();
     
     if (isEnabled) {
         showToast('シャッフルを有効にしました');
         // 現在のドメインでシャッフル順序を作成
         if (AppState.currentDomain && !AppState.examMode && !AppState.randomMode) {
-            await resetShuffledOrder(AppState.currentDomain);
-            await initPracticeMode(AppState.currentDomain);
+            await stateMod.resetShuffledOrder(AppState.currentDomain);
+            await stateMod.initPracticeMode(AppState.currentDomain);
             AppState.currentQuestionIndex = 0;
-            await displayQuestion();
+            const questionMod = await loadQuestionModule();
+            await questionMod.displayQuestion();
         }
     } else {
         showToast('シャッフルを無効にしました');
         // 現在の問題を維持しながらシャッフルを解除
         if (AppState.currentDomain && !AppState.examMode && !AppState.randomMode) {
             AppState.currentQuestionIndex = AppState.originalQuestionIndex || 0;
-            await displayQuestion();
+            const questionMod = await loadQuestionModule();
+            await questionMod.displayQuestion();
         }
     }
 }
@@ -350,23 +423,28 @@ function setupShuffleLongPress() {
     shuffleBtn.addEventListener('mousedown', handleShuffleLongPressStart);
     shuffleBtn.addEventListener('mouseup', handleShuffleLongPressEnd);
     shuffleBtn.addEventListener('mouseleave', handleShuffleLongPressEnd);
-    shuffleBtn.addEventListener('touchstart', handleShuffleLongPressStart);
-    shuffleBtn.addEventListener('touchend', handleShuffleLongPressEnd);
-    shuffleBtn.addEventListener('touchcancel', handleShuffleLongPressEnd);
+    shuffleBtn.addEventListener('touchstart', handleShuffleLongPressStart, { passive: true });
+    shuffleBtn.addEventListener('touchend', handleShuffleLongPressEnd, { passive: true });
+    shuffleBtn.addEventListener('touchcancel', handleShuffleLongPressEnd, { passive: true });
 }
 
 function handleShuffleLongPressStart(e) {
-    e.preventDefault();
+    // タッチイベントの場合はpassiveなのでpreventDefaultを呼ばない
+    if (e.type === 'mousedown') {
+        e.preventDefault();
+    }
     shuffleLongPressTimer = setTimeout(async () => {
         if (AppState.shuffleEnabled && AppState.currentDomain && !AppState.examMode && !AppState.randomMode) {
             if (navigator.vibrate) {
                 navigator.vibrate(50);
             }
             showToast('シャッフルをリセットしました');
-            await resetShuffledOrder(AppState.currentDomain);
-            await initPracticeMode(AppState.currentDomain);
+            const stateMod = await loadStateFullModule();
+            await stateMod.resetShuffledOrder(AppState.currentDomain);
+            await stateMod.initPracticeMode(AppState.currentDomain);
             AppState.currentQuestionIndex = 0;
-            await displayQuestion();
+            const questionMod = await loadQuestionModule();
+            await questionMod.displayQuestion();
         }
     }, 1000);
 }
@@ -378,4 +456,72 @@ function handleShuffleLongPressEnd() {
     }
 }
 
-console.log('Modular app.js loaded successfully');
+// ローディングメッセージの表示
+function showLoadingMessage(message) {
+    const loadingEl = document.getElementById('loading-message') || createLoadingElement();
+    loadingEl.textContent = message;
+    loadingEl.style.display = 'block';
+}
+
+// ローディングメッセージの非表示
+function hideLoadingMessage() {
+    const loadingEl = document.getElementById('loading-message');
+    if (loadingEl) {
+        loadingEl.style.display = 'none';
+    }
+}
+
+// ローディング要素の作成
+function createLoadingElement() {
+    const loading = document.createElement('div');
+    loading.id = 'loading-message';
+    loading.className = 'loading-message';
+    loading.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        z-index: 1000;
+    `;
+    document.body.appendChild(loading);
+    return loading;
+}
+
+// タイマーの開始
+function startTimer() {
+    const timerEl = document.getElementById('elapsed-time');
+    if (!timerEl) return;
+    
+    let startTime = Date.now();
+    
+    // 既存のタイマーをクリア
+    if (window.timerInterval) {
+        clearInterval(window.timerInterval);
+    }
+    
+    // タイマーを更新
+    window.timerInterval = setInterval(() => {
+        const elapsed = Math.floor((Date.now() - startTime) / 1000);
+        const minutes = Math.floor(elapsed / 60);
+        const seconds = elapsed % 60;
+        timerEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }, 1000);
+}
+
+// キーボードヘルプの表示
+function showKeyboardHelp() {
+    alert(`キーボードショートカット:
+    
+スペースキー: 回答の送信 / 次の問題へ
+→キー: 次の問題へ
+1-5キー: 選択肢を選択
+Ctrl/Cmd + F: フラグの切り替え
+Shift + /: このヘルプを表示
+Escape: モーダルを閉じる`);
+}
+
+// console.log('Modular app.js loaded successfully');

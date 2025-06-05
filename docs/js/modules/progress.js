@@ -220,40 +220,75 @@ export async function filterReviewQuestions(filter) {
     let questions = [];
     
     try {
-        // すべての質問を収集
-        for (let domain = 1; domain <= 4; domain++) {
-            const domainQuestions = await window.getQuestionsForDomain(domain);
-            if (domainQuestions && domainQuestions.length > 0) {
-                domainQuestions.forEach((q, index) => {
-                    const questionId = `d${domain}_q${index}`;
-                    const answered = AppState.answeredQuestions.get(questionId);
-                    
-                    let include = false;
-                    switch (filter) {
-                        case 'all':
-                            include = true;
-                            break;
-                        case 'incorrect':
-                            include = answered && !answered.isCorrect;
-                            break;
-                        case 'flagged':
-                            include = AppState.flaggedQuestions.has(questionId);
-                            break;
-                        case 'unseen':
-                            include = !answered;
-                            break;
-                    }
-                    
-                    if (include) {
-                        questions.push({
-                            domain,
-                            index,
-                            question: q,
-                            answered,
-                            questionId
-                        });
+        // フィルターに応じて効率的に問題を収集
+        if (filter === 'incorrect' || filter === 'flagged') {
+            // 間違えた問題やフラグ付き問題は既に記録されているものだけを読み込む
+            const relevantQuestionIds = new Set();
+            
+            if (filter === 'incorrect') {
+                AppState.answeredQuestions.forEach((answer, questionId) => {
+                    if (!answer.isCorrect) {
+                        relevantQuestionIds.add(questionId);
                     }
                 });
+            } else if (filter === 'flagged') {
+                AppState.flaggedQuestions.forEach(questionId => {
+                    relevantQuestionIds.add(questionId);
+                });
+            }
+            
+            // 該当する問題のみを読み込む
+            for (const questionId of relevantQuestionIds) {
+                const match = questionId.match(/d(\d+)_q(\d+)/);
+                if (match) {
+                    const domain = parseInt(match[1]);
+                    const index = parseInt(match[2]);
+                    
+                    // インデックスから問題IDを取得
+                    const domainIndex = await window.QuestionsLoader.loadDomainIndex(domain);
+                    if (domainIndex && domainIndex.questions[index]) {
+                        const question = await window.QuestionsLoader.loadQuestion(domain, domainIndex.questions[index]);
+                        if (question) {
+                            questions.push({
+                                ...question,
+                                domain,
+                                index,
+                                questionId
+                            });
+                        }
+                    }
+                }
+            }
+        } else {
+            // 'all'または'unseen'の場合は全ドメインのインデックスを確認
+            for (let domain = 1; domain <= 4; domain++) {
+                const domainIndex = await window.QuestionsLoader.loadDomainIndex(domain);
+                if (domainIndex) {
+                    // 各問題について必要に応じて読み込む
+                    for (let index = 0; index < domainIndex.questions.length; index++) {
+                        const questionId = `d${domain}_q${index}`;
+                        const answered = AppState.answeredQuestions.get(questionId);
+                        
+                        let include = false;
+                        if (filter === 'all') {
+                            include = true;
+                        } else if (filter === 'unseen') {
+                            include = !answered;
+                        }
+                        
+                        if (include) {
+                            const question = await window.QuestionsLoader.loadQuestion(domain, domainIndex.questions[index]);
+                            if (question) {
+                                questions.push({
+                                    ...question,
+                                    domain,
+                                    index,
+                                    questionId
+                                });
+                            }
+                        }
+                    }
+                }
             }
         }
         
@@ -262,8 +297,9 @@ export async function filterReviewQuestions(filter) {
         
         // 質問を表示
         if (questions.length > 0) {
-            questions.forEach(({ domain, index, question, answered, questionId }) => {
-                const item = createReviewItem(domain, index, question, answered, questionId);
+            questions.forEach((questionData) => {
+                const answered = AppState.answeredQuestions.get(questionData.questionId);
+                const item = createReviewItem(questionData.domain, questionData.index, questionData, answered, questionData.questionId);
                 container.appendChild(item);
             });
         } else {
