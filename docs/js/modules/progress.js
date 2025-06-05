@@ -1,5 +1,5 @@
 // 進捗管理モジュール
-import { AppState, STORAGE_KEYS, saveProgress } from './state.js';
+import { AppState, STORAGE_KEYS, saveProgress, initPracticeMode } from './state.js';
 import { showAchievement } from './ui.js';
 
 // 進捗表示の更新
@@ -345,9 +345,8 @@ function createReviewItem(domain, index, question, answered, questionId) {
         <div class="review-item-question">${question.text}</div>
     `;
     
-    item.addEventListener('click', () => {
+    item.addEventListener('click', async () => {
         // 練習開始
-        const { initPracticeMode } = import('./state.js');
         initPracticeMode(domain);
         AppState.currentQuestionIndex = index;
         
@@ -356,8 +355,8 @@ function createReviewItem(domain, index, question, answered, questionId) {
         document.getElementById('question-view').style.display = 'block';
         
         // 質問を表示
-        const { displayQuestion } = import('./question.js');
-        displayQuestion();
+        const { displayQuestion } = await import('./question.js');
+        await displayQuestion();
     });
     
     return item;
