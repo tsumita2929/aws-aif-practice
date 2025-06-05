@@ -144,6 +144,12 @@
                     <div class="question-info">
                         <span class="domain-badge" id="current-domain">ドメイン1</span>
                         <span class="question-number" id="question-number">問題 1/40</span>
+                        <span class="shuffle-indicator" id="shuffle-indicator" style="display: none;">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--primary-orange)">
+                                <path d="M11.5 1.5a.5.5 0 0 1 .5.5v2.5a.5.5 0 0 1-1 0V3.707l-3.146 3.147a.5.5 0 0 1-.708-.708L10.293 3H9.5a.5.5 0 0 1 0-1h2zm-6 13a.5.5 0 0 1-.5-.5v-2.5a.5.5 0 0 1 1 0v1.293l3.146-3.147a.5.5 0 0 1 .708.708L6.707 13H7.5a.5.5 0 0 1 0 1h-2zM4.5 4.5a.5.5 0 0 0-.5.5v2.5a.5.5 0 0 0 1 0V6.207l3.146 3.147a.5.5 0 0 0 .708-.708L5.707 5H6.5a.5.5 0 0 0 0-1h-2zm7 7a.5.5 0 0 0 .5-.5v-2.5a.5.5 0 0 0-1 0v1.293l-3.146-3.147a.5.5 0 0 0-.708.708L10.293 11H9.5a.5.5 0 0 0 0 1h2z"/>
+                            </svg>
+                            <span class="original-number" id="original-number">(元: 問題1)</span>
+                        </span>
                     </div>
                     <div class="timer" id="timer">00:00</div>
                 </div>
@@ -155,6 +161,12 @@
                 </div>
 
                 <div class="question-actions">
+                    <button class="btn btn-secondary" id="shuffle-btn" title="問題をシャッフル">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M11.5 1.5a.5.5 0 0 1 .5.5v2.5a.5.5 0 0 1-1 0V3.707l-3.146 3.147a.5.5 0 0 1-.708-.708L10.293 3H9.5a.5.5 0 0 1 0-1h2zm-6 13a.5.5 0 0 1-.5-.5v-2.5a.5.5 0 0 1 1 0v1.293l3.146-3.147a.5.5 0 0 1 .708.708L6.707 13H7.5a.5.5 0 0 1 0 1h-2zM4.5 4.5a.5.5 0 0 0-.5.5v2.5a.5.5 0 0 0 1 0V6.207l3.146 3.147a.5.5 0 0 0 .708-.708L5.707 5H6.5a.5.5 0 0 0 0-1h-2zm7 7a.5.5 0 0 0 .5-.5v-2.5a.5.5 0 0 0-1 0v1.293l-3.146-3.147a.5.5 0 0 0-.708.708L10.293 11H9.5a.5.5 0 0 0 0 1h2z"/>
+                        </svg>
+                        シャッフル
+                    </button>
                     <button class="btn btn-secondary" id="flag-btn">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
                             <path d="M3 2v12h2V9h5l1-2-1-2H5V2H3z"/>

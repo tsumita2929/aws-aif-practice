@@ -1,9 +1,9 @@
 // メインアプリケーションファイル
-import { AppState, STORAGE_KEYS, loadProgress, saveProgress, initPracticeMode, initRandomMode } from './modules/state.js';
+import { AppState, STORAGE_KEYS, loadProgress, saveProgress, initPracticeMode, initRandomMode, toggleShuffle, loadShuffleSettings, resetShuffledOrder } from './modules/state.js';
 import { displayQuestion, submitAnswer, nextQuestion, toggleFlag, selectChoice } from './modules/question.js';
 import { updateProgressDisplay, updateStreak, updateAllDomainProgress, filterReviewQuestions } from './modules/progress.js';
 import { startExam, reviewExamQuestions } from './modules/exam.js';
-import { showView, toggleTheme, updateThemeToggle, startTimer, showLoadingMessage, hideLoadingMessage, showKeyboardHelp } from './modules/ui.js';
+import { showView, toggleTheme, updateThemeToggle, startTimer, showLoadingMessage, hideLoadingMessage, showKeyboardHelp, showToast } from './modules/ui.js';
 import { shuffleArray } from './modules/utils.js';
 
 // グローバルに公開する関数
@@ -30,6 +30,10 @@ function initializeApp() {
     const savedTheme = localStorage.getItem(STORAGE_KEYS.THEME) || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeToggle(savedTheme);
+    
+    // シャッフル設定の読み込み
+    loadShuffleSettings();
+    updateShuffleButton();
     
     // 初期ビューの表示
     showView('practice');
@@ -88,6 +92,10 @@ function setupEventListeners() {
     
     // フラグボタン
     document.getElementById('flag-btn').addEventListener('click', toggleFlag);
+    
+    // シャッフルボタン
+    document.getElementById('shuffle-btn').addEventListener('click', handleShuffleToggle);
+    setupShuffleLongPress();
     
     // 模擬試験開始
     document.getElementById('start-exam').addEventListener('click', startExam);
@@ -278,5 +286,96 @@ window.updateProgressDisplay = async function() {
     await originalUpdateProgressDisplay();
     await updateAllDomainProgress();
 };
+
+// シャッフルボタンの更新
+function updateShuffleButton() {
+    const shuffleBtn = document.getElementById('shuffle-btn');
+    if (shuffleBtn) {
+        if (AppState.shuffleEnabled) {
+            shuffleBtn.classList.add('active');
+        } else {
+            shuffleBtn.classList.remove('active');
+        }
+    }
+}
+
+// シャッフルトグルの処理
+async function handleShuffleToggle() {
+    // 練習途中の場合は確認
+    if (AppState.currentDomain && !AppState.examMode && !AppState.randomMode && AppState.currentQuestionIndex > 0) {
+        const confirmed = confirm('シャッフル設定を変更すると最初の問題に戻ります。続けますか？');
+        if (!confirmed) {
+            return;
+        }
+    }
+    
+    const questionContent = document.querySelector('.question-content');
+    
+    // シャッフルアニメーション
+    if (questionContent) {
+        questionContent.classList.add('shuffle-animation');
+        await new Promise(resolve => setTimeout(resolve, 600));
+        questionContent.classList.remove('shuffle-animation');
+    }
+    
+    const isEnabled = toggleShuffle();
+    updateShuffleButton();
+    
+    if (isEnabled) {
+        showToast('シャッフルを有効にしました');
+        // 現在のドメインでシャッフル順序を作成
+        if (AppState.currentDomain && !AppState.examMode && !AppState.randomMode) {
+            await resetShuffledOrder(AppState.currentDomain);
+            await initPracticeMode(AppState.currentDomain);
+            AppState.currentQuestionIndex = 0;
+            await displayQuestion();
+        }
+    } else {
+        showToast('シャッフルを無効にしました');
+        // 現在の問題を維持しながらシャッフルを解除
+        if (AppState.currentDomain && !AppState.examMode && !AppState.randomMode) {
+            AppState.currentQuestionIndex = AppState.originalQuestionIndex || 0;
+            await displayQuestion();
+        }
+    }
+}
+
+// シャッフルボタンの長押し処理
+let shuffleLongPressTimer = null;
+
+function setupShuffleLongPress() {
+    const shuffleBtn = document.getElementById('shuffle-btn');
+    if (!shuffleBtn) return;
+    
+    shuffleBtn.addEventListener('mousedown', handleShuffleLongPressStart);
+    shuffleBtn.addEventListener('mouseup', handleShuffleLongPressEnd);
+    shuffleBtn.addEventListener('mouseleave', handleShuffleLongPressEnd);
+    shuffleBtn.addEventListener('touchstart', handleShuffleLongPressStart);
+    shuffleBtn.addEventListener('touchend', handleShuffleLongPressEnd);
+    shuffleBtn.addEventListener('touchcancel', handleShuffleLongPressEnd);
+}
+
+function handleShuffleLongPressStart(e) {
+    e.preventDefault();
+    shuffleLongPressTimer = setTimeout(async () => {
+        if (AppState.shuffleEnabled && AppState.currentDomain && !AppState.examMode && !AppState.randomMode) {
+            if (navigator.vibrate) {
+                navigator.vibrate(50);
+            }
+            showToast('シャッフルをリセットしました');
+            await resetShuffledOrder(AppState.currentDomain);
+            await initPracticeMode(AppState.currentDomain);
+            AppState.currentQuestionIndex = 0;
+            await displayQuestion();
+        }
+    }, 1000);
+}
+
+function handleShuffleLongPressEnd() {
+    if (shuffleLongPressTimer) {
+        clearTimeout(shuffleLongPressTimer);
+        shuffleLongPressTimer = null;
+    }
+}
 
 console.log('Modular app.js loaded successfully');

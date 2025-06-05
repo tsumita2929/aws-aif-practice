@@ -1,5 +1,5 @@
 // 質問表示・回答処理モジュール
-import { AppState, saveProgress } from './state.js';
+import { AppState, saveProgress, getActualQuestionIndex } from './state.js';
 import { showFeedback, announceToScreenReader } from './ui.js';
 import { checkAchievements } from './progress.js';
 
@@ -8,20 +8,27 @@ export async function displayQuestion() {
     let question;
     let totalQuestions;
     let currentDomain;
+    let actualIndex;
     
     if (AppState.randomMode) {
         question = AppState.randomQuestions[AppState.currentQuestionIndex];
         totalQuestions = AppState.randomQuestions.length;
         currentDomain = question ? question.domain : null;
+        actualIndex = AppState.currentQuestionIndex;
     } else if (AppState.examMode) {
         question = AppState.examQuestions[AppState.currentQuestionIndex];
         totalQuestions = AppState.examQuestions.length;
         currentDomain = question ? question.domain : null;
+        actualIndex = AppState.currentQuestionIndex;
     } else {
         const questions = await window.getQuestionsForDomain(AppState.currentDomain);
-        question = questions[AppState.currentQuestionIndex];
+        actualIndex = getActualQuestionIndex(AppState.currentDomain, AppState.currentQuestionIndex);
+        question = questions[actualIndex];
         totalQuestions = questions.length;
         currentDomain = AppState.currentDomain;
+        
+        // 元のインデックスを保存（進捗保存用）
+        AppState.originalQuestionIndex = actualIndex;
     }
     
     if (!question) {
@@ -65,6 +72,18 @@ function updateQuestionHeader(currentDomain, totalQuestions) {
         document.getElementById('current-domain').textContent = `ドメイン${currentDomain}`;
     }
     document.getElementById('question-number').textContent = `問題 ${AppState.currentQuestionIndex + 1}/${totalQuestions}`;
+    
+    // シャッフルインジケーターの更新
+    const shuffleIndicator = document.getElementById('shuffle-indicator');
+    const originalNumber = document.getElementById('original-number');
+    
+    if (AppState.shuffleEnabled && !AppState.randomMode && !AppState.examMode) {
+        shuffleIndicator.style.display = 'inline-flex';
+        const actualIndex = AppState.originalQuestionIndex !== null ? AppState.originalQuestionIndex : AppState.currentQuestionIndex;
+        originalNumber.textContent = `(元: 問題${actualIndex + 1})`;
+    } else {
+        shuffleIndicator.style.display = 'none';
+    }
 }
 
 // 質問タイプの更新
@@ -160,8 +179,9 @@ export async function submitAnswer() {
         questionId = `d${question.domain}_q${question.originalIndex}`;
     } else {
         const questions = await window.getQuestionsForDomain(AppState.currentDomain);
-        question = questions[AppState.currentQuestionIndex];
-        questionId = `d${AppState.currentDomain}_q${AppState.currentQuestionIndex}`;
+        const actualIndex = AppState.originalQuestionIndex !== null ? AppState.originalQuestionIndex : AppState.currentQuestionIndex;
+        question = questions[actualIndex];
+        questionId = `d${AppState.currentDomain}_q${actualIndex}`;
     }
     
     // 正解判定
@@ -169,8 +189,8 @@ export async function submitAnswer() {
     
     // 結果を保存
     AppState.answeredQuestions.set(questionId, {
-        domain: AppState.currentDomain,
-        questionIndex: AppState.currentQuestionIndex,
+        domain: AppState.currentDomain || question.domain,
+        questionIndex: AppState.originalQuestionIndex !== null ? AppState.originalQuestionIndex : AppState.currentQuestionIndex,
         selectedAnswers: AppState.selectedAnswers,
         isCorrect: isCorrect,
         timestamp: Date.now()
@@ -271,7 +291,8 @@ export function toggleFlag() {
         const question = AppState.randomQuestions[AppState.currentQuestionIndex];
         questionId = `d${question.domain}_q${question.originalIndex}`;
     } else {
-        questionId = `d${AppState.currentDomain}_q${AppState.currentQuestionIndex}`;
+        const actualIndex = AppState.originalQuestionIndex !== null ? AppState.originalQuestionIndex : AppState.currentQuestionIndex;
+        questionId = `d${AppState.currentDomain}_q${actualIndex}`;
     }
     
     const flagBtn = document.getElementById('flag-btn');
@@ -289,9 +310,15 @@ export function toggleFlag() {
 
 // フラグ状態の更新
 function updateFlagStatus() {
-    const questionId = AppState.randomMode 
-        ? `d${AppState.randomQuestions[AppState.currentQuestionIndex].domain}_q${AppState.randomQuestions[AppState.currentQuestionIndex].originalIndex}` 
-        : `d${AppState.currentDomain}_q${AppState.currentQuestionIndex}`;
+    let questionId;
+    
+    if (AppState.randomMode) {
+        const question = AppState.randomQuestions[AppState.currentQuestionIndex];
+        questionId = `d${question.domain}_q${question.originalIndex}`;
+    } else {
+        const actualIndex = AppState.originalQuestionIndex !== null ? AppState.originalQuestionIndex : AppState.currentQuestionIndex;
+        questionId = `d${AppState.currentDomain}_q${actualIndex}`;
+    }
     
     const flagBtn = document.getElementById('flag-btn');
     if (AppState.flaggedQuestions.has(questionId)) {
