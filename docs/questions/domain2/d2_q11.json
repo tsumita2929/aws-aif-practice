@@ -1,0 +1,28 @@
+{
+  "id": "d2_q11",
+  "type": "single",
+  "text": "Amazon Pollyと Amazon Transcribeの主な違いは何ですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "Pollyは音声認識、Transcribeはテキスト読み上げ"
+    },
+    {
+      "label": "B",
+      "text": "Pollyはテキスト読み上げ、Transcribeは音声認識"
+    },
+    {
+      "label": "C",
+      "text": "両方とも同じ機能を提供"
+    },
+    {
+      "label": "D",
+      "text": "Pollyは画像認識、Transcribeは動画認識"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "Amazon PollyとAmazon Transcribeは、音声とテキストの変換において正反対の機能を提供します。正解はB「Pollyはテキスト読み上げ、Transcribeは音声認識」です。\n\nAmazon Polly：\n- テキストから音声への変換（Text-to-Speech: TTS）\n- 自然な音声合成\n- 複数の言語と音声オプション\n- SSML（Speech Synthesis Markup Language）のサポート\n\nAmazon Transcribe：\n- 音声からテキストへの変換（Speech-to-Text: STT）\n- リアルタイムおよびバッチ処理\n- 話者識別機能\n- カスタム語彙のサポート\n\n覚え方：\n- Polly = 「ポリー」が「読み上げる」（テキスト→音声）\n- Transcribe = 「転写」する（音声→テキスト）\n\nこれらのサービスは、音声アシスタント、コールセンターソリューション、アクセシビリティ向上など、様々なユースケースで活用されています。",
+  "resources": []
+}

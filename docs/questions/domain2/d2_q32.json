@@ -1,0 +1,28 @@
+{
+  "id": "d2_q32",
+  "type": "single",
+  "text": "Amazon SageMaker Model Registryの主な機能は何ですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "データの保存"
+    },
+    {
+      "label": "B",
+      "text": "MLモデルのバージョン管理とメタデータ管理"
+    },
+    {
+      "label": "C",
+      "text": "リアルタイム推論の実行"
+    },
+    {
+      "label": "D",
+      "text": "データのラベリング"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "Amazon SageMaker Model Registryは、MLモデルのバージョン管理とメタデータ管理を提供するサービスです。正解はB「MLモデルのバージョン管理とメタデータ管理」です。\n\nModel Registryの主な機能：\n- モデルバージョンの管理\n- モデルメタデータの保存\n- モデルの承認ワークフロー\n- モデルグループの管理\n- デプロイ履歴の追跡\n\nメタデータの種類：\n- トレーニングパラメータ\n- パフォーマンスメトリクス\n- 入出力スキーマ\n- トレーニングデータの情報\n- カスタムタグ\n\nMLOpsでの活用：\n- 開発から本番への移行管理\n- モデルの承認プロセス\n- A/Bテストの管理\n- ロールバックの容易化\n- コンプライアンス管理\n\n統合機能：\n- SageMaker Pipelinesとの統合\n- エンドポイントへの自動デプロイ\n- CI/CDパイプラインとの連携\n\n他の選択肢が誤りの理由：\n- A: データ保存はS3の役割\n- C: リアルタイム推論はエンドポイントの機能\n- D: データラベリングはGround Truthの機能\n\nModel RegistryはMLモデルのライフサイクル管理に不可欠なコンポーネントです。",
+  "resources": []
+}

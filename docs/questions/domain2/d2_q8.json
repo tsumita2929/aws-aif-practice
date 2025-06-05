@@ -1,0 +1,28 @@
+{
+  "id": "d2_q8",
+  "type": "single",
+  "text": "次のシナリオを考えてください： 「法律事務所が大量のPDF契約書から重要な条項を自動抽出したい」 このタスクに最も適したAWSサービスはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "Amazon Textract"
+    },
+    {
+      "label": "B",
+      "text": "Amazon Transcribe"
+    },
+    {
+      "label": "C",
+      "text": "Amazon Lex"
+    },
+    {
+      "label": "D",
+      "text": "Amazon Forecast"
+    }
+  ],
+  "correct": [
+    0
+  ],
+  "explanation": "Amazon Textractは、スキャンされた文書からテキストとデータを自動的に抽出する機械学習サービスです。正解はA「Amazon Textract」です。\n\nTextractの主な機能：\n- PDFや画像からのテキスト抽出\n- 表やフォームの構造を維持したデータ抽出\n- キーバリューペアの認識\n- 手書き文字の認識\n- 複数ページのPDFの処理\n\n法律事務所のシナリオにおいて：\n- 契約書の重要な条項（日付、金額、当事者名など）を自動抽出\n- 大量のPDFを効率的に処理\n- 抽出したデータを構造化してデータベースに保存\n\n他の選択肢について：\n- B: Amazon Transcribeは音声をテキストに変換するサービス\n- C: Amazon Lexはチャットボットや音声対話インターフェースを構築するサービス\n- D: Amazon Forecastは時系列データの予測サービス\n\nTextractはOCRを超えた機能を提供し、文書のコンテキストを理解して情報を抽出できます。",
+  "resources": []
+}

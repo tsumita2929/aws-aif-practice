@@ -1,0 +1,28 @@
+{
+  "id": "d2_q42",
+  "type": "single",
+  "text": "Amazon Monitronの用途として最も適切なものはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "ウェブサイトの監視"
+    },
+    {
+      "label": "B",
+      "text": "産業機器の予知保全"
+    },
+    {
+      "label": "C",
+      "text": "ネットワークトラフィックの分析"
+    },
+    {
+      "label": "D",
+      "text": "アプリケーションのパフォーマンス監視"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "Amazon Monitronは、産業機器の状態監視と予知保全に特化したエンドツーエンドシステムです。\n\n選択肢Bが正解である理由：\n\nMonitronの主な機能：\n- 振動と温度センサーによる機器の状態監視\n- 機械学習による異常検知\n- 予知保全アラートの自動生成\n- 機器の故障を事前に予測\n- 設置と設定が簡単（コーディング不要）\n\n対象となる産業機器：\n- モーター\n- ポンプ\n- ファン\n- コンプレッサー\n- ギアボックス\n- その他の回転機器\n\n他の選択肢が不正解である理由：\n- A: ウェブサイトの監視にはAmazon CloudWatchやAWS X-Rayが適しています\n- C: ネットワークトラフィック分析にはVPC Flow LogsやAWS Network Firewall が使用されます\n- D: アプリケーションパフォーマンス監視にはCloudWatch Application InsightsやX-Rayが適しています\n\nMonitronの利点：\n- 計画外のダウンタイムの削減\n- メンテナンスコストの最適化\n- 機器寿命の延長\n- 専門知識不要で導入可能\n- ISO認証取得済みのセンサー使用",
+  "resources": []
+}

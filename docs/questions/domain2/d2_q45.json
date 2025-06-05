@@ -1,0 +1,28 @@
+{
+  "id": "d2_q45",
+  "type": "single",
+  "text": "次のシナリオを考えてください： 「物流会社が配送ルートの最適化と配送時間予測を行いたい」 最も適したAWSサービスの組み合わせはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "Amazon Location Service + Amazon Forecast"
+    },
+    {
+      "label": "B",
+      "text": "Amazon Rekognition + Amazon Comprehend"
+    },
+    {
+      "label": "C",
+      "text": "Amazon Textract + Amazon Translate"
+    },
+    {
+      "label": "D",
+      "text": "Amazon Lex + Amazon Polly"
+    }
+  ],
+  "correct": [
+    0
+  ],
+  "explanation": "物流会社の配送ルート最適化と配送時間予測には、地理空間データの処理と時系列予測が必要です。\n\n選択肢Aが正解である理由：\n\nAmazon Location Service：\n- 地図データとルーティング機能を提供\n- 配送ルートの最適化計算が可能\n- ジオフェンシング機能で配送エリアの管理\n- リアルタイムの位置追跡\n- 交通状況を考慮したルート計算\n\nAmazon Forecast：\n- 過去の配送データから配送時間を予測\n- 天候、交通パターン、季節性などの要因を考慮\n- 機械学習による高精度な時系列予測\n- 需要予測による配送リソースの最適化\n\n他の選択肢が不適切である理由：\n- B: Rekognition（画像認識）とComprehend（自然言語処理）は、配送ルート最適化には関係ありません\n- C: Textract（文書処理）とTranslate（翻訳）も、このユースケースには不適切です\n- D: Lex（チャットボット）とPolly（音声合成）は、顧客対応には使えますが、ルート最適化や時間予測には使用できません\n\n実装例：\n- Location Serviceで最適ルートを計算し、配送車両を追跡\n- Forecastで過去の配送データから到着時間を予測\n- 両サービスを組み合わせて、効率的な配送計画を立案",
+  "resources": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "d2_q35",
+  "type": "single",
+  "text": "Amazon SageMaker Pipelinesの主な利点は何ですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "データの手動処理"
+    },
+    {
+      "label": "B",
+      "text": "MLワークフローの自動化とCI/CDの実現"
+    },
+    {
+      "label": "C",
+      "text": "画像の生成"
+    },
+    {
+      "label": "D",
+      "text": "音声の合成"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "Amazon SageMaker Pipelinesは、機械学習ワークフローを自動化し、CI/CD（継続的インテグレーション/継続的デリバリー）を実現するためのフルマネージドサービスです。\n\n**正解（B）の理由：**\n- エンドツーエンドのMLワークフローを定義、実行、管理できる\n- データ準備、モデルトレーニング、評価、デプロイまでの全プロセスを自動化\n- ワークフローの再現性と追跡可能性を保証\n- GitOpsやMLOpsのベストプラクティスをサポート\n- パイプラインの各ステップをモジュール化し、再利用可能\n\n**他の選択肢が不適切な理由：**\n- A: データの手動処理はPipelinesの目的と正反対で、自動化がその本質です\n- C: 画像の生成は生成AIモデルやStable Diffusionなどの役割です\n- D: 音声の合成はAmazon Pollyの機能です\n\nSageMaker Pipelinesは、MLモデルの開発から本番環境への展開までを効率化し、チーム間のコラボレーションを促進する重要なMLOpsツールです。",
+  "resources": []
+}

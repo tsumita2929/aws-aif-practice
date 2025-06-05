@@ -1,0 +1,28 @@
+{
+  "id": "d2_q12",
+  "type": "single",
+  "text": "カスタマーサービスのチャットボットを構築する場合、最も適したAWSサービスの組み合わせはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "Amazon Lex + Amazon Comprehend"
+    },
+    {
+      "label": "B",
+      "text": "Amazon Rekognition + Amazon Textract"
+    },
+    {
+      "label": "C",
+      "text": "Amazon Forecast + Amazon Personalize"
+    },
+    {
+      "label": "D",
+      "text": "Amazon Polly + Amazon SageMaker"
+    }
+  ],
+  "correct": [
+    0
+  ],
+  "explanation": "カスタマーサービスのチャットボット構築には、会話インターフェースと自然言語理解の両方が必要です。正解はA「Amazon Lex + Amazon Comprehend」です。\n\nこの組み合わせの役割：\n\nAmazon Lex：\n- 会話フローの管理\n- インテント（意図）の認識\n- スロット（パラメータ）の抽出\n- チャットボットのロジック実装\n\nAmazon Comprehend：\n- ユーザーの感情分析\n- エンティティ抽出（製品名、問題の種類など）\n- キーフレーズ抽出\n- カスタム分類（FAQへの振り分けなど）\n\n実装例：\n1. Lexがユーザーの入力を受け取り、意図を理解\n2. Comprehendで感情分析を行い、対応の優先度を判断\n3. 必要に応じて人間のオペレーターにエスカレーション\n\n他の選択肢が不適切な理由：\n- B: RekognitionとTextractは画像/文書処理用\n- C: ForecastとPersonalizeは予測/推薦用\n- D: Pollyは音声合成、SageMakerは汎用MLプラットフォーム\n\nこの組み合わせにより、高度なカスタマーサービス体験を提供できます。",
+  "resources": []
+}

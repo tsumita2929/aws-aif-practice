@@ -1,0 +1,28 @@
+{
+  "id": "d1_q24",
+  "type": "single",
+  "text": "時系列データの予測において考慮すべき重要な特性として適切でないものはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "トレンド"
+    },
+    {
+      "label": "B",
+      "text": "季節性"
+    },
+    {
+      "label": "C",
+      "text": "自己相関"
+    },
+    {
+      "label": "D",
+      "text": "画像の解像度"
+    }
+  ],
+  "correct": [
+    3
+  ],
+  "explanation": "\n                <h5>詳細解説</h5>\n                <p>時系列データの予測では、時間的な特性を考慮する必要があり、画像の解像度は無関係です。</p>\n                \n                <h5>時系列データの重要な特性</h5>\n                <ul>\n                    <li><strong>トレンド:</strong>\n                        <ul>\n                            <li>長期的な増加・減少傾向</li>\n                            <li>例：売上の成長トレンド</li>\n                        </ul>\n                    </li>\n                    <li><strong>季節性:</strong>\n                        <ul>\n                            <li>定期的に繰り返すパターン</li>\n                            <li>例：アイスクリームの夏季売上増</li>\n                        </ul>\n                    </li>\n                    <li><strong>自己相関:</strong>\n                        <ul>\n                            <li>過去の値と現在の値の相関</li>\n                            <li>例：昨日の株価は今日の株価に影響</li>\n                        </ul>\n                    </li>\n                </ul>\n                \n                <h5>時系列分析の手法</h5>\n                <ul>\n                    <li><strong>統計的手法:</strong> ARIMA、指数平滑化</li>\n                    <li><strong>機械学習:</strong> LSTM、GRU、Transformer</li>\n                    <li><strong>Prophet:</strong> Facebookの時系列予測ライブラリ</li>\n                </ul>\n                \n                <h5>実装のポイント</h5>\n                <ul>\n                    <li>データの定常性チェック（ADF検定）</li>\n                    <li>季節性の分解（STL分解）</li>\n                    <li>適切な検証方法（時系列分割）</li>\n                </ul>\n            ",
+  "resources": []
+}

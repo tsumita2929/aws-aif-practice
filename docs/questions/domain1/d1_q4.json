@@ -1,0 +1,38 @@
+{
+  "id": "d1_q4",
+  "type": "multiple",
+  "text": "プロンプトエンジニアリングのベストプラクティスとして適切なものを2つ選択してください。",
+  "choices": [
+    {
+      "label": "A",
+      "text": "できるだけ曖昧な指示を与える"
+    },
+    {
+      "label": "B",
+      "text": "Few-shot学習のための具体例を含める"
+    },
+    {
+      "label": "C",
+      "text": "Chain-of-Thought（CoT）プロンプティングで推論過程を明示させる"
+    },
+    {
+      "label": "D",
+      "text": "プロンプトは常に1文以内に収める"
+    },
+    {
+      "label": "E",
+      "text": "タスクの制約条件や期待する出力形式を明確に指定する"
+    }
+  ],
+  "correct": [
+    1,
+    2
+  ],
+  "explanation": "\n                <h5>詳細解説</h5>\n                <p>効果的なプロンプトエンジニアリングは、LLMの性能を最大化する鍵です。</p>\n                <h5>正解の理由</h5>\n                <ul>\n                    <li><strong>B:</strong> Few-shot学習により、タスクの文脈を効果的に伝達できます</li>\n                    <li><strong>C:</strong> Chain-of-Thoughtで複雑な推論タスクの精度が向上します</li>\n                </ul>\n                <h5>プロンプト例</h5>\n                <pre><code># 良いプロンプト例（Few-shot + CoT）\nQ: 12 + 15 = ?\nA: 12 + 15 = 27\n\nQ: 23 + 19 = ?\nA: Let me solve step by step:\n23 + 19 = 23 + 20 - 1 = 43 - 1 = 42</code></pre>\n            ",
+  "resources": [
+    {
+      "title": "Prompt Engineering Guide",
+      "url": "https://www.promptingguide.ai/"
+    }
+  ]
+}

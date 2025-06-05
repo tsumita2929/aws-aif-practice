@@ -1,0 +1,28 @@
+{
+  "id": "d1_q3",
+  "type": "single",
+  "text": "ニューラルネットワークの「過学習（オーバーフィッティング）」を防ぐ手法として適切でないものはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "ドロップアウト"
+    },
+    {
+      "label": "B",
+      "text": "早期停止（Early Stopping）"
+    },
+    {
+      "label": "C",
+      "text": "学習率の増加"
+    },
+    {
+      "label": "D",
+      "text": "正則化（Regularization）"
+    }
+  ],
+  "correct": [
+    2
+  ],
+  "explanation": "\n                <h5>詳細解説</h5>\n                <p>学習率の増加は過学習を悪化させる可能性があります。大きな学習率は不安定な学習を引き起こします。</p>\n                <h5>過学習を防ぐ手法</h5>\n                <ul>\n                    <li><strong>ドロップアウト:</strong> ランダムにニューロンを無効化し、モデルの汎化性能を向上</li>\n                    <li><strong>早期停止:</strong> 検証損失が増加し始めたら学習を停止</li>\n                    <li><strong>正則化:</strong> L1/L2正則化により重みの大きさを制限</li>\n                </ul>\n            ",
+  "resources": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "d2_q36",
+  "type": "single",
+  "text": "Amazon Elastic Inferenceの用途として正しいものはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "モデルのトレーニングを高速化"
+    },
+    {
+      "label": "B",
+      "text": "推論コストを削減するためのGPUアクセラレーション"
+    },
+    {
+      "label": "C",
+      "text": "データの前処理"
+    },
+    {
+      "label": "D",
+      "text": "モデルの精度向上"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "Amazon Elastic Inference (EI) は、推論ワークロードのコストを削減するために設計されたサービスで、EC2インスタンスやSageMakerインスタンスにGPUアクセラレーションを付加します。\n\n**正解（B）の理由：**\n- Elastic Inferenceは推論専用のGPUアクセラレーションを提供\n- フルGPUインスタンスよりも最大75%のコスト削減が可能\n- 必要な推論性能に応じて適切なサイズのアクセラレーターを選択可能\n- EC2、SageMaker、ECSタスクにアタッチして使用\n\n**他の選択肢が不適切な理由：**\n- A: モデルのトレーニング高速化はGPUインスタンスやSageMakerトレーニングジョブの役割で、EIは推論専用です\n- C: データの前処理はSageMaker Processing JobsやGlueなどの役割です\n- D: モデルの精度向上は機械学習アルゴリズムやハイパーパラメータチューニングの領域で、EIの機能ではありません\n\nElastic Inferenceは、推論ワークロードに必要十分なGPUリソースを提供することで、過剰なコストを抑えながら高速な推論を実現する効率的なソリューションです。",
+  "resources": []
+}

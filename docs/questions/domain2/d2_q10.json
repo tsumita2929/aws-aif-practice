@@ -1,0 +1,28 @@
+{
+  "id": "d2_q10",
+  "type": "single",
+  "text": "Amazon Personalizeを使用する際の一般的なユースケースはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "時系列データの予測"
+    },
+    {
+      "label": "B",
+      "text": "パーソナライズされた商品推薦"
+    },
+    {
+      "label": "C",
+      "text": "画像内の物体検出"
+    },
+    {
+      "label": "D",
+      "text": "自然言語の翻訳"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "Amazon Personalizeは、リアルタイムのパーソナライゼーションとレコメンデーションを提供する機械学習サービスです。正解はB「パーソナライズされた商品推薦」です。\n\nAmazon Personalizeの主なユースケース：\n- ECサイトでの商品レコメンデーション\n- 動画ストリーミングサービスでのコンテンツ推薦\n- ニュース記事のパーソナライズ\n- マーケティングキャンペーンの最適化\n\nPersonalizeの特徴：\n- ユーザーの行動履歴に基づいた推薦\n- リアルタイムでのパーソナライゼーション\n- A/Bテストのサポート\n- コールドスタート問題への対応\n\n他の選択肢について：\n- A: 時系列データの予測はAmazon Forecastの機能\n- C: 画像内の物体検出はAmazon Rekognitionの機能\n- D: 自然言語の翻訳はAmazon Translateの機能\n\nPersonalizeはAmazon.comで使用されているレコメンデーション技術をベースにしています。",
+  "resources": []
+}

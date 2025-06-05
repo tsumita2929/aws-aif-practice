@@ -1,0 +1,28 @@
+{
+  "id": "d2_q39",
+  "type": "single",
+  "text": "Amazon DevOps Guruの機械学習機能として正しいものはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "コード生成"
+    },
+    {
+      "label": "B",
+      "text": "運用上の問題を予測的に検出"
+    },
+    {
+      "label": "C",
+      "text": "画像分析"
+    },
+    {
+      "label": "D",
+      "text": "音声認識"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "Amazon DevOps Guruは、機械学習を使用してアプリケーションの運用上の問題を自動的に検出し、解決策を提案するサービスです。\n\n選択肢Bが正解である理由：\n\nDevOps Guruの主な機能：\n- 異常なアプリケーション動作の予測的検出\n- パフォーマンス低下の早期警告\n- 運用上の問題の根本原因分析\n- 問題解決のための具体的な推奨事項の提供\n- CloudFormationスタックやAWSリソースの自動監視\n\n機械学習による検出内容：\n- レイテンシーの異常な増加\n- エラー率の急上昇\n- リソース使用率の異常パターン\n- 通常とは異なるトラフィックパターン\n- 関連するメトリクスの相関分析\n\n他の選択肢が不正解である理由：\n- A: コード生成はAmazon CodeWhispererやCodeCatalystの機能です\n- C: 画像分析はAmazon Rekognitionが提供します\n- D: 音声認識はAmazon Transcribeの機能です\n\nDevOps Guruの利点：\n- 運用チームの負担軽減\n- MTTR（平均復旧時間）の短縮\n- 予防的な問題対処が可能\n- AWSのベストプラクティスに基づいた推奨\n- CloudWatchやX-Rayとの統合",
+  "resources": []
+}

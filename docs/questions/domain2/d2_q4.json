@@ -1,0 +1,33 @@
+{
+  "id": "d2_q4",
+  "type": "single",
+  "text": "Amazon Bedrockを使用して企業向けチャットボットを構築する際、最も適切なアーキテクチャはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "Bedrock + Lambda + API Gateway + S3（知識ベース）"
+    },
+    {
+      "label": "B",
+      "text": "Bedrock単体で全ての処理を実行"
+    },
+    {
+      "label": "C",
+      "text": "EC2上でオープンソースLLMを実行"
+    },
+    {
+      "label": "D",
+      "text": "SageMakerで独自のLLMを訓練"
+    }
+  ],
+  "correct": [
+    0
+  ],
+  "explanation": "\n                <h5>詳細解説</h5>\n                <p>エンタープライズアーキテクチャには、複数のAWSサービスの統合が必要です。</p>\n                <h5>アーキテクチャの詳細</h5>\n                <ul>\n                    <li><strong>Bedrock:</strong> LLMの推論エンジン</li>\n                    <li><strong>Lambda:</strong> ビジネスロジックとオーケストレーション</li>\n                    <li><strong>API Gateway:</strong> RESTful API、認証、レート制限</li>\n                    <li><strong>S3:</strong> 知識ベースドキュメントの保存</li>\n                </ul>\n                <h5>実装時の考慮事項</h5>\n                <ul>\n                    <li>API Gatewayでのレート制限設定</li>\n                    <li>Lambdaのコールドスタート対策</li>\n                    <li>S3のライフサイクルポリシー</li>\n                </ul>\n            ",
+  "resources": [
+    {
+      "title": "Amazon Bedrock User Guide",
+      "url": "https://docs.aws.amazon.com/bedrock/"
+    }
+  ]
+}

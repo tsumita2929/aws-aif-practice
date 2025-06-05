@@ -1,0 +1,28 @@
+{
+  "id": "d1_q44",
+  "type": "single",
+  "text": "機械学習における「アテンション機構」の利点として正しいものはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "計算量を大幅に削減できる"
+    },
+    {
+      "label": "B",
+      "text": "入力の異なる部分に動的に注目し、関連性の高い情報を重視できる"
+    },
+    {
+      "label": "C",
+      "text": "データの前処理が不要になる"
+    },
+    {
+      "label": "D",
+      "text": "モデルのサイズを小さくできる"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "\n                <h5>詳細解説</h5>\n                <p>アテンション機構は、入力シーケンスの異なる部分に動的に「注意」を向けることで、関連性の高い情報を選択的に処理する技術です。Transformerの基盤となる重要な技術です。</p>\n                \n                <h5>アテンション機構の仕組み</h5>\n                <ul>\n                    <li><strong>Query、Key、Valueの概念：</strong>\n                        <ul>\n                            <li>Query（質問）：現在注目している要素</li>\n                            <li>Key（鍵）：各要素の識別情報</li>\n                            <li>Value（値）：実際の情報内容</li>\n                            <li>類似度計算でどこに注目すべきか決定</li>\n                        </ul>\n                    </li>\n                    <li><strong>動的な重み付け：</strong>\n                        <ul>\n                            <li>入力に応じて注目度が変化</li>\n                            <li>文脈に応じた柔軟な情報選択</li>\n                            <li>長距離依存関係の学習が可能</li>\n                        </ul>\n                    </li>\n                </ul>\n                \n                <h5>なぜ他の選択肢が誤りなのか</h5>\n                <ul>\n                    <li><strong>A（計算量削減）：</strong> 実際には計算量は増加する。Self-AttentionはO(n²)の計算複雑度</li>\n                    <li><strong>C（前処理不要）：</strong> アテンションも適切な前処理（トークン化、埋め込み等）が必要</li>\n                    <li><strong>D（モデルサイズ削減）：</strong> アテンション層の追加でパラメータ数は増加する</li>\n                </ul>\n                \n                <h5>アテンション機構の種類と応用</h5>\n                <table border=\"1\" style=\"width: 100%; margin: 10px 0;\">\n                    <tr>\n                        <th>種類</th>\n                        <th>特徴</th>\n                        <th>応用例</th>\n                    </tr>\n                    <tr>\n                        <td>Self-Attention</td>\n                        <td>同一シーケンス内での関係性</td>\n                        <td>BERT、GPT</td>\n                    </tr>\n                    <tr>\n                        <td>Cross-Attention</td>\n                        <td>異なるシーケンス間の関係性</td>\n                        <td>機械翻訳、画像キャプション</td>\n                    </tr>\n                    <tr>\n                        <td>Multi-Head Attention</td>\n                        <td>複数の観点から並列に注目</td>\n                        <td>Transformer全般</td>\n                    </tr>\n                </table>\n                \n                <h5>実装例（簡略版）</h5>\n                <pre><code>import torch\nimport torch.nn.functional as F\n\ndef scaled_dot_product_attention(Q, K, V, mask=None):\n    # アテンションスコアの計算\n    scores = torch.matmul(Q, K.transpose(-2, -1))\n    d_k = K.size(-1)\n    scores = scores / torch.sqrt(torch.tensor(d_k, dtype=torch.float32))\n    \n    # マスクの適用（オプション）\n    if mask is not None:\n        scores = scores.masked_fill(mask == 0, -1e9)\n    \n    # ソフトマックスで重みを正規化\n    attention_weights = F.softmax(scores, dim=-1)\n    \n    # 重み付き和の計算\n    output = torch.matmul(attention_weights, V)\n    \n    return output, attention_weights</code></pre>\n                \n                <h5>実務での利点</h5>\n                <ul>\n                    <li><strong>翻訳タスク：</strong> 原文の関連単語に適切に注目</li>\n                    <li><strong>文書要約：</strong> 重要な文に高い重みを割り当て</li>\n                    <li><strong>質問応答：</strong> 質問に関連する文脈部分を特定</li>\n                    <li><strong>画像認識：</strong> 画像の重要な領域に焦点を当てる（Vision Transformer）</li>\n                </ul>\n                \n                <h5>AWSでの活用例</h5>\n                <p>・Amazon Comprehend：文書理解でアテンション機構を活用<br>\n                ・Amazon Translate：高品質な翻訳にTransformerモデルを使用<br>\n                ・Amazon Lex：対話理解でコンテキストに注目</p>\n            ",
+  "resources": []
+}

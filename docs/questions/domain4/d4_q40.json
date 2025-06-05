@@ -1,0 +1,28 @@
+{
+  "id": "d4_q40",
+  "type": "single",
+  "text": "MLプロジェクトの「ROI測定」において重要な指標はどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "コードの行数"
+    },
+    {
+      "label": "B",
+      "text": "ビジネスKPIへの影響、コスト削減額、効率改善率"
+    },
+    {
+      "label": "C",
+      "text": "使用したGPUの数"
+    },
+    {
+      "label": "D",
+      "text": "開発期間のみ"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "詳細な解説は後日追加されます。",
+  "resources": []
+}

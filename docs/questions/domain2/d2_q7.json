@@ -1,0 +1,28 @@
+{
+  "id": "d2_q7",
+  "type": "single",
+  "text": "画像から顔を検出し、感情分析を行いたい場合、最も適したAWSサービスはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "Amazon Comprehend"
+    },
+    {
+      "label": "B",
+      "text": "Amazon Textract"
+    },
+    {
+      "label": "C",
+      "text": "Amazon Rekognition"
+    },
+    {
+      "label": "D",
+      "text": "Amazon Polly"
+    }
+  ],
+  "correct": [
+    2
+  ],
+  "explanation": "Amazon Rekognitionは、AWSの画像および動画分析サービスで、顔検出と感情分析の両方の機能を提供します。正解はC「Amazon Rekognition」です。\n\nRekognitionの主な機能：\n- 顔の検出と分析\n- 感情分析（喜び、悲しみ、怒り、驚きなど）\n- 年齢や性別の推定\n- 顔の比較と検索\n- 有名人の認識\n\n他の選択肢について：\n- A: Amazon Comprehendはテキスト分析サービスで、画像分析はできません\n- B: Amazon Textractは文書からテキストを抽出するサービスで、顔検出はできません\n- D: Amazon Pollyはテキストを音声に変換するサービスで、画像分析はできません\n\nRekognitionはコンピュータビジョン技術を活用し、画像や動画から様々な情報を抽出できるサービスです。",
+  "resources": []
+}

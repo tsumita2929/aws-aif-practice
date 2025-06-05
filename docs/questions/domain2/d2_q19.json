@@ -1,0 +1,28 @@
+{
+  "id": "d2_q19",
+  "type": "single",
+  "text": "次のシナリオを考えてください： 「ニュースメディアが多言語の記事を自動翻訳したい」 最も適したAWSサービスはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "Amazon Transcribe"
+    },
+    {
+      "label": "B",
+      "text": "Amazon Translate"
+    },
+    {
+      "label": "C",
+      "text": "Amazon Comprehend"
+    },
+    {
+      "label": "D",
+      "text": "Amazon Lex"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "Amazon Translateは、ニューラル機械翻訳サービスで、多言語間のテキスト翻訳を提供します。正解はB「Amazon Translate」です。\n\nAmazon Translateの特徴：\n- 75以上の言語をサポート\n- リアルタイム翻訳とバッチ翻訳\n- カスタム用語集のサポート\n- ドメイン固有の翻訳品質\n- 自動言語検出\n\nニュースメディアでの活用シナリオ：\n1. 記事の自動翻訳パイプライン構築\n2. リアルタイムでの多言語配信\n3. カスタム用語集でメディア固有の表現を正確に翻訳\n4. API統合による自動化\n\n他の選択肢が不適切な理由：\n- A: Amazon Transcribeは音声からテキストへの変換\n- C: Amazon Comprehendはテキスト分析（翻訳機能なし）\n- D: Amazon Lexはチャットボット構築用\n\nTranslateの利点：\n- 高精度なニューラル翻訳\n- コスト効率的（従量課金）\n- スケーラブルなアーキテクチャ\n- セキュリティとコンプライアンス\n\nニュースメディアのグローバル展開に最適なソリューションです。",
+  "resources": []
+}

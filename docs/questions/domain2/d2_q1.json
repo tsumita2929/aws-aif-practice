@@ -1,0 +1,33 @@
+{
+  "id": "d2_q1",
+  "type": "single",
+  "text": "Amazon SageMakerの主な用途として最も適切なものはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "データベース管理"
+    },
+    {
+      "label": "B",
+      "text": "機械学習モデルの構築、トレーニング、デプロイ"
+    },
+    {
+      "label": "C",
+      "text": "ウェブサイトのホスティング"
+    },
+    {
+      "label": "D",
+      "text": "ファイルストレージ"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "\n                <h5>詳細解説</h5>\n                <p>Amazon SageMakerは、機械学習の全ライフサイクルをカバーする統合プラットフォームです。</p>\n                <h5>主要機能</h5>\n                <ul>\n                    <li>SageMaker Studio: 統合開発環境</li>\n                    <li>SageMaker Training: 分散学習</li>\n                    <li>SageMaker Endpoints: モデルのホスティング</li>\n                    <li>SageMaker Pipelines: MLOps</li>\n                </ul>\n            ",
+  "resources": [
+    {
+      "title": "Amazon SageMaker Developer Guide",
+      "url": "https://docs.aws.amazon.com/sagemaker/"
+    }
+  ]
+}

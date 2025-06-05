@@ -1,0 +1,28 @@
+{
+  "id": "d2_q31",
+  "type": "single",
+  "text": "次のシナリオを考えてください： 「音楽ストリーミングサービスが、ユーザーの好みに基づいてプレイリストを自動生成したい」 最も適したAWSサービスはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "Amazon Forecast"
+    },
+    {
+      "label": "B",
+      "text": "Amazon Personalize"
+    },
+    {
+      "label": "C",
+      "text": "Amazon Comprehend"
+    },
+    {
+      "label": "D",
+      "text": "Amazon Rekognition"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "音楽ストリーミングサービスでユーザーの好みに基づいたプレイリスト生成には、パーソナライゼーションサービスが最適です。正解はB「Amazon Personalize」です。\n\nPersonalizeの音楽サービスでの活用：\n- ユーザーの聴取履歴を分析\n- 好みのジャンルやアーティストを学習\n- パーソナライズされたプレイリストを生成\n- リアルタイムでの推薦更新\n- 類似ユーザーの傾向を参考\n\n推薦アルゴリズムの種類：\n- ユーザーパーソナライゼーション\n- 関連アイテム推薦\n- 人気ランキング\n- 新着アイテムの推薦\n\n実装メリット：\n- ユーザーエンゲージメントの向上\n- 再生時間の増加\n- 新しい音楽の発見促進\n- サブスクリプション継続率の向上\n\n他の選択肢が不適切な理由：\n- A: Amazon Forecastは時系列予測用\n- C: Amazon Comprehendはテキスト分析用\n- D: Amazon Rekognitionは画像/動画分析用\n\nPersonalizeはSpotifyやNetflixのようなパーソナライゼーション体験を実現します。",
+  "resources": []
+}

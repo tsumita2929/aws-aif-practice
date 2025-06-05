@@ -1,0 +1,28 @@
+{
+  "id": "d2_q14",
+  "type": "single",
+  "text": "次のシナリオを考えてください： 「コールセンターが録音された通話内容を自動的にテキスト化し、その後感情分析を行いたい」 必要なAWSサービスの組み合わせはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "Amazon Transcribe → Amazon Comprehend"
+    },
+    {
+      "label": "B",
+      "text": "Amazon Polly → Amazon Lex"
+    },
+    {
+      "label": "C",
+      "text": "Amazon Textract → Amazon Rekognition"
+    },
+    {
+      "label": "D",
+      "text": "Amazon Forecast → Amazon Personalize"
+    }
+  ],
+  "correct": [
+    0
+  ],
+  "explanation": "コールセンターのシナリオでは、音声データをテキスト化し、その後感情分析を行うパイプラインが必要です。正解はA「Amazon Transcribe → Amazon Comprehend」です。\n\n処理の流れ：\n\n1. Amazon Transcribe：\n   - 録音された通話音声をテキストに変換\n   - 話者分離機能でオペレーターと顧客を区別\n   - タイムスタンプ付きの文字起こし\n\n2. Amazon Comprehend：\n   - 文字起こしされたテキストの感情分析\n   - ポジティブ/ネガティブ/ニュートラルの判定\n   - キーフレーズやエンティティの抽出\n\n活用例：\n- 顧客満足度のモニタリング\n- 問題のある通話の自動検出\n- オペレーターのパフォーマンス評価\n- コンプライアンス監視\n\n他の選択肢が不適切な理由：\n- B: Pollyはテキスト→音声、Lexはチャットボット構築用\n- C: Textractは文書からのテキスト抽出、Rekognitionは画像分析\n- D: Forecastは時系列予測、Personalizeはレコメンデーション\n\nこのソリューションにより、コールセンターの品質管理と顧客体験の向上が実現できます。",
+  "resources": []
+}

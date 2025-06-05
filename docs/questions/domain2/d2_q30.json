@@ -1,0 +1,28 @@
+{
+  "id": "d2_q30",
+  "type": "single",
+  "text": "Amazon CodeGuruの機械学習機能として正しいものはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "画像認識"
+    },
+    {
+      "label": "B",
+      "text": "コードレビューとパフォーマンス最適化の推奨"
+    },
+    {
+      "label": "C",
+      "text": "音声合成"
+    },
+    {
+      "label": "D",
+      "text": "自然言語翻訳"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "Amazon CodeGuruは、機械学習を使用してコードレビューとアプリケーションパフォーマンスの最適化を提供するサービスです。正解はB「コードレビューとパフォーマンス最適化の推奨」です。\n\nCodeGuruの2つの主要コンポーネント：\n\n1. CodeGuru Reviewer：\n   - コード品質の問題検出\n   - セキュリティ脆弱性の特定\n   - ベストプラクティスの提案\n   - リソースリークの検出\n   - 並行性の問題検出\n\n2. CodeGuru Profiler：\n   - ランタイムパフォーマンス分析\n   - CPU使用率の最適化\n   - メモリ使用量の削減\n   - コスト削減の提案\n   - ボトルネックの特定\n\n機械学習の活用：\n- Amazonのコードベースで学習\n- オープンソースプロジェクトからの学習\n- 継続的な改善と学習\n\n対応言語：\n- Java\n- Python\n\n他の選択肢が誤りの理由：\n- A: 画像認識はRekognitionの機能\n- C: 音声合成はPollyの機能\n- D: 自然言語翻訳はTranslateの機能\n\nCodeGuruは開発者の生産性を向上させ、コード品質を改善する強力なツールです。",
+  "resources": []
+}

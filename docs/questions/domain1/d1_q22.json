@@ -1,0 +1,28 @@
+{
+  "id": "d1_q22",
+  "type": "single",
+  "text": "次のシナリオを考えてください： 「医療画像から腫瘍を検出するAIシステムを開発している。偽陰性（腫瘍があるのに見逃す）のコストが非常に高い」 この場合、どの評価指標を重視すべきですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "精度（Accuracy）"
+    },
+    {
+      "label": "B",
+      "text": "再現率（Recall）"
+    },
+    {
+      "label": "C",
+      "text": "適合率（Precision）"
+    },
+    {
+      "label": "D",
+      "text": "F1スコアのみ"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "\n                <h5>詳細解説</h5>\n                <p>医療診断システムでは、偽陰性（False Negative）のコストが患者の生命に関わるため、再現率（Recall）を最重視すべきです。</p>\n                \n                <h5>評価指標の意味</h5>\n                <ul>\n                    <li><strong>再現率（Recall）= TP / (TP + FN)</strong>\n                        <ul>\n                            <li>実際に陽性のものを、どれだけ正しく陽性と判定できたか</li>\n                            <li>偽陰性を最小化したい場合に重視</li>\n                        </ul>\n                    </li>\n                    <li><strong>適合率（Precision）= TP / (TP + FP)</strong>\n                        <ul>\n                            <li>陽性と判定したもののうち、実際に陽性だった割合</li>\n                            <li>偽陽性を最小化したい場合に重視</li>\n                        </ul>\n                    </li>\n                </ul>\n                \n                <h5>医療診断での実例</h5>\n                <ul>\n                    <li><strong>偽陰性のリスク:</strong> 腫瘍を見逃す → 治療の遅れ → 生命の危険</li>\n                    <li><strong>偽陽性のリスク:</strong> 健康な人を病気と診断 → 追加検査で解決可能</li>\n                </ul>\n                \n                <h5>実装時の対策</h5>\n                <ul>\n                    <li>決定閾値を低く設定（例：0.3）して感度を上げる</li>\n                    <li>クラス重み付けで陽性クラスを重視</li>\n                    <li>コスト考慮型学習の適用</li>\n                </ul>\n            ",
+  "resources": []
+}

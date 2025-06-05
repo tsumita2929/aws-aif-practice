@@ -1,0 +1,28 @@
+{
+  "id": "d2_q16",
+  "type": "single",
+  "text": "次のシナリオを考えてください： 「ECサイトで商品画像から自動的にタグを生成し、検索精度を向上させたい」 このタスクに最も適したAWSサービスはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "Amazon Comprehend"
+    },
+    {
+      "label": "B",
+      "text": "Amazon Rekognition"
+    },
+    {
+      "label": "C",
+      "text": "Amazon Textract"
+    },
+    {
+      "label": "D",
+      "text": "Amazon Translate"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "ECサイトで商品画像から自動的にタグを生成するためには、画像分析サービスが必要です。正解はB「Amazon Rekognition」です。\n\nRekognitionの画像タグ付け機能：\n- 物体やシーンの検出（例：「シャツ」「赤色」「コットン」）\n- 複数のラベルを信頼度スコア付きで返す\n- カスタムラベル検出のトレーニングも可能\n- ブランドロゴの検出\n\nECサイトでの活用例：\n1. 商品画像をRekognitionで分析\n2. 自動的にタグを生成（色、素材、スタイルなど）\n3. 検索インデックスにタグを追加\n4. ユーザーの検索精度が向上\n\n他の選択肢が不適切な理由：\n- A: Amazon Comprehendはテキスト分析用\n- C: Amazon Textractは文書からのテキスト抽出用\n- D: Amazon Translateは言語翻訳用\n\nRekognitionはコンピュータビジョン技術を使用して、画像内容を理解し、自動タグ付けを実現します。",
+  "resources": []
+}

@@ -1,0 +1,33 @@
+{
+  "id": "d2_q5",
+  "type": "multiple",
+  "text": "Amazon Bedrockでコスト最適化を実現する方法として適切なものを2つ選択してください。",
+  "choices": [
+    {
+      "label": "A",
+      "text": "プロビジョンドスループットを使用して予測可能なワークロードのコストを削減"
+    },
+    {
+      "label": "B",
+      "text": "常に最大のモデルサイズを使用する"
+    },
+    {
+      "label": "C",
+      "text": "プロンプトのキャッシングとバッチ処理を活用"
+    },
+    {
+      "label": "D",
+      "text": "全てのリクエストをリアルタイムで処理"
+    },
+    {
+      "label": "E",
+      "text": "モデルの選択を用途に応じて最適化（簡単なタスクには小さいモデル）"
+    }
+  ],
+  "correct": [
+    0,
+    4
+  ],
+  "explanation": "\n                <h5>詳細解説</h5>\n                <p>Bedrockのコスト最適化には、適切なプロビジョニングとモデル選択が重要です。</p>\n                <h5>コスト最適化の詳細</h5>\n                <ul>\n                    <li><strong>A: プロビジョンドスループット</strong>\n                        <ul>\n                            <li>予測可能なワークロードで最大50%のコスト削減</li>\n                            <li>コミットメント期間：1ヶ月または6ヶ月</li>\n                        </ul>\n                    </li>\n                    <li><strong>E: モデルの使い分け</strong>\n                        <ul>\n                            <li>簡単なタスク：Claude Instant、Titan Express</li>\n                            <li>複雑なタスク：Claude 2、Titan Premier</li>\n                        </ul>\n                    </li>\n                </ul>\n                <h5>コスト計算例</h5>\n                <pre><code>オンデマンド: $0.01/1Kトークン × 100M トークン/月 = $1,000\nプロビジョンド: $600/月（40%削減）</code></pre>\n            ",
+  "resources": []
+}

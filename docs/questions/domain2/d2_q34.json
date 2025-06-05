@@ -1,0 +1,28 @@
+{
+  "id": "d2_q34",
+  "type": "single",
+  "text": "次のシナリオを考えてください： 「病院が患者の診療記録から重要な医療情報を抽出したい」 最も適したAWSサービスはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "Amazon Comprehend Medical"
+    },
+    {
+      "label": "B",
+      "text": "Amazon Rekognition"
+    },
+    {
+      "label": "C",
+      "text": "Amazon Forecast"
+    },
+    {
+      "label": "D",
+      "text": "Amazon Personalize"
+    }
+  ],
+  "correct": [
+    0
+  ],
+  "explanation": "病院が患者の診療記録から重要な医療情報を抽出する場合、Amazon Comprehend Medicalが最も適したサービスです。\n\n**正解（A）の理由：**\n- Comprehend Medicalは医療テキストの自然言語処理に特化したサービス\n- 診療記録、医師のメモ、検査結果から医療情報を自動抽出\n- 症状、診断、投薬、治療、検査結果などの医療エンティティを識別\n- PHI（Protected Health Information）の検出と匿名化をサポート\n- ICD-10-CMやRxNormなどの医療標準コードへのマッピング機能\n\n**他の選択肢が不適切な理由：**\n- B: Amazon Rekognitionは画像・動画の分析サービスで、テキスト処理には適していません\n- C: Amazon Forecastは時系列予測サービスで、情報抽出機能はありません\n- D: Amazon Personalizeは推薦システム構築用で、医療情報の抽出には対応していません\n\nComprehend Medicalは、医療機関のデジタルトランスフォーメーションを支援し、非構造化医療データから価値ある洞察を得るための重要なツールです。",
+  "resources": []
+}

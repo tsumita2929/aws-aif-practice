@@ -1,0 +1,28 @@
+{
+  "id": "d1_q20",
+  "type": "single",
+  "text": "次のうち、教師なし学習のタスクとして適切でないものはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "顧客セグメンテーション"
+    },
+    {
+      "label": "B",
+      "text": "異常検知"
+    },
+    {
+      "label": "C",
+      "text": "画像のラベル付け予測"
+    },
+    {
+      "label": "D",
+      "text": "次元削減"
+    }
+  ],
+  "correct": [
+    2
+  ],
+  "explanation": "\n                <h5>詳細解説</h5>\n                <p>教師なし学習は、ラベルのないデータからパターンや構造を発見する学習方法です。画像分類はラベル付きデータを必要とする教師あり学習のタスクです。</p>\n                \n                <h5>教師なし学習の主なタスク</h5>\n                <ul>\n                    <li><strong>クラスタリング</strong>: 似たデータをグループ化（K-means、DBSCANなど）</li>\n                    <li><strong>次元削減</strong>: 高次元データを低次元に圧縮（PCA、t-SNEなど）</li>\n                    <li><strong>異常検知</strong>: 通常と異なるパターンを検出（Isolation Forestなど）</li>\n                    <li><strong>密度推定</strong>: データの分布を推定（GMM、KDEなど）</li>\n                </ul>\n                \n                <h5>なぜ画像分類が教師なし学習ではないのか</h5>\n                <ul>\n                    <li>画像分類は事前に定義されたカテゴリに分けるタスク</li>\n                    <li>モデルの訓練にはラベル付き画像が必要</li>\n                    <li>教師あり学習の典型的な例</li>\n                </ul>\n                \n                <h5>教師なし学習の応用例</h5>\n                <ul>\n                    <li><strong>顧客セグメンテーション</strong>: 購買行動に基づく顧客分類</li>\n                    <li><strong>異常検知</strong>: クレジットカード不正検出、製造不良検出</li>\n                    <li><strong>データ可視化</strong>: 高次元データを2D/3Dで表示</li>\n                    <li><strong>推薦システム</strong>: ユーザーの好みをクラスタリング</li>\n                </ul>\n                \n                <h5>AWSでの実装</h5>\n                <p>Amazon SageMakerには、K-means、PCA、IP Insightsなどの教師なし学習アルゴリズムが組み込まれています。</p>\n            ",
+  "resources": []
+}

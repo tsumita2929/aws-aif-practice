@@ -1,0 +1,28 @@
+{
+  "id": "d2_q38",
+  "type": "single",
+  "text": "Amazon SageMaker Feature Storeの役割は何ですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "モデルの保存"
+    },
+    {
+      "label": "B",
+      "text": "機械学習の特徴量の一元管理とリアルタイム/バッチ提供"
+    },
+    {
+      "label": "C",
+      "text": "推論の実行"
+    },
+    {
+      "label": "D",
+      "text": "データのラベリング"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "Amazon SageMaker Feature Storeは、機械学習の特徴量（features）を一元的に管理し、リアルタイムおよびバッチでの特徴量提供を行うフルマネージドサービスです。\n\n**正解（B）の理由：**\n- Feature Storeは機械学習パイプラインにおける特徴量の保存、検索、共有を可能にします\n- オンラインストア（低レイテンシのリアルタイム推論用）とオフラインストア（トレーニング用のバッチアクセス）の両方を提供\n- 特徴量の再利用性を高め、チーム間での一貫性を保証します\n- 特徴量のバージョン管理と履歴追跡が可能\n\n**他の選択肢が不適切な理由：**\n- A: モデルの保存はSageMaker Model Registryの役割です\n- C: 推論の実行はSageMaker Endpointやバッチ変換の機能です\n- D: データのラベリングはSageMaker Ground Truthの機能です\n\nFeature Storeは、特徴量エンジニアリングの成果を組織全体で共有し、MLワークフローの効率性と一貫性を向上させる重要なコンポーネントです。",
+  "resources": []
+}

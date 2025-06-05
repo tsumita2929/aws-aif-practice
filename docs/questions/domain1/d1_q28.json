@@ -1,0 +1,28 @@
+{
+  "id": "d1_q28",
+  "type": "single",
+  "text": "生成AIモデル（Generative AI）と判別モデル（Discriminative Model）の違いとして正しいものはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "生成AIはデータの分布を学習し新しいデータを生成できる"
+    },
+    {
+      "label": "B",
+      "text": "判別モデルは新しいデータを生成できる"
+    },
+    {
+      "label": "C",
+      "text": "両者に違いはない"
+    },
+    {
+      "label": "D",
+      "text": "生成AIは分類タスクのみに使用される"
+    }
+  ],
+  "correct": [
+    0
+  ],
+  "explanation": "\n                <h5>詳細解説</h5>\n                <p>生成AIはデータの分布を学習し、その分布から新しいデータを生成できる点が特徴です。</p>\n                \n                <h5>生成モデルと判別モデルの違い</h5>\n                <table border=\"1\">\n                    <tr>\n                        <th>特性</th>\n                        <th>生成モデル</th>\n                        <th>判別モデル</th>\n                    </tr>\n                    <tr>\n                        <td>学習内容</td>\n                        <td>P(X,Y) または P(X|Y)</td>\n                        <td>P(Y|X)</td>\n                    </tr>\n                    <tr>\n                        <td>主な用途</td>\n                        <td>新規データ生成</td>\n                        <td>分類・回帰</td>\n                    </tr>\n                    <tr>\n                        <td>例</td>\n                        <td>GAN、VAE、拡散モデル</td>\n                        <td>SVM、ロジスティック回帰</td>\n                    </tr>\n                </table>\n                \n                <h5>生成AIの応用例</h5>\n                <ul>\n                    <li><strong>画像生成:</strong> DALL-E、Stable Diffusion</li>\n                    <li><strong>テキスト生成:</strong> GPT、Claude</li>\n                    <li><strong>音声生成:</strong> WaveNet</li>\n                    <li><strong>データ拡張:</strong> 少数データの補強</li>\n                </ul>\n                \n                <h5>なぜ他の選択肢が誤りか</h5>\n                <ul>\n                    <li><strong>B:</strong> 判別モデルは新規データ生成不可</li>\n                    <li><strong>C:</strong> 根本的に異なるアプローチ</li>\n                    <li><strong>D:</strong> 生成AIも分類に使用可能（例：CLIP）</li>\n                </ul>\n            ",
+  "resources": []
+}

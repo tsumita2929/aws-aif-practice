@@ -1,0 +1,28 @@
+{
+  "id": "d4_q34",
+  "type": "single",
+  "text": "MLパイプラインにおける「データ品質チェック」の実装として重要なものはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "チェックを省略して高速化"
+    },
+    {
+      "label": "B",
+      "text": "スキーマ検証、統計的検証、異常値検出の自動化"
+    },
+    {
+      "label": "C",
+      "text": "手動でのみチェック"
+    },
+    {
+      "label": "D",
+      "text": "エラーが出てから対処"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "正解はB: スキーマ検証、統計的検証、異常値検出の自動化です。\n\nデータ品質はMLモデルの性能を左右する最も重要な要素の一つです。自動化されたデータ品質チェックにより、問題を早期に発見し、モデルの信頼性を確保できます。\n\n各選択肢の解説：\nA) チェックを省略して高速化 - これは短期的な時間節約に見えますが、不良データによるモデルの失敗は、はるかに大きなコストをもたらします。\n\nB) スキーマ検証、統計的検証、異常値検出の自動化（正解）- 包括的なデータ品質管理：\n  ・スキーマ検証：\n    - データ型の一致（数値、文字列、日付）\n    - 必須フィールドの存在確認\n    - 値の範囲チェック\n    - 参照整合性の確認\n  ・統計的検証：\n    - 分布の変化検出（KSテスト、χ²テスト）\n    - 平均・分散のモニタリング\n    - 相関関係の安定性\n    - クラス不均衡の検出\n  ・異常値検出：\n    - 統計的手法（IQR、Zスコア）\n    - 機械学習ベース（Isolation Forest）\n    - ドメイン知識に基づくルール\n    - 時系列異常検出\n  ・自動化の利点：\n    - 一貫性のある品質保証\n    - 早期問題発見\n    - スケーラビリティ\n    - 監査証跡の自動生成\n\nC) 手動でのみチェック - 人的エラー、スケーラビリティの欠如、一貫性の欠如につながります。\n\nD) エラーが出てから対処 - リアクティブなアプローチは、本番環境での障害につながり、ビジネスに損害を与えます。\n\n実践例：金融取引データのMLパイプライン：\n1. データ品質フレームワークの実装：\n   ```python\n   class DataQualityChecker:\n       def __init__(self):\n           self.schema_validator = SchemaValidator()\n           self.statistical_validator = StatisticalValidator()\n           self.anomaly_detector = AnomalyDetector()\n       \n       def validate(self, df):\n           # スキーマ検証\n           schema_results = self.schema_validator.check(df)\n           \n           # 統計的検証\n           stats_results = self.statistical_validator.check(df)\n           \n           # 異常値検出\n           anomaly_results = self.anomaly_detector.check(df)\n           \n           return ValidationReport(schema_results, \n                                 stats_results, \n                                 anomaly_results)\n   ```\n\n2. 自動化されたチェック項目：\n   - 完全性チェック：\n     - NULL値の割合\n     - 重複レコード\n     - 参照整合性\n   \n   - 一貫性チェック：\n     - 日付の論理性（未来日付など）\n     - 金額の妥当性\n     - カテゴリ値の妥当性\n   \n   - 正確性チェック：\n     - 外部ソースとの照合\n     - ビジネスルールの適用\n     - 計算フィールドの検証\n\n3. Great Expectationsの活用：\n   ```python\n   # 期待値の定義\n   batch.expect_column_values_to_not_be_null('customer_id')\n   batch.expect_column_values_to_be_between('age', 18, 120)\n   batch.expect_column_mean_to_be_between('transaction_amount', \n                                         100, 10000)\n   ```\n\n4. パイプライン統合：\n   - Apache Airflowでのオーケストレーション\n   - 品質チェックのDAGノード化\n   - 失敗時の自動リトライとアラート\n\n5. モニタリングダッシュボード：\n   - データ品質スコアの可視化\n   - トレンド分析\n   - アラートとインシデント管理\n\n成果：\n・データ品質起因の本番障害：95%削減\n・モデル再訓練の必要性：60%削減\n・データ準備時間：70%短縮\n・規制監査合格率：100%\n\nベストプラクティス：\n・データ品質SLAの設定\n・段階的な検証（軽量→詳細）\n・品質メトリクスの継続的改善\n・ステークホルダーへの定期報告",
+  "resources": []
+}

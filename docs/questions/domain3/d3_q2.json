@@ -1,0 +1,28 @@
+{
+  "id": "d3_q2",
+  "type": "single",
+  "text": "「説明可能なAI（Explainable AI）」が重要な理由として最も適切なものはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "モデルの学習速度を向上させるため"
+    },
+    {
+      "label": "B",
+      "text": "AIの意思決定プロセスを人間が理解し、信頼性を確保するため"
+    },
+    {
+      "label": "C",
+      "text": "データストレージを削減するため"
+    },
+    {
+      "label": "D",
+      "text": "計算コストを削減するため"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "\n                <h5>詳細解説</h5>\n                <p>説明可能なAIは、AIの意思決定を人間が理解できるようにし、信頼性と透明性を確保します。</p>\n                <h5>説明可能性が重要な分野</h5>\n                <ul>\n                    <li><strong>医療:</strong> 診断の根拠を医師が理解する必要</li>\n                    <li><strong>金融:</strong> 融資判断の理由を顧客に説明する義務</li>\n                    <li><strong>司法:</strong> 判決支援システムの透明性</li>\n                </ul>\n                <h5>実装手法</h5>\n                <ul>\n                    <li>LIME（Local Interpretable Model-agnostic Explanations）</li>\n                    <li>SHAP（SHapley Additive exPlanations）</li>\n                    <li>特徴重要度の可視化</li>\n                </ul>\n            ",
+  "resources": []
+}

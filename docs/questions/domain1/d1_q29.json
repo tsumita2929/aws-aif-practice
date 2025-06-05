@@ -1,0 +1,28 @@
+{
+  "id": "d1_q29",
+  "type": "single",
+  "text": "強化学習における「探索と活用のジレンマ」とは何を指しますか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "データの収集方法の選択"
+    },
+    {
+      "label": "B",
+      "text": "既知の良い行動を取るか、新しい行動を試すかのバランス"
+    },
+    {
+      "label": "C",
+      "text": "モデルの学習速度の調整"
+    },
+    {
+      "label": "D",
+      "text": "特徴量の選択方法"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "\n                <h5>詳細解説</h5>\n                <p>探索と活用のジレンマは、新しい行動を試すか、既知の良い行動を選ぶかのバランスを指します。</p>\n                \n                <h5>強化学習の基本概念</h5>\n                <ul>\n                    <li><strong>探索（Exploration）:</strong>\n                        <ul>\n                            <li>未知の行動を試す</li>\n                            <li>より良い戦略の発見可能性</li>\n                            <li>短期的な報酬を犠牲にする可能性</li>\n                        </ul>\n                    </li>\n                    <li><strong>活用（Exploitation）:</strong>\n                        <ul>\n                            <li>既知の最良行動を選択</li>\n                            <li>安定した報酬を獲得</li>\n                            <li>局所最適に陥る可能性</li>\n                        </ul>\n                    </li>\n                </ul>\n                \n                <h5>バランス戦略</h5>\n                <ul>\n                    <li><strong>ε-greedy:</strong> 確率εで探索、1-εで活用</li>\n                    <li><strong>UCB（Upper Confidence Bound）:</strong> 不確実性を考慮</li>\n                    <li><strong>Thompson Sampling:</strong> ベイズ的アプローチ</li>\n                </ul>\n                \n                <h5>実世界の例</h5>\n                <ul>\n                    <li><strong>レコメンドシステム:</strong> 新商品の推薦 vs 人気商品</li>\n                    <li><strong>広告配信:</strong> 新広告のテスト vs 実績のある広告</li>\n                    <li><strong>投資戦略:</strong> 新規投資先 vs 実績のある投資</li>\n                </ul>\n            ",
+  "resources": []
+}

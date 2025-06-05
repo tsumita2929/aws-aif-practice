@@ -1,0 +1,28 @@
+{
+  "id": "d2_q17",
+  "type": "single",
+  "text": "Amazon SageMaker Groundbreaking Truthの主な用途は何ですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "モデルの自動デプロイ"
+    },
+    {
+      "label": "B",
+      "text": "データのラベリングと人間によるレビュー"
+    },
+    {
+      "label": "C",
+      "text": "リアルタイム推論の実行"
+    },
+    {
+      "label": "D",
+      "text": "コスト最適化"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "Amazon SageMaker Ground Truthは、機械学習モデルのトレーニングデータを作成するためのデータラベリングサービスです。正解はB「データのラベリングと人間によるレビュー」です。\n\nGround Truthの主な機能：\n- 画像、テキスト、動画のラベリング\n- 組み込みワークフローとテンプレート\n- 人間のレビューワーの管理\n- 自動ラベリング機能（機械学習を使用）\n- 品質管理と進捗追跡\n\nラベリングタスクの種類：\n- 画像分類\n- 物体検出（バウンディングボックス）\n- セマンティックセグメンテーション\n- テキスト分類\n- 固有表現認識\n\nワークフォースの選択肢：\n- Amazon Mechanical Turk\n- プライベートワークフォース\n- AWS Marketplaceのベンダー\n\n他の選択肢が誤りの理由：\n- A: モデルの自動デプロイはSageMakerエンドポイントの機能\n- C: リアルタイム推論はエンドポイントで実行\n- D: コスト最適化はSageMakerの別の機能\n\nGround Truthは高品質なトレーニングデータを効率的に作成するための重要なツールです。",
+  "resources": []
+}

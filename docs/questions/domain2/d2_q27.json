@@ -1,0 +1,28 @@
+{
+  "id": "d2_q27",
+  "type": "single",
+  "text": "Amazon SageMaker Neoの主な利点は何ですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "データの自動収集"
+    },
+    {
+      "label": "B",
+      "text": "モデルを最適化してエッジデバイスでの推論を高速化"
+    },
+    {
+      "label": "C",
+      "text": "データのラベリング"
+    },
+    {
+      "label": "D",
+      "text": "モデルの自動学習"
+    }
+  ],
+  "correct": [
+    1
+  ],
+  "explanation": "Amazon SageMaker Neoは、機械学習モデルを最適化してエッジデバイスでの推論を高速化するサービスです。正解はB「モデルを最適化してエッジデバイスでの推論を高速化」です。\n\nSageMaker Neoの主な機能：\n- モデルのコンパイル最適化\n- 推論速度の向上（最大10倍）\n- メモリ使用量の削減\n- 複数のフレームワークに対応\n- 多様なハードウェアプラットフォームのサポート\n\n対応フレームワーク：\n- TensorFlow\n- PyTorch\n- MXNet\n- ONNX\n- XGBoost\n\n対応ハードウェア：\n- NVIDIA GPU\n- Intelプロセッサ\n- ARMプロセッサ\n- Qualcomm\n- エッジデバイス（Raspberry Piなど）\n\nエッジコンピューティングの利点：\n- 低レイテンシ\n- ネットワーク帯域幅の節約\n- プライバシー保護\n- オフライン動作\n\n他の選択肢が誤りの理由：\n- A: データ収集は別のサービスの機能\n- C: データラベリングはGround Truthの機能\n- D: モデルの自動学習はAutopilotの機能\n\nNeoはIoTデバイスやエッジコンピューティングにおいて重要な役割を果たします。",
+  "resources": []
+}

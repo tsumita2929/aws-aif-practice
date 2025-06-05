@@ -1,0 +1,28 @@
+{
+  "id": "d2_q40",
+  "type": "single",
+  "text": "次のシナリオを考えてください： 「保険会社が事故車両の損傷を画像から自動評価したい」 最も適したアプローチはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "Amazon Rekognition Custom Labelsで損傷パターンを学習"
+    },
+    {
+      "label": "B",
+      "text": "Amazon Comprehendで分析"
+    },
+    {
+      "label": "C",
+      "text": "Amazon Forecastで予測"
+    },
+    {
+      "label": "D",
+      "text": "Amazon Personalizeで推薦"
+    }
+  ],
+  "correct": [
+    0
+  ],
+  "explanation": "事故車両の損傷を画像から自動評価するには、カスタム画像分類モデルが必要です。\n\n選択肢Aが正解である理由：\n\nAmazon Rekognition Custom Labelsの特徴：\n- 独自のラベルでカスタムモデルをトレーニング可能\n- 少量の画像データ（数十〜数百枚）から開始可能\n- 損傷の種類（へこみ、傷、破損など）を分類\n- 損傷の位置と範囲を検出\n- AutoMLにより専門知識なしでモデル作成\n\n保険業界での活用方法：\n- 損傷部位の自動検出と分類\n- 修理費用の見積もり支援\n- 査定プロセスの迅速化\n- 不正請求の検出支援\n- 一貫した評価基準の確立\n\n他の選択肢が不適切である理由：\n- B: Comprehendは自然言語処理サービスで、画像分析には対応していません\n- C: Forecastは時系列予測サービスで、画像認識機能はありません\n- D: Personalizeはレコメンデーションサービスで、画像による損傷評価には使用できません\n\n実装のステップ：\n1. 損傷タイプごとにラベル付けされた画像を準備\n2. Rekognition Custom Labelsでモデルをトレーニング\n3. APIを使用して新しい画像を分析\n4. 結果を査定システムと統合",
+  "resources": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "d1_q23",
+  "type": "single",
+  "text": "アンサンブル学習手法として正しくないものはどれですか？",
+  "choices": [
+    {
+      "label": "A",
+      "text": "ランダムフォレスト"
+    },
+    {
+      "label": "B",
+      "text": "ブースティング"
+    },
+    {
+      "label": "C",
+      "text": "バギング"
+    },
+    {
+      "label": "D",
+      "text": "主成分分析"
+    }
+  ],
+  "correct": [
+    3
+  ],
+  "explanation": "\n                <h5>詳細解説</h5>\n                <p>主成分分析（PCA）は次元削減手法であり、アンサンブル学習手法ではありません。</p>\n                \n                <h5>アンサンブル学習手法の種類</h5>\n                <ul>\n                    <li><strong>ランダムフォレスト:</strong>\n                        <ul>\n                            <li>決定木を複数作成（バギング）</li>\n                            <li>各木で異なる特徴量のサブセットを使用</li>\n                        </ul>\n                    </li>\n                    <li><strong>ブースティング:</strong>\n                        <ul>\n                            <li>弱学習器を順次学習（AdaBoost、XGBoost、LightGBM）</li>\n                            <li>前の学習器の誤りを次の学習器が重点的に学習</li>\n                        </ul>\n                    </li>\n                    <li><strong>バギング:</strong>\n                        <ul>\n                            <li>ブートストラップサンプリング</li>\n                            <li>並列に複数モデルを学習</li>\n                        </ul>\n                    </li>\n                </ul>\n                \n                <h5>主成分分析（PCA）とは</h5>\n                <ul>\n                    <li>高次元データを低次元に変換</li>\n                    <li>分散を最大化する軸を見つける</li>\n                    <li>特徴量エンジニアリングの手法</li>\n                </ul>\n                \n                <h5>実務での使い分け</h5>\n                <p>PCAで次元削減した後、アンサンブル学習を適用することで、計算効率と精度の両立が可能です。</p>\n            ",
+  "resources": []
+}
