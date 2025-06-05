@@ -223,6 +223,7 @@ export async function submitAnswer() {
     // ボタン状態更新
     document.getElementById('submit-answer').style.display = 'none';
     document.getElementById('next-question').style.display = 'block';
+    document.getElementById('next-question-bottom').style.display = 'block';
     
     // 進捗を保存
     saveProgress();
@@ -296,6 +297,9 @@ export async function nextQuestion() {
     AppState.selectedAnswers = [];
     
     await displayQuestion();
+    
+    // 画面上部にスクロール
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // フラグの切り替え
@@ -347,16 +351,20 @@ function updateFlagStatus() {
 function resetQuestionButtons() {
     const submitBtn = document.getElementById('submit-answer');
     const nextBtn = document.getElementById('next-question');
+    const nextBtnBottom = document.getElementById('next-question-bottom');
     const explanationPanel = document.getElementById('explanation-panel');
     
     if (AppState.examMode) {
         submitBtn.style.display = 'none';
         nextBtn.style.display = 'block';
+        nextBtnBottom.style.display = 'block';
         nextBtn.textContent = AppState.currentQuestionIndex < 64 ? '次の問題' : '試験を終了';
+        nextBtnBottom.textContent = AppState.currentQuestionIndex < 64 ? '次の問題' : '試験を終了';
     } else {
         submitBtn.disabled = true;
         submitBtn.style.display = 'block';
         nextBtn.style.display = 'none';
+        nextBtnBottom.style.display = 'none';
     }
     
     explanationPanel.style.display = 'none';

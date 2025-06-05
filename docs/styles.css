@@ -695,6 +695,11 @@ body {
     margin-bottom: var(--spacing-lg);
 }
 
+.explanation-buttons {
+    margin-top: var(--spacing-lg);
+    text-align: center;
+}
+
 .explanation-content h5 {
     font-size: 1.125rem;
     font-weight: 600;

@@ -148,6 +148,10 @@ function setupEventListeners() {
         const question = await loadQuestionModule();
         return question.nextQuestion();
     });
+    document.getElementById('next-question-bottom').addEventListener('click', async () => {
+        const question = await loadQuestionModule();
+        return question.nextQuestion();
+    });
     
     // フラグボタン
     document.getElementById('flag-btn').addEventListener('click', async () => {
