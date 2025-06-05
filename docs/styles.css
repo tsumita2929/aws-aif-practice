@@ -1111,15 +1111,57 @@ body {
 }
 
 /* レスポンシブ対応 */
+/* モバイル用テーマトグル */
+.mobile-theme-toggle {
+    display: none;
+    position: fixed;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    z-index: 101;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.mobile-theme-toggle:hover {
+    background: var(--bg-tertiary);
+    transform: scale(1.05);
+}
+
+.mobile-theme-toggle svg {
+    width: 24px;
+    height: 24px;
+    color: var(--text-primary);
+}
+
 @media (max-width: 768px) {
+    /* ヘッダーを非表示 */
+    .header {
+        display: none;
+    }
+    
+    /* モバイル用テーマトグルを表示 */
+    .mobile-theme-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
     /* 固定ナビゲーションを表示 */
     .mobile-nav {
         display: block;
     }
     
-    /* メインコンテンツの下部余白を追加 */
+    /* メインコンテンツの調整 */
     .main-content {
-        padding-bottom: 70px;
+        padding-top: calc(var(--spacing-lg) + 44px); /* テーマボタンの分も考慮 */
+        padding-bottom: 70px; /* モバイルナビの分の余白 */
     }
     .header-content {
         flex-direction: column;

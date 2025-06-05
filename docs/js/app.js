@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupEventListeners();
     setupKeyboardShortcuts();
     improveFocusManagement();
+    setupMobileThemeToggle();
     // Streakとドメイン進捗の遅延読み込み
     requestIdleCallback(async () => {
         const progress = await loadProgressModule();
@@ -329,6 +330,32 @@ function setupKeyboardShortcuts() {
                 break;
         }
     });
+}
+
+// モバイルでのテーマ切り替えジェスチャー
+function setupMobileThemeToggle() {
+    let touchStartY = 0;
+    let touchEndY = 0;
+    
+    document.addEventListener('touchstart', (e) => {
+        touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+    
+    document.addEventListener('touchend', (e) => {
+        touchEndY = e.changedTouches[0].screenY;
+        handleThemeSwipe();
+    }, { passive: true });
+    
+    function handleThemeSwipe() {
+        const swipeThreshold = 100;
+        const swipeDistance = touchStartY - touchEndY;
+        
+        // 上から下へのスワイプでテーマ切り替え（画面上部1/4のエリアから開始した場合のみ）
+        if (swipeDistance < -swipeThreshold && touchStartY < window.innerHeight / 4) {
+            toggleTheme();
+            showToast('テーマを切り替えました');
+        }
+    }
 }
 
 // フォーカス管理の改善

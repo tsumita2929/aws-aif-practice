@@ -77,15 +77,17 @@ export function toggleTheme() {
 }
 
 export function updateThemeToggle(theme) {
-    const sunIcon = document.querySelector('.sun-icon');
-    const moonIcon = document.querySelector('.moon-icon');
-    if (theme === 'dark') {
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
-    } else {
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
-    }
+    // デスクトップとモバイル両方のアイコンを更新
+    const sunIcons = document.querySelectorAll('.sun-icon');
+    const moonIcons = document.querySelectorAll('.moon-icon');
+    
+    sunIcons.forEach(icon => {
+        icon.style.display = theme === 'dark' ? 'none' : 'block';
+    });
+    
+    moonIcons.forEach(icon => {
+        icon.style.display = theme === 'dark' ? 'block' : 'none';
+    });
 }
 
 // 視覚的フィードバック
