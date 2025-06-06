@@ -19,7 +19,11 @@ export const AppState = {
     shuffleEnabled: false,
     shuffledOrder: {},
     originalQuestionIndex: null,
-    reviewMode: false
+    reviewMode: false,
+    questionDifficulties: new Map(), // 問題ごとの難易度を保存
+    questionTimes: new Map(), // 問題ごとの解答時間を保存
+    currentQuestionStartTime: null, // 現在の問題の開始時刻
+    questionMemos: new Map() // 問題ごとのメモを保存
 };
 
 // ローカルストレージのキー
@@ -38,7 +42,8 @@ export function saveProgress() {
         answeredQuestions: Array.from(AppState.answeredQuestions.entries()),
         flaggedQuestions: Array.from(AppState.flaggedQuestions),
         totalTime: AppState.totalTime,
-        lastStudyDate: new Date().toISOString()
+        lastStudyDate: new Date().toISOString(),
+        questionMemos: Array.from(AppState.questionMemos.entries())
     };
     localStorage.setItem(STORAGE_KEYS.PROGRESS, JSON.stringify(progress));
 }
@@ -51,6 +56,7 @@ export function loadProgress() {
         AppState.answeredQuestions = new Map(progress.answeredQuestions);
         AppState.flaggedQuestions = new Set(progress.flaggedQuestions);
         AppState.totalTime = progress.totalTime || 0;
+        AppState.questionMemos = new Map(progress.questionMemos || []);
         return true;
     }
     return false;

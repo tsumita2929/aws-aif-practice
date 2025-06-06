@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AWS AIF 認定試験 練習問題</title>
-    
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23232F3E'/%3E%3Cg fill='%23FF9900'%3E%3Ccircle cx='16' cy='10' r='2'/%3E%3Ccircle cx='16' cy='22' r='2'/%3E%3Ccircle cx='10' cy='16' r='2'/%3E%3Ccircle cx='22' cy='16' r='2'/%3E%3Cpath d='M14 10h4v12h-4z'/%3E%3Cpath d='M10 14v4h12v-4z'/%3E%3C/g%3E%3C/svg%3E">
-    
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23232F3E'/%3E%3Cg fill='%23FF9900'%3E%3Ccircle cx='16' cy='10' r='2'/%3E%3Ccircle cx='16' cy='22' r='2'/%3E%3Ccircle cx='10' cy='16' r='2'/%3E%3Ccircle cx='22' cy='16' r='2'/%3E%3Cpath d='M14 10h4v12h-4z'/%3E%3Cpath d='M10 14v4h12v-4z'/%3E%3C/g%3E%3C/svg%3E">
+
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
     <!-- ヘッダー -->
     <header class="header">
         <div class="header-content">
             <div class="logo">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                    <rect width="32" height="32" rx="8" fill="#FF9900"/>
-                    <path d="M8 16C8 11.5817 11.5817 8 16 8C20.4183 8 24 11.5817 24 16C24 20.4183 20.4183 24 16 24" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M16 12V16L19 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect width="32" height="32" rx="8" fill="#FF9900" />
+                    <path d="M8 16C8 11.5817 11.5817 8 16 8C20.4183 8 24 11.5817 24 16C24 20.4183 20.4183 24 16 24"
+                        stroke="white" stroke-width="2" stroke-linecap="round" />
+                    <path d="M16 12V16L19 19" stroke="white" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
                 </svg>
                 <h1>AWS AIF Practice</h1>
             </div>
@@ -33,16 +39,19 @@
             <div class="user-menu">
                 <div class="streak-badge">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="#FF9900">
-                        <path d="M8 1L10.163 5.326L15 6.077L11.5 9.401L12.326 14L8 11.776L3.674 14L4.5 9.401L1 6.077L5.837 5.326L8 1Z"/>
+                        <path
+                            d="M8 1L10.163 5.326L15 6.077L11.5 9.401L12.326 14L8 11.776L3.674 14L4.5 9.401L1 6.077L5.837 5.326L8 1Z" />
                     </svg>
                     <span id="streak-count">0</span>日連続
                 </div>
                 <button class="theme-toggle" id="theme-toggle">
                     <svg class="sun-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M10 2V4M10 16V18M4 10H2M18 10H16M5.64 5.64L4.22 4.22M15.78 15.78L14.36 14.36M5.64 14.36L4.22 15.78M15.78 4.22L14.36 5.64M13 10C13 11.66 11.66 13 10 13C8.34 13 7 11.66 7 10C7 8.34 8.34 7 10 7C11.66 7 13 8.34 13 10Z"/>
+                        <path
+                            d="M10 2V4M10 16V18M4 10H2M18 10H16M5.64 5.64L4.22 4.22M15.78 15.78L14.36 14.36M5.64 14.36L4.22 15.78M15.78 4.22L14.36 5.64M13 10C13 11.66 11.66 13 10 13C8.34 13 7 11.66 7 10C7 8.34 8.34 7 10 7C11.66 7 13 8.34 13 10Z" />
                     </svg>
-                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" style="display:none;">
-                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"
+                        style="display:none;">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                     </svg>
                 </button>
             </div>
@@ -56,14 +65,18 @@
             <div class="domain-selector">
                 <h2>ドメインを選択</h2>
                 <p style="text-align: center; margin-bottom: 2rem;">
-                    <a href="#" onclick="showView('about'); return false;" style="color: #FF9900; text-decoration: none; font-weight: 500;">
+                    <a href="#" onclick="showView('about'); return false;"
+                        style="color: #FF9900; text-decoration: none; font-weight: 500;">
                         AWS AI Foundations (AIF-C01) について詳しく知る →
                     </a>
                 </p>
                 <div style="text-align: center; margin-bottom: 2rem;">
-                    <button class="btn btn-primary" id="random-practice" style="font-size: 1.1rem; padding: 0.75rem 2rem;">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" style="margin-right: 0.5rem;">
-                            <path d="M4 2a1 1 0 00-1 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"/>
+                    <button class="btn btn-primary" id="random-practice"
+                        style="font-size: 1.1rem; padding: 0.75rem 2rem;">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"
+                            style="margin-right: 0.5rem;">
+                            <path
+                                d="M4 2a1 1 0 00-1 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" />
                         </svg>
                         ランダム5問に挑戦
                     </button>
@@ -72,8 +85,9 @@
                     <div class="domain-card" data-domain="1">
                         <div class="domain-icon">
                             <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
-                                <path d="M24 14V24L30 30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2" />
+                                <path d="M24 14V24L30 30" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
                             </svg>
                         </div>
                         <h3>ドメイン1</h3>
@@ -88,8 +102,10 @@
                     <div class="domain-card" data-domain="2">
                         <div class="domain-icon">
                             <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
-                                <path d="M16 24L22 30L32 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor"
+                                    stroke-width="2" />
+                                <path d="M16 24L22 30L32 20" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
                         <h3>ドメイン2</h3>
@@ -104,7 +120,10 @@
                     <div class="domain-card" data-domain="3">
                         <div class="domain-icon">
                             <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <path d="M24 8L30 14L36 8V28C36 30.21 34.21 32 32 32H16C13.79 32 12 30.21 12 28V8L18 14L24 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path
+                                    d="M24 8L30 14L36 8V28C36 30.21 34.21 32 32 32H16C13.79 32 12 30.21 12 28V8L18 14L24 8Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
                             </svg>
                         </div>
                         <h3>ドメイン3</h3>
@@ -119,7 +138,9 @@
                     <div class="domain-card" data-domain="4">
                         <div class="domain-icon">
                             <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <path d="M24 8V16M24 32V40M8 24H16M32 24H40M14.34 14.34L19.76 19.76M28.24 28.24L33.66 33.66M14.34 33.66L19.76 28.24M28.24 19.76L33.66 14.34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path
+                                    d="M24 8V16M24 32V40M8 24H16M32 24H40M14.34 14.34L19.76 19.76M28.24 28.24L33.66 33.66M14.34 33.66L19.76 28.24M28.24 19.76L33.66 14.34"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                             </svg>
                         </div>
                         <h3>ドメイン4</h3>
@@ -141,7 +162,8 @@
                 <div class="question-header">
                     <button class="back-btn" id="back-to-domains">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"/>
+                            <path
+                                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" />
                         </svg>
                         <span id="back-button-text">ドメイン選択に戻る</span>
                     </button>
@@ -150,16 +172,57 @@
                         <span class="question-number" id="question-number">問題 1/40</span>
                         <span class="shuffle-indicator" id="shuffle-indicator" style="display: none;">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--primary-orange)">
-                                <path d="M11.5 1.5a.5.5 0 0 1 .5.5v2.5a.5.5 0 0 1-1 0V3.707l-3.146 3.147a.5.5 0 0 1-.708-.708L10.293 3H9.5a.5.5 0 0 1 0-1h2zm-6 13a.5.5 0 0 1-.5-.5v-2.5a.5.5 0 0 1 1 0v1.293l3.146-3.147a.5.5 0 0 1 .708.708L6.707 13H7.5a.5.5 0 0 1 0 1h-2zM4.5 4.5a.5.5 0 0 0-.5.5v2.5a.5.5 0 0 0 1 0V6.207l3.146 3.147a.5.5 0 0 0 .708-.708L5.707 5H6.5a.5.5 0 0 0 0-1h-2zm7 7a.5.5 0 0 0 .5-.5v-2.5a.5.5 0 0 0-1 0v1.293l-3.146-3.147a.5.5 0 0 0-.708.708L10.293 11H9.5a.5.5 0 0 0 0 1h2z"/>
+                                <path
+                                    d="M11.5 1.5a.5.5 0 0 1 .5.5v2.5a.5.5 0 0 1-1 0V3.707l-3.146 3.147a.5.5 0 0 1-.708-.708L10.293 3H9.5a.5.5 0 0 1 0-1h2zm-6 13a.5.5 0 0 1-.5-.5v-2.5a.5.5 0 0 1 1 0v1.293l3.146-3.147a.5.5 0 0 1 .708.708L6.707 13H7.5a.5.5 0 0 1 0 1h-2zM4.5 4.5a.5.5 0 0 0-.5.5v2.5a.5.5 0 0 0 1 0V6.207l3.146 3.147a.5.5 0 0 0 .708-.708L5.707 5H6.5a.5.5 0 0 0 0-1h-2zm7 7a.5.5 0 0 0 .5-.5v-2.5a.5.5 0 0 0-1 0v1.293l-3.146-3.147a.5.5 0 0 0-.708.708L10.293 11H9.5a.5.5 0 0 0 0 1h2z" />
                             </svg>
                             <span class="original-number" id="original-number">(元: 問題1)</span>
                         </span>
                     </div>
-                    <div class="timer" id="timer">00:00</div>
+                    <div class="timer-container">
+                        <div class="timer" id="timer">00:00</div>
+                        <div class="average-time" id="average-time" style="display: none;">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+                                <path d="M7 0a7 7 0 100 14A7 7 0 007 0zM6.5 3.5v4.25l3.5 2.08-.58.97L5.5 8.5v-5h1z" />
+                            </svg>
+                            <span id="average-time-text">平均: --:--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 進捗バー -->
+                <div class="progress-indicator" id="progress-indicator">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="progress-bar-fill" style="width: 0%"></div>
+                        <div class="progress-segments" id="progress-segments"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="progress-current">0</span> / <span id="progress-total">0</span> 問完了
+                        <span class="progress-percentage" id="progress-percentage">(0%)</span>
+                    </div>
                 </div>
 
                 <div class="question-content" aria-live="polite" aria-atomic="true">
-                    <div class="question-type-badge" id="question-type" aria-label="問題タイプ">単一選択</div>
+                    <div class="question-header-row">
+                        <div class="left-badges">
+                            <div class="question-type-badge" id="question-type" aria-label="問題タイプ">単一選択</div>
+                            <div class="difficulty-badge" id="difficulty-badge" aria-label="難易度">
+                                <span class="difficulty-stars" id="difficulty-stars">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                        <path
+                                            d="M8 .5l1.9 3.8 4.1.6-3 2.9.7 4.2L8 10l-3.7 2 .7-4.2-3-2.9 4.1-.6L8 .5z" />
+                                    </svg>
+                                </span>
+                                <span class="difficulty-text" id="difficulty-text">易しい</span>
+                            </div>
+                        </div>
+                        <div class="previous-attempt" id="previous-attempt" style="display: none;">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M8 1a7 7 0 100 14A7 7 0 008 1zM4 8a4 4 0 118 0 4 4 0 01-8 0z" />
+                                <path d="M8 4.5v3.25L10.5 9l-.75 1.23L7 8.75V4.5h1z" />
+                            </svg>
+                            <span id="previous-attempt-text">前回: 未回答</span>
+                        </div>
+                    </div>
                     <h3 class="question-text" id="question-text" role="heading" aria-level="3"></h3>
                     <div class="choices" id="choices" role="group" aria-label="選択肢"></div>
                 </div>
@@ -167,18 +230,39 @@
                 <div class="question-actions">
                     <button class="btn btn-secondary" id="shuffle-btn" title="問題をシャッフル">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                            <path d="M11.5 1.5a.5.5 0 0 1 .5.5v2.5a.5.5 0 0 1-1 0V3.707l-3.146 3.147a.5.5 0 0 1-.708-.708L10.293 3H9.5a.5.5 0 0 1 0-1h2zm-6 13a.5.5 0 0 1-.5-.5v-2.5a.5.5 0 0 1 1 0v1.293l3.146-3.147a.5.5 0 0 1 .708.708L6.707 13H7.5a.5.5 0 0 1 0 1h-2zM4.5 4.5a.5.5 0 0 0-.5.5v2.5a.5.5 0 0 0 1 0V6.207l3.146 3.147a.5.5 0 0 0 .708-.708L5.707 5H6.5a.5.5 0 0 0 0-1h-2zm7 7a.5.5 0 0 0 .5-.5v-2.5a.5.5 0 0 0-1 0v1.293l-3.146-3.147a.5.5 0 0 0-.708.708L10.293 11H9.5a.5.5 0 0 0 0 1h2z"/>
+                            <path
+                                d="M11.5 1.5a.5.5 0 0 1 .5.5v2.5a.5.5 0 0 1-1 0V3.707l-3.146 3.147a.5.5 0 0 1-.708-.708L10.293 3H9.5a.5.5 0 0 1 0-1h2zm-6 13a.5.5 0 0 1-.5-.5v-2.5a.5.5 0 0 1 1 0v1.293l3.146-3.147a.5.5 0 0 1 .708.708L6.707 13H7.5a.5.5 0 0 1 0 1h-2zM4.5 4.5a.5.5 0 0 0-.5.5v2.5a.5.5 0 0 0 1 0V6.207l3.146 3.147a.5.5 0 0 0 .708-.708L5.707 5H6.5a.5.5 0 0 0 0-1h-2zm7 7a.5.5 0 0 0 .5-.5v-2.5a.5.5 0 0 0-1 0v1.293l-3.146-3.147a.5.5 0 0 0-.708.708L10.293 11H9.5a.5.5 0 0 0 0 1h2z" />
                         </svg>
                         シャッフル
                     </button>
                     <button class="btn btn-secondary" id="flag-btn">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                            <path d="M3 2v12h2V9h5l1-2-1-2H5V2H3z"/>
+                            <path d="M3 2v12h2V9h5l1-2-1-2H5V2H3z" />
                         </svg>
                         フラグ
                     </button>
+                    <button class="btn btn-secondary" id="memo-btn" title="メモを追加">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path
+                                d="M2.5 1A1.5 1.5 0 001 2.5v11A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-11A1.5 1.5 0 0013.5 1h-11zM3 3.5a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9a.5.5 0 01-.5-.5zM3.5 6h9a.5.5 0 010 1h-9a.5.5 0 010-1zm0 3h9a.5.5 0 010 1h-9a.5.5 0 010-1zm0 3h5a.5.5 0 010 1h-5a.5.5 0 010-1z" />
+                        </svg>
+                        メモ
+                    </button>
                     <button class="btn btn-primary" id="submit-answer" disabled>回答を確認</button>
                     <button class="btn btn-primary" id="next-question" style="display: none;">次の問題</button>
+                </div>
+
+                <!-- メモ入力エリア -->
+                <div class="memo-container" id="memo-container" style="display: none;">
+                    <textarea id="question-memo" class="memo-textarea" placeholder="この問題に関するメモを入力してください...
+例：
+- 重要なポイント
+- 間違えやすい箇所
+- 覚え方のコツ" rows="4"></textarea>
+                    <div class="memo-actions">
+                        <button class="btn btn-sm btn-secondary" id="save-memo">保存</button>
+                        <button class="btn btn-sm btn-secondary" id="cancel-memo">キャンセル</button>
+                    </div>
                 </div>
             </div>
 
@@ -186,8 +270,25 @@
             <div class="explanation-panel" id="explanation-panel" style="display: none;">
                 <h4>解説</h4>
                 <div class="correct-answer" id="correct-answer"></div>
+
+                <!-- 解説内容を直接表示 -->
                 <div class="explanation-content" id="explanation-content"></div>
                 <div class="related-resources" id="related-resources"></div>
+
+                <!-- 類似問題の推薦 -->
+                <div class="similar-questions" id="similar-questions" style="display: none;">
+                    <h5>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="var(--aws-orange)"
+                            style="margin-right: 8px;">
+                            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                            <path fill-rule="evenodd"
+                                d="M4 5a2 2 0 012-2 1 1 0 000 2H4v10a2 2 0 002 2h8a2 2 0 002-2V5h-2a1 1 0 100-2 2 2 0 012 2v10a4 4 0 01-4 4H6a4 4 0 01-4-4V5z" />
+                        </svg>
+                        この問題と似た問題
+                    </h5>
+                    <div class="similar-questions-list" id="similar-questions-list"></div>
+                </div>
+
                 <div class="explanation-buttons">
                     <button class="btn btn-primary" id="next-question-bottom" style="display: none;">次の問題</button>
                 </div>
@@ -243,10 +344,10 @@
                         <h3>総合進捗</h3>
                         <div class="circular-progress" data-progress="0">
                             <svg width="120" height="120">
-                                <circle cx="60" cy="60" r="54" stroke="#e0e0e0" stroke-width="8" fill="none"/>
-                                <circle cx="60" cy="60" r="54" stroke="#FF9900" stroke-width="8" fill="none" 
-                                        stroke-dasharray="339.292" stroke-dashoffset="339.292"
-                                        transform="rotate(-90 60 60)"/>
+                                <circle cx="60" cy="60" r="54" stroke="#e0e0e0" stroke-width="8" fill="none" />
+                                <circle cx="60" cy="60" r="54" stroke="#FF9900" stroke-width="8" fill="none"
+                                    stroke-dasharray="339.292" stroke-dashoffset="339.292"
+                                    transform="rotate(-90 60 60)" />
                             </svg>
                             <div class="progress-value">0%</div>
                         </div>
@@ -300,12 +401,13 @@
                 <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; text-align: center;">
                     AWS Certified AI Practitioner (AIF-C01)
                 </h1>
-                
+
                 <!-- 認定試験の概要 -->
-                <section class="section" style="background-color: var(--bg-secondary); border-radius: var(--radius-lg); padding: var(--spacing-xl); margin-bottom: var(--spacing-xl);">
+                <section class="section"
+                    style="background-color: var(--bg-secondary); border-radius: var(--radius-lg); padding: var(--spacing-xl); margin-bottom: var(--spacing-xl);">
                     <h2 style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="#FF9900">
-                            <path d="M12 2L2 7V12C2 16.55 4.84 20.74 9 22C13.16 20.74 22 16.55 22 12V7L12 2Z"/>
+                            <path d="M12 2L2 7V12C2 16.55 4.84 20.74 9 22C13.16 20.74 22 16.55 22 12V7L12 2Z" />
                         </svg>
                         認定試験の概要
                     </h2>
@@ -313,7 +415,8 @@
                         AWS Certified AI Practitioner (AIF-C01) は、AWSの人工知能（AI）および機械学習（ML）サービスを使用して、
                         AIソリューションを構築・デプロイする基礎的な知識とスキルを証明する認定資格です。
                     </p>
-                    <div style="background-color: var(--bg-tertiary); border-radius: var(--radius-md); padding: var(--spacing-lg); margin-bottom: 1rem;">
+                    <div
+                        style="background-color: var(--bg-tertiary); border-radius: var(--radius-md); padding: var(--spacing-lg); margin-bottom: 1rem;">
                         <h3 style="margin-bottom: 1rem;">試験の詳細</h3>
                         <ul style="list-style: none; padding: 0;">
                             <li style="padding: 0.5rem 0;"><strong>試験時間:</strong> 90分</li>
@@ -327,27 +430,34 @@
                 </section>
 
                 <!-- 試験範囲 -->
-                <section class="section" style="background-color: var(--bg-secondary); border-radius: var(--radius-lg); padding: var(--spacing-xl); margin-bottom: var(--spacing-xl);">
+                <section class="section"
+                    style="background-color: var(--bg-secondary); border-radius: var(--radius-lg); padding: var(--spacing-xl); margin-bottom: var(--spacing-xl);">
                     <h2 style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="#FF9900">
-                            <path d="M4 6H2V20C2 21.1 2.9 22 4 22H18V20H4V6M20 2H8C6.9 2 6 2.9 6 4V16C6 17.1 6.9 18 8 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2M20 16H8V4H20V16Z"/>
+                            <path
+                                d="M4 6H2V20C2 21.1 2.9 22 4 22H18V20H4V6M20 2H8C6.9 2 6 2.9 6 4V16C6 17.1 6.9 18 8 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2M20 16H8V4H20V16Z" />
                         </svg>
                         試験範囲と配点
                     </h2>
                     <div class="domain-breakdown" style="display: grid; gap: 1rem;">
-                        <div style="background-color: var(--bg-tertiary); border-radius: var(--radius-md); padding: var(--spacing-md);">
+                        <div
+                            style="background-color: var(--bg-tertiary); border-radius: var(--radius-md); padding: var(--spacing-md);">
                             <h4 style="color: var(--aws-orange); margin-bottom: 0.5rem;">ドメイン 1: AI/ML の基礎（25%）</h4>
                             <p>AIと機械学習の基本概念、用語、アルゴリズムの理解</p>
                         </div>
-                        <div style="background-color: var(--bg-tertiary); border-radius: var(--radius-md); padding: var(--spacing-md);">
-                            <h4 style="color: var(--aws-orange); margin-bottom: 0.5rem;">ドメイン 2: AWS の AI/ML サービス（35%）</h4>
+                        <div
+                            style="background-color: var(--bg-tertiary); border-radius: var(--radius-md); padding: var(--spacing-md);">
+                            <h4 style="color: var(--aws-orange); margin-bottom: 0.5rem;">ドメイン 2: AWS の AI/ML サービス（35%）
+                            </h4>
                             <p>Amazon SageMaker、Rekognition、Comprehend などの AWS AI サービスの機能と使用方法</p>
                         </div>
-                        <div style="background-color: var(--bg-tertiary); border-radius: var(--radius-md); padding: var(--spacing-md);">
+                        <div
+                            style="background-color: var(--bg-tertiary); border-radius: var(--radius-md); padding: var(--spacing-md);">
                             <h4 style="color: var(--aws-orange); margin-bottom: 0.5rem;">ドメイン 3: 責任ある AI（20%）</h4>
                             <p>AI の倫理、バイアス、プライバシー、説明可能性に関する考慮事項</p>
                         </div>
-                        <div style="background-color: var(--bg-tertiary); border-radius: var(--radius-md); padding: var(--spacing-md);">
+                        <div
+                            style="background-color: var(--bg-tertiary); border-radius: var(--radius-md); padding: var(--spacing-md);">
                             <h4 style="color: var(--aws-orange); margin-bottom: 0.5rem;">ドメイン 4: AI ソリューションの実装（20%）</h4>
                             <p>AI ソリューションの設計、開発、デプロイのベストプラクティス</p>
                         </div>
@@ -355,10 +465,12 @@
                 </section>
 
                 <!-- 対象者 -->
-                <section class="section" style="background-color: var(--bg-secondary); border-radius: var(--radius-lg); padding: var(--spacing-xl); margin-bottom: var(--spacing-xl);">
+                <section class="section"
+                    style="background-color: var(--bg-secondary); border-radius: var(--radius-lg); padding: var(--spacing-xl); margin-bottom: var(--spacing-xl);">
                     <h2 style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="#FF9900">
-                            <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2M8 17.5C6.62 17.5 5.5 16.38 5.5 15S6.62 12.5 8 12.5 10.5 13.62 10.5 15 9.38 17.5 8 17.5M12 17.5C10.62 17.5 9.5 16.38 9.5 15S10.62 12.5 12 12.5 14.5 13.62 14.5 15 13.38 17.5 12 17.5M16 17.5C14.62 17.5 13.5 16.38 13.5 15S14.62 12.5 16 12.5 18.5 13.62 18.5 15 17.38 17.5 16 17.5Z"/>
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2M8 17.5C6.62 17.5 5.5 16.38 5.5 15S6.62 12.5 8 12.5 10.5 13.62 10.5 15 9.38 17.5 8 17.5M12 17.5C10.62 17.5 9.5 16.38 9.5 15S10.62 12.5 12 12.5 14.5 13.62 14.5 15 13.38 17.5 12 17.5M16 17.5C14.62 17.5 13.5 16.38 13.5 15S14.62 12.5 16 12.5 18.5 13.62 18.5 15 17.38 17.5 16 17.5Z" />
                         </svg>
                         こんな方におすすめ
                     </h2>
@@ -372,23 +484,30 @@
                 </section>
 
                 <!-- 学習リソース -->
-                <section class="section" style="background-color: var(--bg-secondary); border-radius: var(--radius-lg); padding: var(--spacing-xl);">
+                <section class="section"
+                    style="background-color: var(--bg-secondary); border-radius: var(--radius-lg); padding: var(--spacing-xl);">
                     <h2 style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="#FF9900">
-                            <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3M19 5V19H5V5H19M13.5 13.5H12V8H10V13.5C10 14.61 10.89 15.5 12 15.5H13.5V17H10V18.5H13.5C14.61 18.5 15.5 17.61 15.5 16.5V15C15.5 13.89 14.61 13 13.5 13"/>
+                            <path
+                                d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3M19 5V19H5V5H19M13.5 13.5H12V8H10V13.5C10 14.61 10.89 15.5 12 15.5H13.5V17H10V18.5H13.5C14.61 18.5 15.5 17.61 15.5 16.5V15C15.5 13.89 14.61 13 13.5 13" />
                         </svg>
                         推奨学習リソース
                     </h2>
-                    <div style="background-color: var(--bg-tertiary); border-radius: var(--radius-md); padding: var(--spacing-lg);">
+                    <div
+                        style="background-color: var(--bg-tertiary); border-radius: var(--radius-md); padding: var(--spacing-lg);">
                         <h3 style="margin-bottom: 1rem;">AWS公式リソース</h3>
                         <ul style="line-height: 1.8;">
-                            <li><a href="https://aws.amazon.com/training/learn-about/ml/" target="_blank" style="color: var(--aws-orange);">AWS Machine Learning トレーニング</a></li>
-                            <li><a href="https://www.aws.training/certification" target="_blank" style="color: var(--aws-orange);">AWS Skill Builder</a></li>
-                            <li><a href="https://docs.aws.amazon.com/machine-learning/" target="_blank" style="color: var(--aws-orange);">AWS ML ドキュメント</a></li>
+                            <li><a href="https://aws.amazon.com/training/learn-about/ml/" target="_blank"
+                                    style="color: var(--aws-orange);">AWS Machine Learning トレーニング</a></li>
+                            <li><a href="https://www.aws.training/certification" target="_blank"
+                                    style="color: var(--aws-orange);">AWS Skill Builder</a></li>
+                            <li><a href="https://docs.aws.amazon.com/machine-learning/" target="_blank"
+                                    style="color: var(--aws-orange);">AWS ML ドキュメント</a></li>
                         </ul>
                     </div>
                     <div class="cta" style="text-align: center; margin-top: 2rem;">
-                        <button class="btn btn-primary btn-large" onclick="showView('practice')" style="font-size: 1.25rem; padding: 1rem 3rem;">
+                        <button class="btn btn-primary btn-large" onclick="showView('practice')"
+                            style="font-size: 1.25rem; padding: 1rem 3rem;">
                             練習を始める
                         </button>
                     </div>
@@ -401,7 +520,8 @@
     <div class="achievement-toast" id="achievement-toast" style="display: none;">
         <div class="achievement-content">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="#FFD700">
-                <path d="M16 2L20.09 10.26L29 11.27L22.45 17.97L23.89 27L16 22.27L8.11 27L9.55 17.97L3 11.27L11.91 10.26L16 2Z"/>
+                <path
+                    d="M16 2L20.09 10.26L29 11.27L22.45 17.97L23.89 27L16 22.27L8.11 27L9.55 17.97L3 11.27L11.91 10.26L16 2Z" />
             </svg>
             <div class="achievement-text">
                 <h4 id="achievement-title">達成！</h4>
@@ -413,63 +533,72 @@
     <!-- モバイル用テーマトグル -->
     <button class="mobile-theme-toggle" onclick="toggleTheme()" aria-label="テーマ切り替え">
         <svg class="sun-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 17.5C9.5 17.5 7.5 15.5 7.5 13S9.5 8.5 12 8.5 16.5 10.5 16.5 13 14.5 17.5 12 17.5M12 7C8.7 7 6 9.7 6 13S8.7 19 12 19 18 16.3 18 13 15.3 7 12 7M12 2L14.4 6.4L19 7L15.5 10.5L16.2 15L12 12.8L7.8 15L8.5 10.5L5 7L9.6 6.4L12 2Z"/>
+            <path
+                d="M12 17.5C9.5 17.5 7.5 15.5 7.5 13S9.5 8.5 12 8.5 16.5 10.5 16.5 13 14.5 17.5 12 17.5M12 7C8.7 7 6 9.7 6 13S8.7 19 12 19 18 16.3 18 13 15.3 7 12 7M12 2L14.4 6.4L19 7L15.5 10.5L16.2 15L12 12.8L7.8 15L8.5 10.5L5 7L9.6 6.4L12 2Z" />
         </svg>
         <svg class="moon-icon" style="display: none;" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.75,4.09L15.22,6.03L16.13,9.09L13.5,7.28L10.87,9.09L11.78,6.03L9.25,4.09L12.44,4L13.5,1L14.56,4L17.75,4.09M21.25,11L19.61,12.25L20.2,14.23L18.5,13.06L16.8,14.23L17.39,12.25L15.75,11L17.81,10.95L18.5,9L19.19,10.95L21.25,11M18.97,15.95C19.8,15.87 20.69,17.05 20.16,17.8C19.84,18.25 19.5,18.67 19.08,19.07C15.17,23 8.84,23 4.94,19.07C1.03,15.17 1.03,8.83 4.94,4.93C5.34,4.53 5.76,4.17 6.21,3.85C6.96,3.32 8.14,4.21 8.06,5.04C7.79,7.9 8.75,10.87 10.95,13.06C13.14,15.26 16.1,16.22 18.97,15.95M17.33,17.97C14.5,17.81 11.7,16.64 9.53,14.5C7.36,12.31 6.2,9.5 6.04,6.68C3.23,9.82 3.34,14.64 6.35,17.66C9.37,20.67 14.19,20.78 17.33,17.97Z"/>
+            <path
+                d="M17.75,4.09L15.22,6.03L16.13,9.09L13.5,7.28L10.87,9.09L11.78,6.03L9.25,4.09L12.44,4L13.5,1L14.56,4L17.75,4.09M21.25,11L19.61,12.25L20.2,14.23L18.5,13.06L16.8,14.23L17.39,12.25L15.75,11L17.81,10.95L18.5,9L19.19,10.95L21.25,11M18.97,15.95C19.8,15.87 20.69,17.05 20.16,17.8C19.84,18.25 19.5,18.67 19.08,19.07C15.17,23 8.84,23 4.94,19.07C1.03,15.17 1.03,8.83 4.94,4.93C5.34,4.53 5.76,4.17 6.21,3.85C6.96,3.32 8.14,4.21 8.06,5.04C7.79,7.9 8.75,10.87 10.95,13.06C13.14,15.26 16.1,16.22 18.97,15.95M17.33,17.97C14.5,17.81 11.7,16.64 9.53,14.5C7.36,12.31 6.2,9.5 6.04,6.68C3.23,9.82 3.34,14.64 6.35,17.66C9.37,20.67 14.19,20.78 17.33,17.97Z" />
         </svg>
     </button>
-    
+
     <!-- モバイル用固定ナビゲーション -->
     <nav class="mobile-nav">
         <div class="mobile-nav-items">
             <button class="mobile-nav-item active" data-view="practice">
                 <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2L2 7V12C2 16.5 4.23 20.68 7.62 23.15L12 21.84L19.38 23.15C21.77 20.68 24 16.5 24 12V7L12 2Z"/>
+                    <path
+                        d="M12 2L2 7V12C2 16.5 4.23 20.68 7.62 23.15L12 21.84L19.38 23.15C21.77 20.68 24 16.5 24 12V7L12 2Z" />
                 </svg>
                 練習
             </button>
             <button class="mobile-nav-item" data-view="exam">
                 <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M9 11H7V13H9V11M13 11H11V13H13V11M17 11H15V13H17V11M19 4H5C3.89 4 3 4.9 3 6V20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4M19 20H5V9H19V20Z"/>
+                    <path
+                        d="M9 11H7V13H9V11M13 11H11V13H13V11M17 11H15V13H17V11M19 4H5C3.89 4 3 4.9 3 6V20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4M19 20H5V9H19V20Z" />
                 </svg>
                 模擬試験
             </button>
             <button class="mobile-nav-item" data-view="progress">
                 <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M13.5 2.91C18.06 3.66 21.5 7.6 21.5 12.28C21.5 17.47 17.39 21.68 12.25 21.92V19.41C16 19.17 19 16.04 19 12.28C19 8.86 16.53 6.03 13.26 5.41L13.5 2.91M11.5 6V13.5L7.5 17.5L6.08 16.08L9.5 12.65V6H11.5M10.25 2.08V4.59C6.27 5.29 3.25 8.78 3.25 13C3.25 16.76 5.69 19.89 9 21.06V18.42C7.11 17.37 5.75 15.37 5.75 13C5.75 10.22 7.57 7.87 10.06 6.93L10.25 2.08Z"/>
+                    <path
+                        d="M13.5 2.91C18.06 3.66 21.5 7.6 21.5 12.28C21.5 17.47 17.39 21.68 12.25 21.92V19.41C16 19.17 19 16.04 19 12.28C19 8.86 16.53 6.03 13.26 5.41L13.5 2.91M11.5 6V13.5L7.5 17.5L6.08 16.08L9.5 12.65V6H11.5M10.25 2.08V4.59C6.27 5.29 3.25 8.78 3.25 13C3.25 16.76 5.69 19.89 9 21.06V18.42C7.11 17.37 5.75 15.37 5.75 13C5.75 10.22 7.57 7.87 10.06 6.93L10.25 2.08Z" />
                 </svg>
                 進捗管理
             </button>
             <button class="mobile-nav-item" data-view="review">
                 <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M17 3H7C5.9 3 5 3.9 5 5V19C5 20.1 5.9 21 7 21H17C18.1 21 19 20.1 19 19V5C19 3.9 18.1 3 17 3M12 9C13.1 9 14 9.9 14 11C14 12.1 13.1 13 12 13C10.9 13 10 12.1 10 11C10 9.9 10.9 9 12 9M16 17H8V16C8 14.7 10.7 14 12 14C13.3 14 16 14.7 16 16V17Z"/>
+                    <path
+                        d="M17 3H7C5.9 3 5 3.9 5 5V19C5 20.1 5.9 21 7 21H17C18.1 21 19 20.1 19 19V5C19 3.9 18.1 3 17 3M12 9C13.1 9 14 9.9 14 11C14 12.1 13.1 13 12 13C10.9 13 10 12.1 10 11C10 9.9 10.9 9 12 9M16 17H8V16C8 14.7 10.7 14 12 14C13.3 14 16 14.7 16 16V17Z" />
                 </svg>
                 復習
             </button>
             <button class="mobile-nav-item" data-view="about">
                 <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2M13 17H11V15H13V17M13 13H11V7H13V13Z"/>
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2M13 17H11V15H13V17M13 13H11V7H13V13Z" />
                 </svg>
                 試験概要
             </button>
         </div>
     </nav>
-    
+
     <!-- フィードバックアイコン -->
     <div class="feedback-icon" id="feedback-icon"></div>
-    
+
     <!-- 紙吹雪キャンバス -->
     <canvas id="confetti-canvas"></canvas>
-    
+
+
     <!-- 問題ローダーとアプリケーション -->
     <!-- Questions Loader -->
     <script src="questions-loader.js"></script>
-    
+
     <!-- Modular Application Scripts -->
     <script type="module" src="js/app.js"></script>
-    
+
     <!-- Legacy app.js backup (削除可能) -->
     <!-- <script src="app.js"></script> -->
 </body>
+
 </html>
