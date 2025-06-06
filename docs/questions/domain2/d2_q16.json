@@ -23,6 +23,6 @@
   "correct": [
     1
   ],
-  "explanation": "ECサイトで商品画像から自動的にタグを生成するためには、画像分析サービスが必要です。正解はB「Amazon Rekognition」です。\n\nRekognitionの画像タグ付け機能：\n- 物体やシーンの検出（例：「シャツ」「赤色」「コットン」）\n- 複数のラベルを信頼度スコア付きで返す\n- カスタムラベル検出のトレーニングも可能\n- ブランドロゴの検出\n\nECサイトでの活用例：\n1. 商品画像をRekognitionで分析\n2. 自動的にタグを生成（色、素材、スタイルなど）\n3. 検索インデックスにタグを追加\n4. ユーザーの検索精度が向上\n\n他の選択肢が不適切な理由：\n- A: Amazon Comprehendはテキスト分析用\n- C: Amazon Textractは文書からのテキスト抽出用\n- D: Amazon Translateは言語翻訳用\n\nRekognitionはコンピュータビジョン技術を使用して、画像内容を理解し、自動タグ付けを実現します。",
+  "explanation": "<h5>詳細解説</h5><p>ECサイトで商品画像から自動的にタグを生成するためには、画像分析サービスが必要です。正解はB「Amazon Rekognition」です。</p><h5>Rekognitionの画像タグ付け機能</h5><ul><li>物体やシーンの検出（例：「シャツ」「赤色」「コットン」）</li><li>複数のラベルを信頼度スコア付きで返す</li><li>カスタムラベル検出のトレーニングも可能</li><li>ブランドロゴの検出</li></ul><h5>ECサイトでの活用例</h5><p>1. 商品画像をRekognitionで分析</p><p>2. 自動的にタグを生成（色、素材、スタイルなど）</p><p>3. 検索インデックスにタグを追加</p><p>4. ユーザーの検索精度が向上</p><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) Amazon Comprehend:</strong> Amazon Comprehendはテキスト分析用</li><li><strong>C) Amazon Textract:</strong> Amazon Textractは文書からのテキスト抽出用</li><li><strong>D) Amazon Translate:</strong> Amazon Translateは言語翻訳用</li></ul><p>Rekognitionはコンピュータビジョン技術を使用して、画像内容を理解し、自動タグ付けを実現します。</p>",
   "resources": []
 }

@@ -23,6 +23,6 @@
   "correct": [
     1
   ],
-  "explanation": "Amazon Lookout for Visionは、コンピュータビジョンを使用して製品の外観品質検査を自動化するサービスです。正解はB「製品の外観品質検査」です。\n\nLookout for Visionの主な機能：\n- 異常検出：欠陥、傷、へこみなど\n- 少数の正常画像で学習開始可能\n- リアルタイム品質検査\n- ダッシュボードでの結果可視化\n- API統合による自動化\n\n製造業での活用例：\n- 自動車部品の傷検査\n- 電子部品のはんだ不良検出\n- 食品パッケージの印刷不良\n- 繊維製品の縫製不良\n- 金属製品の表面欠陥\n\n導入メリット：\n- 人的検査の負担軽減\n- 検査精度の向上\n- 24時間稼働可能\n- 検査基準の統一\n- 不良品の流出防止\n\n他の選択肢が誤りの理由：\n- A: テキスト分析はComprehendの機能\n- C: 音声認識はTranscribeの機能\n- D: 需要予測はForecastの機能\n\nLookout for Visionは製造業の品質管理をAIで革新するサービスです。",
+  "explanation": "<h5>詳細解説</h5><p>Amazon Lookout for Visionは、コンピュータビジョンを使用して製品の外観品質検査を自動化するサービスです。正解はB「製品の外観品質検査」です。</p><h5>Lookout for Visionの主な機能</h5><ul><li>異常検出：欠陥、傷、へこみなど</li><li>少数の正常画像で学習開始可能</li><li>リアルタイム品質検査</li><li>ダッシュボードでの結果可視化</li><li>API統合による自動化</li></ul><h5>製造業での活用例</h5><ul><li>自動車部品の傷検査</li><li>電子部品のはんだ不良検出</li><li>食品パッケージの印刷不良</li><li>繊維製品の縫製不良</li><li>金属製品の表面欠陥</li></ul><h5>導入メリット</h5><ul><li>人的検査の負担軽減</li><li>検査精度の向上</li><li>24時間稼働可能</li><li>検査基準の統一</li><li>不良品の流出防止</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) テキスト分析:</strong> テキスト分析はComprehendの機能</li><li><strong>C) 音声認識:</strong> 音声認識はTranscribeの機能</li><li><strong>D) 需要予測:</strong> 需要予測はForecastの機能</li></ul><p>Lookout for Visionは製造業の品質管理をAIで革新するサービスです。</p>",
   "resources": []
 }

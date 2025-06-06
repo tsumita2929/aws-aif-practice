@@ -23,6 +23,6 @@
   "correct": [
     1
   ],
-  "explanation": "Amazon CodeGuruは、機械学習を使用してコードレビューとアプリケーションパフォーマンスの最適化を提供するサービスです。正解はB「コードレビューとパフォーマンス最適化の推奨」です。\n\nCodeGuruの2つの主要コンポーネント：\n\n1. CodeGuru Reviewer：\n   - コード品質の問題検出\n   - セキュリティ脆弱性の特定\n   - ベストプラクティスの提案\n   - リソースリークの検出\n   - 並行性の問題検出\n\n2. CodeGuru Profiler：\n   - ランタイムパフォーマンス分析\n   - CPU使用率の最適化\n   - メモリ使用量の削減\n   - コスト削減の提案\n   - ボトルネックの特定\n\n機械学習の活用：\n- Amazonのコードベースで学習\n- オープンソースプロジェクトからの学習\n- 継続的な改善と学習\n\n対応言語：\n- Java\n- Python\n\n他の選択肢が誤りの理由：\n- A: 画像認識はRekognitionの機能\n- C: 音声合成はPollyの機能\n- D: 自然言語翻訳はTranslateの機能\n\nCodeGuruは開発者の生産性を向上させ、コード品質を改善する強力なツールです。",
+  "explanation": "<h5>詳細解説</h5><p>Amazon CodeGuruは、機械学習を使用してコードレビューとアプリケーションパフォーマンスの最適化を提供するサービスです。正解はB「コードレビューとパフォーマンス最適化の推奨」です。</p><h5>CodeGuruの2つの主要コンポーネント</h5><ol><li><strong>CodeGuru Reviewer</strong><ul><li>コード品質の問題検出</li><li>セキュリティ脆弱性の特定</li><li>ベストプラクティスの提案</li><li>リソースリークの検出</li><li>並行性の問題検出</li></ul></li><li><strong>CodeGuru Profiler</strong><ul><li>ランタイムパフォーマンス分析</li><li>CPU使用率の最適化</li><li>メモリ使用量の削減</li><li>コスト削減の提案</li><li>ボトルネックの特定</li></ul></li></ol><h5>機械学習の活用</h5><ul><li>Amazonのコードベースで学習</li><li>オープンソースプロジェクトからの学習</li><li>継続的な改善と学習</li></ul><h5>対応言語</h5><ul><li>Java</li><li>Python</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) 画像認識:</strong> 画像認識はRekognitionの機能</li><li><strong>C) 音声合成:</strong> 音声合成はPollyの機能</li><li><strong>D) 自然言語翻訳:</strong> 自然言語翻訳はTranslateの機能</li></ul><p>CodeGuruは開発者の生産性を向上させ、コード品質を改善する強力なツールです。</p>",
   "resources": []
 }

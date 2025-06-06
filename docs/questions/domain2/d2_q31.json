@@ -23,6 +23,6 @@
   "correct": [
     1
   ],
-  "explanation": "音楽ストリーミングサービスでユーザーの好みに基づいたプレイリスト生成には、パーソナライゼーションサービスが最適です。正解はB「Amazon Personalize」です。\n\nPersonalizeの音楽サービスでの活用：\n- ユーザーの聴取履歴を分析\n- 好みのジャンルやアーティストを学習\n- パーソナライズされたプレイリストを生成\n- リアルタイムでの推薦更新\n- 類似ユーザーの傾向を参考\n\n推薦アルゴリズムの種類：\n- ユーザーパーソナライゼーション\n- 関連アイテム推薦\n- 人気ランキング\n- 新着アイテムの推薦\n\n実装メリット：\n- ユーザーエンゲージメントの向上\n- 再生時間の増加\n- 新しい音楽の発見促進\n- サブスクリプション継続率の向上\n\n他の選択肢が不適切な理由：\n- A: Amazon Forecastは時系列予測用\n- C: Amazon Comprehendはテキスト分析用\n- D: Amazon Rekognitionは画像/動画分析用\n\nPersonalizeはSpotifyやNetflixのようなパーソナライゼーション体験を実現します。",
+  "explanation": "<h5>詳細解説</h5><p>音楽ストリーミングサービスでユーザーの好みに基づいたプレイリスト生成には、パーソナライゼーションサービスが最適です。正解はB「Amazon Personalize」です。</p><h5>Personalizeの音楽サービスでの活用</h5><ul><li>ユーザーの聴取履歴を分析</li><li>好みのジャンルやアーティストを学習</li><li>パーソナライズされたプレイリストを生成</li><li>リアルタイムでの推薦更新</li><li>類似ユーザーの傾向を参考</li></ul><h5>推薦アルゴリズムの種類</h5><ul><li>ユーザーパーソナライゼーション</li><li>関連アイテム推薦</li><li>人気ランキング</li><li>新着アイテムの推薦</li></ul><h5>実装メリット</h5><ul><li>ユーザーエンゲージメントの向上</li><li>再生時間の増加</li><li>新しい音楽の発見促進</li><li>サブスクリプション継続率の向上</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) Amazon Forecast:</strong> Amazon Forecastは時系列予測用</li><li><strong>C) Amazon Comprehend:</strong> Amazon Comprehendはテキスト分析用</li><li><strong>D) Amazon Rekognition:</strong> Amazon Rekognitionは画像/動画分析用</li></ul><p>PersonalizeはSpotifyやNetflixのようなパーソナライゼーション体験を実現します。</p>",
   "resources": []
 }

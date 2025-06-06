@@ -23,7 +23,7 @@
   "correct": [
     1
   ],
-  "explanation": "\n                <h5>詳細解説</h5>\n                <p>Amazon SageMakerは、機械学習の全ライフサイクルをカバーする統合プラットフォームです。</p>\n                <h5>主要機能</h5>\n                <ul>\n                    <li>SageMaker Studio: 統合開発環境</li>\n                    <li>SageMaker Training: 分散学習</li>\n                    <li>SageMaker Endpoints: モデルのホスティング</li>\n                    <li>SageMaker Pipelines: MLOps</li>\n                </ul>\n            ",
+  "explanation": "\n                <h5>詳細解説</h5>\n                <p>Amazon SageMakerは、機械学習の全ライフサイクルをカバーする統合プラットフォームです。</p>\n                <h5>主要機能</h5>\n                <ul>\n                    <li>SageMaker Studio: 統合開発環境</li>\n                    <li>SageMaker Training: 分散学習</li>\n                    <li>SageMaker Endpoints: モデルのホスティング</li>\n                    <li>SageMaker Pipelines: MLOps</li>\n                </ul>\n            <h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) データベース管理:</strong> SageMakerは機械学習プラットフォームであり、データベース管理はRDSやDynamoDBの役割です。</li><li><strong>C) ウェブサイトのホスティング:</strong> SageMakerは機械学習プラットフォームであり、ウェブホスティングはEC2やS3の役割です。</li><li><strong>D) ファイルストレージ:</strong> SageMakerは機械学習プラットフォームであり、ストレージはS3やEFSの役割です。</li></ul>",
   "resources": [
     {
       "title": "Amazon SageMaker Developer Guide",

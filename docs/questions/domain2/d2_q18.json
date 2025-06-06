@@ -23,6 +23,6 @@
   "correct": [
     1
   ],
-  "explanation": "Amazon Comprehend Medicalは、医療テキストから情報を抽出するために特化された自然言語処理サービスです。正解はB「医療用語やPHI（保護対象保健情報）の抽出に特化」です。\n\nComprehend Medicalの主な機能：\n- 医療エンティティの抽出：\n  - 病名、症状\n  - 薬品名、投与量\n  - 検査結果\n  - 治療手順\n  - 解剖学的部位\n\n- PHIの検出と保護：\n  - 患者名\n  - 生年月日\n  - 住所\n  - 医療記録番号\n\n- 医療オントロジーへのリンク：\n  - ICD-10-CM（疾病分類）\n  - RxNorm（薬品データベース）\n  - SNOMED CT（医療用語）\n\n他の選択肢が誤りの理由：\n- A: 一般的なテキスト分析は通常のComprehendの機能\n- C: 画像診断はRekognitionや専門の医療画像サービス\n- D: 音声認識はTranscribeの機能\n\nComprehend MedicalはHIPAA準拠で、医療機関での使用に適しています。",
+  "explanation": "<h5>詳細解説</h5><p>Amazon Comprehend Medicalは、医療テキストから情報を抽出するために特化された自然言語処理サービスです。正解はB「医療用語やPHI（保護対象保健情報）の抽出に特化」です。</p><h5>Comprehend Medicalの主な機能</h5><ul><li>医療エンティティの抽出：</li><li>病名、症状</li><li>薬品名、投与量</li><li>検査結果</li><li>治療手順</li><li>解剖学的部位</li><li>PHIの検出と保護：</li><li>患者名</li><li>生年月日</li><li>住所</li><li>医療記録番号</li><li>医療オントロジーへのリンク：</li><li>ICD-10-CM（疾病分類）</li><li>RxNorm（薬品データベース）</li><li>SNOMED CT（医療用語）</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) 一般的なテキスト分析のみに対応:</strong> 一般的なテキスト分析は通常のComprehendの機能</li><li><strong>C) 画像診断に使用される:</strong> 画像診断はRekognitionや専門の医療画像サービス</li><li><strong>D) 音声認識に特化:</strong> 音声認識はTranscribeの機能</li></ul><p>Comprehend MedicalはHIPAA準拠で、医療機関での使用に適しています。</p>",
   "resources": []
 }

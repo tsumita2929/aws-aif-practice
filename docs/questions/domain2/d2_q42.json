@@ -23,6 +23,6 @@
   "correct": [
     1
   ],
-  "explanation": "Amazon Monitronは、産業機器の状態監視と予知保全に特化したエンドツーエンドシステムです。\n\n選択肢Bが正解である理由：\n\nMonitronの主な機能：\n- 振動と温度センサーによる機器の状態監視\n- 機械学習による異常検知\n- 予知保全アラートの自動生成\n- 機器の故障を事前に予測\n- 設置と設定が簡単（コーディング不要）\n\n対象となる産業機器：\n- モーター\n- ポンプ\n- ファン\n- コンプレッサー\n- ギアボックス\n- その他の回転機器\n\n他の選択肢が不正解である理由：\n- A: ウェブサイトの監視にはAmazon CloudWatchやAWS X-Rayが適しています\n- C: ネットワークトラフィック分析にはVPC Flow LogsやAWS Network Firewall が使用されます\n- D: アプリケーションパフォーマンス監視にはCloudWatch Application InsightsやX-Rayが適しています\n\nMonitronの利点：\n- 計画外のダウンタイムの削減\n- メンテナンスコストの最適化\n- 機器寿命の延長\n- 専門知識不要で導入可能\n- ISO認証取得済みのセンサー使用",
+  "explanation": "<h5>詳細解説</h5><p>Amazon Monitronは、産業機器の状態監視と予知保全に特化したエンドツーエンドシステムです。</p><h5>選択肢Bが正解である理由</h5><h5>Monitronの主な機能</h5><ul><li>振動と温度センサーによる機器の状態監視</li><li>機械学習による異常検知</li><li>予知保全アラートの自動生成</li><li>機器の故障を事前に予測</li><li>設置と設定が簡単（コーディング不要）</li></ul><h5>対象となる産業機器</h5><ul><li>モーター</li><li>ポンプ</li><li>ファン</li><li>コンプレッサー</li><li>ギアボックス</li><li>その他の回転機器</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) ウェブサイトの監視:</strong> ウェブサイトの監視にはAmazon CloudWatchやAWS X-Rayが適しています</li><li><strong>C) ネットワークトラフィックの分析:</strong> ネットワークトラフィック分析にはVPC Flow LogsやAWS Network Firewall が使用されます</li><li><strong>D) アプリケーションのパフォーマンス監視:</strong> アプリケーションパフォーマンス監視にはCloudWatch Application InsightsやX-Rayが適しています</li></ul><h5>Monitronの利点</h5><ul><li>計画外のダウンタイムの削減</li><li>メンテナンスコストの最適化</li><li>機器寿命の延長</li><li>専門知識不要で導入可能</li><li>ISO認証取得済みのセンサー使用</li></ul>",
   "resources": []
 }

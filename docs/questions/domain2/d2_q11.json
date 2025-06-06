@@ -23,6 +23,6 @@
   "correct": [
     1
   ],
-  "explanation": "Amazon PollyとAmazon Transcribeは、音声とテキストの変換において正反対の機能を提供します。正解はB「Pollyはテキスト読み上げ、Transcribeは音声認識」です。\n\nAmazon Polly：\n- テキストから音声への変換（Text-to-Speech: TTS）\n- 自然な音声合成\n- 複数の言語と音声オプション\n- SSML（Speech Synthesis Markup Language）のサポート\n\nAmazon Transcribe：\n- 音声からテキストへの変換（Speech-to-Text: STT）\n- リアルタイムおよびバッチ処理\n- 話者識別機能\n- カスタム語彙のサポート\n\n覚え方：\n- Polly = 「ポリー」が「読み上げる」（テキスト→音声）\n- Transcribe = 「転写」する（音声→テキスト）\n\nこれらのサービスは、音声アシスタント、コールセンターソリューション、アクセシビリティ向上など、様々なユースケースで活用されています。",
+  "explanation": "<h5>詳細解説</h5><p>Amazon PollyとAmazon Transcribeは、音声とテキストの変換において正反対の機能を提供します。正解はB「Pollyはテキスト読み上げ、Transcribeは音声認識」です。</p><h5>Amazon Polly</h5><ul><li>テキストから音声への変換（Text-to-Speech: TTS）</li><li>自然な音声合成</li><li>複数の言語と音声オプション</li><li>SSML（Speech Synthesis Markup Language）のサポート</li></ul><h5>Amazon Transcribe</h5><ul><li>音声からテキストへの変換（Speech-to-Text: STT）</li><li>リアルタイムおよびバッチ処理</li><li>話者識別機能</li><li>カスタム語彙のサポート</li></ul><h5>覚え方</h5><ul><li>Polly = 「ポリー」が「読み上げる」（テキスト→音声）</li><li>Transcribe = 「転写」する（音声→テキスト）</li></ul><p>これらのサービスは、音声アシスタント、コールセンターソリューション、アクセシビリティ向上など、様々なユースケースで活用されています。</p><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) Pollyは音声認識、Transcribeはテキスト読み上げ:</strong> これは正反対です。Pollyはテキストを音声に変換し、Transcribeは音声をテキストに変換します。</li><li><strong>C) 両方とも同じ機能を提供:</strong> 両サービスは全く異なる機能を提供します。PollyはTTS（Text-to-Speech）、TranscribeはSTT（Speech-to-Text）です。</li><li><strong>D) Pollyは画像認識、Transcribeは動画認識:</strong> 両サービスとも音声関連のサービスであり、画像や動画認識機能はありません。画像認識はRekognitionの役割です。</li></ul>",
   "resources": []
 }

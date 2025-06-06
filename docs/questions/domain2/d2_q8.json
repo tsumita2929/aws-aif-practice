@@ -23,6 +23,6 @@
   "correct": [
     0
   ],
-  "explanation": "Amazon Textractは、スキャンされた文書からテキストとデータを自動的に抽出する機械学習サービスです。正解はA「Amazon Textract」です。\n\nTextractの主な機能：\n- PDFや画像からのテキスト抽出\n- 表やフォームの構造を維持したデータ抽出\n- キーバリューペアの認識\n- 手書き文字の認識\n- 複数ページのPDFの処理\n\n法律事務所のシナリオにおいて：\n- 契約書の重要な条項（日付、金額、当事者名など）を自動抽出\n- 大量のPDFを効率的に処理\n- 抽出したデータを構造化してデータベースに保存\n\n他の選択肢について：\n- B: Amazon Transcribeは音声をテキストに変換するサービス\n- C: Amazon Lexはチャットボットや音声対話インターフェースを構築するサービス\n- D: Amazon Forecastは時系列データの予測サービス\n\nTextractはOCRを超えた機能を提供し、文書のコンテキストを理解して情報を抽出できます。",
+  "explanation": "<h5>詳細解説</h5><p>Amazon Textractは、スキャンされた文書からテキストとデータを自動的に抽出する機械学習サービスです。正解はA「Amazon Textract」です。</p><h5>Textractの主な機能</h5><ul><li>PDFや画像からのテキスト抽出</li><li>表やフォームの構造を維持したデータ抽出</li><li>キーバリューペアの認識</li><li>手書き文字の認識</li><li>複数ページのPDFの処理</li></ul><h5>法律事務所のシナリオにおいて</h5><ul><li>契約書の重要な条項（日付、金額、当事者名など）を自動抽出</li><li>大量のPDFを効率的に処理</li><li>抽出したデータを構造化してデータベースに保存</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>B) Amazon Transcribe:</strong> Amazon Transcribeは音声をテキストに変換するサービス</li><li><strong>C) Amazon Lex:</strong> Amazon Lexはチャットボットや音声対話インターフェースを構築するサービス</li><li><strong>D) Amazon Forecast:</strong> Amazon Forecastは時系列データの予測サービス</li></ul><p>TextractはOCRを超えた機能を提供し、文書のコンテキストを理解して情報を抽出できます。</p>",
   "resources": []
 }

@@ -23,6 +23,6 @@
   "correct": [
     1
   ],
-  "explanation": "Amazon Elastic Inference (EI) は、推論ワークロードのコストを削減するために設計されたサービスで、EC2インスタンスやSageMakerインスタンスにGPUアクセラレーションを付加します。\n\n**正解（B）の理由：**\n- Elastic Inferenceは推論専用のGPUアクセラレーションを提供\n- フルGPUインスタンスよりも最大75%のコスト削減が可能\n- 必要な推論性能に応じて適切なサイズのアクセラレーターを選択可能\n- EC2、SageMaker、ECSタスクにアタッチして使用\n\n**他の選択肢が不適切な理由：**\n- A: モデルのトレーニング高速化はGPUインスタンスやSageMakerトレーニングジョブの役割で、EIは推論専用です\n- C: データの前処理はSageMaker Processing JobsやGlueなどの役割です\n- D: モデルの精度向上は機械学習アルゴリズムやハイパーパラメータチューニングの領域で、EIの機能ではありません\n\nElastic Inferenceは、推論ワークロードに必要十分なGPUリソースを提供することで、過剰なコストを抑えながら高速な推論を実現する効率的なソリューションです。",
+  "explanation": "<h5>詳細解説</h5><p>Amazon Elastic Inference (EI) は、推論ワークロードのコストを削減するために設計されたサービスで、EC2インスタンスやSageMakerインスタンスにGPUアクセラレーションを付加します。</p><h5>**正解（B）の理由：**</h5><ul><li>Elastic Inferenceは推論専用のGPUアクセラレーションを提供</li><li>フルGPUインスタンスよりも最大75%のコスト削減が可能</li><li>必要な推論性能に応じて適切なサイズのアクセラレーターを選択可能</li><li>EC2、SageMaker、ECSタスクにアタッチして使用</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) モデルのトレーニングを高速化:</strong> モデルのトレーニング高速化はGPUインスタンスやSageMakerトレーニングジョブの役割で、EIは推論専用です</li><li><strong>C) データの前処理:</strong> データの前処理はSageMaker Processing JobsやGlueなどの役割です</li><li><strong>D) モデルの精度向上:</strong> モデルの精度向上は機械学習アルゴリズムやハイパーパラメータチューニングの領域で、EIの機能ではありません</li></ul><p>Elastic Inferenceは、推論ワークロードに必要十分なGPUリソースを提供することで、過剰なコストを抑えながら高速な推論を実現する効率的なソリューションです。</p>",
   "resources": []
 }

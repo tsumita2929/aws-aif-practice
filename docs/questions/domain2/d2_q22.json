@@ -23,6 +23,6 @@
   "correct": [
     0
   ],
-  "explanation": "製造業の機器故障予測には、異常検知と予知保全に特化したAWSサービスが最適です。正解はA「Amazon Lookout for Equipment + Amazon Monitron」です。\n\n各サービスの役割：\n\nAmazon Lookout for Equipment：\n- センサーデータの異常検出\n- 機器の故障予測\n- ダウンタイムの削減\n- メンテナンスコストの最適化\n\nAmazon Monitron：\n- エンドツーエンドの機器監視ソリューション\n- センサー（振動、温度）の提供\n- モバイルアプリでの監視\n- 簡単なセットアップ\n\n統合ソリューションの利点：\n- 予知保全の実現\n- 計画外停止の削減\n- 保守コストの最適化\n- 生産性の向上\n\n他の選択肢が不適切な理由：\n- B: Rekognition（画像分析）とComprehend（テキスト分析）\n- C: Lex（チャットボット）とPolly（音声合成）\n- D: Textract（文書抽出）とTranslate（翻訳）\n\nこれらはいずれも機器故障予測には関連しません。\n\n製造業のIoTデータを活用した予知保全には、専門的なサービスの組み合わせが重要です。",
+  "explanation": "<h5>詳細解説</h5><p>製造業の機器故障予測には、異常検知と予知保全に特化したAWSサービスが最適です。正解はA「Amazon Lookout for Equipment + Amazon Monitron」です。</p><h5>各サービスの役割</h5><h5>Amazon Lookout for Equipment</h5><ul><li>センサーデータの異常検出</li><li>機器の故障予測</li><li>ダウンタイムの削減</li><li>メンテナンスコストの最適化</li></ul><h5>Amazon Monitron</h5><ul><li>エンドツーエンドの機器監視ソリューション</li><li>センサー（振動、温度）の提供</li><li>モバイルアプリでの監視</li><li>簡単なセットアップ</li></ul><h5>統合ソリューションの利点</h5><ul><li>予知保全の実現</li><li>計画外停止の削減</li><li>保守コストの最適化</li><li>生産性の向上</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>B) Amazon Rekognition + Amazon Comprehend:</strong> Rekognition（画像分析）とComprehend（テキスト分析）</li><li><strong>C) Amazon Lex + Amazon Polly:</strong> Lex（チャットボット）とPolly（音声合成）</li><li><strong>D) Amazon Textract + Amazon Translate:</strong> Textract（文書抽出）とTranslate（翻訳）</li></ul><p>これらはいずれも機器故障予測には関連しません。</p><p>製造業のIoTデータを活用した予知保全には、専門的なサービスの組み合わせが重要です。</p>",
   "resources": []
 }

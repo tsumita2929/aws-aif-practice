@@ -23,6 +23,6 @@
   "correct": [
     1
   ],
-  "explanation": "Amazon DevOps Guruは、機械学習を使用してアプリケーションの運用上の問題を自動的に検出し、解決策を提案するサービスです。\n\n選択肢Bが正解である理由：\n\nDevOps Guruの主な機能：\n- 異常なアプリケーション動作の予測的検出\n- パフォーマンス低下の早期警告\n- 運用上の問題の根本原因分析\n- 問題解決のための具体的な推奨事項の提供\n- CloudFormationスタックやAWSリソースの自動監視\n\n機械学習による検出内容：\n- レイテンシーの異常な増加\n- エラー率の急上昇\n- リソース使用率の異常パターン\n- 通常とは異なるトラフィックパターン\n- 関連するメトリクスの相関分析\n\n他の選択肢が不正解である理由：\n- A: コード生成はAmazon CodeWhispererやCodeCatalystの機能です\n- C: 画像分析はAmazon Rekognitionが提供します\n- D: 音声認識はAmazon Transcribeの機能です\n\nDevOps Guruの利点：\n- 運用チームの負担軽減\n- MTTR（平均復旧時間）の短縮\n- 予防的な問題対処が可能\n- AWSのベストプラクティスに基づいた推奨\n- CloudWatchやX-Rayとの統合",
+  "explanation": "<h5>詳細解説</h5><p>Amazon DevOps Guruは、機械学習を使用してアプリケーションの運用上の問題を自動的に検出し、解決策を提案するサービスです。</p><h5>選択肢Bが正解である理由</h5><h5>DevOps Guruの主な機能</h5><ul><li>異常なアプリケーション動作の予測的検出</li><li>パフォーマンス低下の早期警告</li><li>運用上の問題の根本原因分析</li><li>問題解決のための具体的な推奨事項の提供</li><li>CloudFormationスタックやAWSリソースの自動監視</li></ul><h5>機械学習による検出内容</h5><ul><li>レイテンシーの異常な増加</li><li>エラー率の急上昇</li><li>リソース使用率の異常パターン</li><li>通常とは異なるトラフィックパターン</li><li>関連するメトリクスの相関分析</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) コード生成:</strong> コード生成はAmazon CodeWhispererやCodeCatalystの機能です</li><li><strong>C) 画像分析:</strong> 画像分析はAmazon Rekognitionが提供します</li><li><strong>D) 音声認識:</strong> 音声認識はAmazon Transcribeの機能です</li></ul><h5>DevOps Guruの利点</h5><ul><li>運用チームの負担軽減</li><li>MTTR（平均復旧時間）の短縮</li><li>予防的な問題対処が可能</li><li>AWSのベストプラクティスに基づいた推奨</li><li>CloudWatchやX-Rayとの統合</li></ul>",
   "resources": []
 }

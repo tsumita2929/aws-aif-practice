@@ -23,6 +23,6 @@
   "correct": [
     2
   ],
-  "explanation": "\n                <h5>詳細解説</h5>\n                <p>Amazon Rekognitionは画像・動画分析サービスで、顔検出と感情分析機能を提供します。</p>\n                <h5>Rekognitionの顔分析機能</h5>\n                <ul>\n                    <li>顔の検出と位置特定</li>\n                    <li>感情分析（喜び、悲しみ、怒りなど）</li>\n                    <li>年齢・性別の推定</li>\n                    <li>顔の比較と検索</li>\n                </ul>\n            ",
+  "explanation": "\n                <h5>詳細解説</h5>\n                <p>Amazon Rekognitionは画像・動画分析サービスで、顔検出と感情分析機能を提供します。</p>\n                <h5>Rekognitionの顔分析機能</h5>\n                <ul>\n                    <li>顔の検出と位置特定</li>\n                    <li>感情分析（喜び、悲しみ、怒りなど）</li>\n                    <li>年齢・性別の推定</li>\n                    <li>顔の比較と検索</li>\n                </ul>\n            <h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) Amazon Comprehend:</strong> Comprehendは自然言語処理（NLP）サービスで、テキストの分析に特化しています。画像分析機能はありません。</li><li><strong>B) Amazon Textract:</strong> Textractは文書からテキストやデータを抽出するサービスで、顔検出や感情分析機能はありません。</li><li><strong>D) Amazon Polly:</strong> Pollyはテキストを音声に変換するサービスで、画像分析機能はまったくありません。</li></ul>",
   "resources": []
 }

@@ -23,6 +23,6 @@
   "correct": [
     1
   ],
-  "explanation": "Amazon Forecastは、時系列データを使用して将来の予測を行う機械学習サービスです。正解はB「商品の需要予測」です。\n\nAmazon Forecastの主なユースケース：\n- 小売業の在庫計画\n- 製造業の生産計画\n- 電力需要の予測\n- Webトラフィックの予測\n- 財務計画\n\nForecastの特徴：\n- 時系列データに特化したアルゴリズム\n- 複数の予測モデルを自動選択\n- 季節性やトレンドの考慮\n- 外部要因（天候、イベントなど）の組み込み\n\n他の選択肢が不適切な理由：\n- A: 顧客の感情分析はAmazon Comprehendの機能\n- C: 画像の分類はAmazon RekognitionやSageMakerの機能\n- D: テキストの要約はAmazon Comprehendや大規模言語モデルの機能\n\nForecastはAmazon.comで使用されている予測技術をベースにしており、高精度な需要予測が可能です。",
+  "explanation": "<h5>詳細解説</h5><p>Amazon Forecastは、時系列データを使用して将来の予測を行う機械学習サービスです。正解はB「商品の需要予測」です。</p><h5>Amazon Forecastの主なユースケース</h5><ul><li>小売業の在庫計画</li><li>製造業の生産計画</li><li>電力需要の予測</li><li>Webトラフィックの予測</li><li>財務計画</li></ul><h5>Forecastの特徴</h5><ul><li>時系列データに特化したアルゴリズム</li><li>複数の予測モデルを自動選択</li><li>季節性やトレンドの考慮</li><li>外部要因（天候、イベントなど）の組み込み</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) 顧客の感情分析:</strong> 顧客の感情分析はAmazon Comprehendの機能</li><li><strong>C) 画像の分類:</strong> 画像の分類はAmazon RekognitionやSageMakerの機能</li><li><strong>D) テキストの要約:</strong> テキストの要約はAmazon Comprehendや大規模言語モデルの機能</li></ul><p>ForecastはAmazon.comで使用されている予測技術をベースにしており、高精度な需要予測が可能です。</p>",
   "resources": []
 }

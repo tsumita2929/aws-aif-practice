@@ -23,6 +23,6 @@
   "correct": [
     0
   ],
-  "explanation": "Amazon Fraud Detectorは、機械学習を使用してオンライン詐欺を検出するフルマネージドサービスです。正解はA「Amazon Fraud Detector」です。\n\nFraud Detectorの主な機能：\n- リアルタイム詐欺検出\n- カスタムルールの作成\n- 機械学習モデルの自動構築\n- スコアリングとリスク評価\n- 詐欺パターンの学習\n\n金融機関での使用例：\n- クレジットカード取引の異常検出\n- アカウント乗っ取りの防止\n- 送金詐欺の検出\n- 新規アカウントのリスク評価\n- マネーロンダリングの検出\n\n検出モデルの種類：\n- オンライン詐欺インサイト（OFI）\n- トランザクション詐欺インサイト（TFI）\n- アカウント乗っ取りインサイト（ATI）\n\n他の選択肢が不適切な理由：\n- B: Amazon Personalizeはレコメンデーション用\n- C: Amazon Forecastは時系列予測用\n- D: Amazon Translateは言語翻訳用\n\nFraud DetectorはAmazonの20年以上の詐欺検出経験を活用し、高精度な検出を実現します。",
+  "explanation": "<h5>詳細解説</h5><p>Amazon Fraud Detectorは、機械学習を使用してオンライン詐欺を検出するフルマネージドサービスです。正解はA「Amazon Fraud Detector」です。</p><h5>Fraud Detectorの主な機能</h5><ul><li>リアルタイム詐欺検出</li><li>カスタムルールの作成</li><li>機械学習モデルの自動構築</li><li>スコアリングとリスク評価</li><li>詐欺パターンの学習</li></ul><h5>金融機関での使用例</h5><ul><li>クレジットカード取引の異常検出</li><li>アカウント乗っ取りの防止</li><li>送金詐欺の検出</li><li>新規アカウントのリスク評価</li><li>マネーロンダリングの検出</li></ul><h5>検出モデルの種類</h5><ul><li><strong>オンライン詐欺インサイト（OFI）</strong></li><li><strong>トランザクション詐欺インサイト（TFI）</strong></li><li><strong>アカウント乗っ取りインサイト（ATI）</strong></li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>B) Amazon Personalize:</strong> Amazon Personalizeはレコメンデーション用</li><li><strong>C) Amazon Forecast:</strong> Amazon Forecastは時系列予測用</li><li><strong>D) Amazon Translate:</strong> Amazon Translateは言語翻訳用</li></ul><p>Fraud DetectorはAmazonの20年以上の詐欺検出経験を活用し、高精度な検出を実現します。</p>",
   "resources": []
 }
