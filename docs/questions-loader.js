@@ -3,7 +3,8 @@ window.QuestionsLoader = {
     // キャッシュ
     cache: {
         domains: {},
-        questions: {}
+        questions: {},
+        groups: {}
     },
 
     // デバッグモードフラグ
@@ -66,7 +67,7 @@ window.QuestionsLoader = {
         }
     },
 
-    // 特定の問題を読み込む
+    // 特定の問題を読み込む（グループファイルから）
     async loadQuestion(domainNumber, questionId) {
         const cacheKey = `${domainNumber}_${questionId}`;
         if (this.cache.questions[cacheKey]) {
@@ -75,17 +76,26 @@ window.QuestionsLoader = {
         }
 
         try {
-            const url = `questions/domain${domainNumber}/${questionId}.json`;
-            this.log(`Loading question from: ${url}`);
-            
-            const response = await fetch(url);
-            
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            // 問題IDから問題番号を抽出 (例: d1_q15 -> 15)
+            const questionMatch = questionId.match(/d\d+_q(\d+)/);
+            if (!questionMatch) {
+                throw new Error(`Invalid question ID format: ${questionId}`);
             }
             
-            const question = await response.json();
-            this.log(`Successfully loaded question ${questionId}`);
+            const questionNumber = parseInt(questionMatch[1]);
+            const groupNumber = Math.ceil(questionNumber / 10); // 1-10: group1, 11-20: group2, etc.
+            const indexInGroup = (questionNumber - 1) % 10; // 0-9
+            
+            this.log(`Loading question ${questionId} from group ${groupNumber} (index ${indexInGroup})`);
+            
+            // グループを読み込む
+            const group = await this.loadGroup(domainNumber, groupNumber);
+            if (!group || !group.questions || !group.questions[indexInGroup]) {
+                throw new Error(`Question not found in group: ${questionId}`);
+            }
+            
+            const question = group.questions[indexInGroup];
+            this.log(`Successfully loaded question ${questionId} from group`);
             
             this.cache.questions[cacheKey] = question;
             return question;
@@ -95,29 +105,32 @@ window.QuestionsLoader = {
         }
     },
 
-    // ドメインのすべての問題を読み込む
+    // ドメインのすべての問題を読み込む（グループファイルから）
     async loadDomainQuestions(domainNumber) {
         this.log(`Loading all questions for domain ${domainNumber}`);
         
         const index = await this.loadDomainIndex(domainNumber);
-        if (!index) {
-            this.logError(`No index found for domain ${domainNumber}`);
+        if (!index || !index.groups) {
+            this.logError(`No groups found for domain ${domainNumber}`);
             return [];
         }
 
-        this.log(`Found ${index.questions.length} questions in domain ${domainNumber}`);
+        this.log(`Found ${index.groups.length} groups in domain ${domainNumber}`);
         
         const questions = [];
         
-        // バッチ処理で効率化
-        const batchSize = 5;
-        for (let i = 0; i < index.questions.length; i += batchSize) {
-            const batch = index.questions.slice(i, i + batchSize);
-            const batchResults = await this.loadQuestionsParallel(domainNumber, batch);
-            questions.push(...batchResults);
-            
-            // 進捗ログ
-            this.log(`Loaded ${questions.length}/${index.questions.length} questions`);
+        // 各グループから問題を読み込む
+        for (const groupInfo of index.groups) {
+            const group = await this.loadGroup(domainNumber, groupInfo.id);
+            if (group && group.questions) {
+                // 各問題にドメイン情報を追加
+                const groupQuestions = group.questions.map(q => ({
+                    ...q,
+                    domain: domainNumber
+                }));
+                questions.push(...groupQuestions);
+                this.log(`Loaded ${groupQuestions.length} questions from group ${groupInfo.id}`);
+            }
         }
 
         this.log(`Successfully loaded ${questions.length} questions for domain ${domainNumber}`);
@@ -131,26 +144,89 @@ window.QuestionsLoader = {
         return results.filter(q => q !== null);
     },
 
-    // ランダムな問題を取得
+    // グループを読み込む（新機能）
+    async loadGroup(domainNumber, groupNumber) {
+        const cacheKey = `${domainNumber}_group${groupNumber}`;
+        if (this.cache.groups[cacheKey]) {
+            this.log(`Using cached group: domain${domainNumber}/group${groupNumber}`);
+            return this.cache.groups[cacheKey];
+        }
+
+        try {
+            const url = `questions/domain${domainNumber}/groups/group${groupNumber}.json`;
+            this.log(`Loading group from: ${url}`);
+            
+            const response = await fetch(url);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            
+            const group = await response.json();
+            this.log(`Successfully loaded group ${groupNumber} from domain ${domainNumber}`);
+            
+            this.cache.groups[cacheKey] = group;
+            return group;
+        } catch (error) {
+            this.logError(`Failed to load group ${groupNumber} from domain ${domainNumber}`, error);
+            return null;
+        }
+    },
+
+    // ドメインのすべてのグループを読み込む
+    async loadDomainGroups(domainNumber) {
+        this.log(`Loading all groups for domain ${domainNumber}`);
+        
+        const index = await this.loadDomainIndex(domainNumber);
+        if (!index || !index.groups) {
+            this.logError(`No groups found for domain ${domainNumber}`);
+            return [];
+        }
+
+        this.log(`Found ${index.groups.length} groups in domain ${domainNumber}`);
+        
+        const groups = [];
+        
+        // 並列でグループを読み込む
+        const promises = index.groups.map(g => this.loadGroup(domainNumber, g.id));
+        const results = await Promise.all(promises);
+        groups.push(...results.filter(g => g !== null));
+
+        this.log(`Successfully loaded ${groups.length} groups for domain ${domainNumber}`);
+        return groups;
+    },
+
+    // 特定のグループから問題を取得
+    async getQuestionsFromGroup(domainNumber, groupNumber) {
+        const group = await this.loadGroup(domainNumber, groupNumber);
+        if (!group) {
+            return [];
+        }
+        
+        return group.questions.map(q => ({
+            ...q,
+            domain: domainNumber,
+            group: groupNumber
+        }));
+    },
+
+    // ランダムな問題を取得（グループから）
     async getRandomQuestions(count = 5) {
         this.log(`Getting ${count} random questions`);
         const allQuestions = [];
         
         // 各ドメインから問題をランダムに選択
         for (let domain = 1; domain <= 4; domain++) {
-            const index = await this.loadDomainIndex(domain);
-            if (index) {
-                // ランダムに問題IDを選択
-                const shuffled = [...index.questions].sort(() => Math.random() - 0.5);
+            const domainQuestions = await this.loadDomainQuestions(domain);
+            if (domainQuestions.length > 0) {
+                // ランダムに問題を選択
+                const shuffled = [...domainQuestions].sort(() => Math.random() - 0.5);
                 const selected = shuffled.slice(0, Math.ceil(count / 4));
                 
-                // 選択した問題を読み込む
-                const questions = await this.loadQuestionsParallel(domain, selected);
-                questions.forEach(q => {
+                selected.forEach(q => {
                     allQuestions.push({
                         ...q,
-                        domain: domain,
-                        originalIndex: index.questions.indexOf(q.id)
+                        domain: domain
                     });
                 });
             }
@@ -162,7 +238,7 @@ window.QuestionsLoader = {
         return result;
     },
 
-    // 試験用の問題セットを生成
+    // 試験用の問題セットを生成（グループから）
     async generateExamQuestions() {
         this.log('Generating exam questions');
         const distribution = {
@@ -176,23 +252,21 @@ window.QuestionsLoader = {
 
         for (const [domain, count] of Object.entries(distribution)) {
             const domainNum = parseInt(domain);
-            const index = await this.loadDomainIndex(domainNum);
+            const domainQuestions = await this.loadDomainQuestions(domainNum);
             
-            if (index) {
+            if (domainQuestions.length > 0) {
                 // ランダムに必要数の問題を選択
-                const shuffled = [...index.questions].sort(() => Math.random() - 0.5);
+                const shuffled = [...domainQuestions].sort(() => Math.random() - 0.5);
                 const selected = shuffled.slice(0, count);
                 
-                // 選択した問題を読み込む
-                const questions = await this.loadQuestionsParallel(domainNum, selected);
-                questions.forEach(q => {
+                selected.forEach(q => {
                     examQuestions.push({
                         ...q,
                         domain: domainNum
                     });
                 });
                 
-                this.log(`Added ${questions.length} questions from domain ${domainNum}`);
+                this.log(`Added ${selected.length} questions from domain ${domainNum}`);
             }
         }
 
@@ -206,38 +280,60 @@ window.QuestionsLoader = {
     clearCache() {
         this.cache = {
             domains: {},
-            questions: {}
+            questions: {},
+            groups: {}
         };
         this.log('Cache cleared');
     },
 
     // テスト関数：システムの動作確認
     async testLoader() {
-        console.log('=== Testing Questions Loader ===');
+        console.log('=== Testing Questions Loader (Group-based) ===');
         
         // ドメイン1のインデックスをテスト
         console.log('1. Testing domain index loading...');
         const index = await this.loadDomainIndex(1);
-        if (index) {
+        if (index && index.groups) {
             console.log('✅ Domain index loaded successfully');
-            console.log(`   - Questions count: ${index.questionCount}`);
-            console.log(`   - First question ID: ${index.questions[0]}`);
+            console.log(`   - Groups count: ${index.groups.length}`);
+            console.log(`   - Total questions: ${index.questionCount}`);
         } else {
             console.log('❌ Failed to load domain index');
+            return;
         }
         
-        // 最初の問題を読み込みテスト
-        if (index && index.questions.length > 0) {
-            console.log('\n2. Testing single question loading...');
-            const question = await this.loadQuestion(1, index.questions[0]);
-            if (question) {
-                console.log('✅ Question loaded successfully');
-                console.log(`   - Question text: ${question.text.substring(0, 50)}...`);
-                console.log(`   - Choices count: ${question.choices.length}`);
-            } else {
-                console.log('❌ Failed to load question');
-            }
+        // グループ1を読み込みテスト
+        console.log('\n2. Testing group loading...');
+        const group1 = await this.loadGroup(1, 1);
+        if (group1) {
+            console.log('✅ Group 1 loaded successfully');
+            console.log(`   - Group title: ${group1.title}`);
+            console.log(`   - Questions in group: ${group1.questionCount}`);
+        } else {
+            console.log('❌ Failed to load group');
         }
+        
+        // 個別問題の読み込みテスト（グループから）
+        console.log('\n3. Testing single question loading from group...');
+        const question = await this.loadQuestion(1, 'd1_q15');
+        if (question) {
+            console.log('✅ Question loaded successfully from group');
+            console.log(`   - Question ID: ${question.id}`);
+            console.log(`   - Question text: ${question.text.substring(0, 50)}...`);
+            console.log(`   - Loaded from group: 2`);
+        } else {
+            console.log('❌ Failed to load question from group');
+        }
+        
+        // ドメインの全問題読み込みテスト
+        console.log('\n4. Testing domain questions loading...');
+        const domainQuestions = await this.loadDomainQuestions(1);
+        console.log(`✅ Loaded ${domainQuestions.length} questions from domain 1`);
+        
+        // ランダム問題テスト
+        console.log('\n5. Testing random questions...');
+        const randomQuestions = await this.getRandomQuestions(5);
+        console.log(`✅ Generated ${randomQuestions.length} random questions`);
         
         console.log('\n=== Test Complete ===');
     }
@@ -257,6 +353,19 @@ window.getTotalQuestionCount = async function() {
         }
     }
     return total;
+};
+
+// 新しいグループ機能のラッパー関数
+window.getQuestionsForGroup = async function(domain, group) {
+    return await window.QuestionsLoader.getQuestionsFromGroup(domain, group);
+};
+
+window.getDomainGroups = async function(domain) {
+    return await window.QuestionsLoader.loadDomainGroups(domain);
+};
+
+window.getGroupInfo = async function(domain, group) {
+    return await window.QuestionsLoader.loadGroup(domain, group);
 };
 
 // ページ読み込み時の初期化（テストは実行しない）
