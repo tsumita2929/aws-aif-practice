@@ -1,0 +1,309 @@
+{
+  "domain": 2,
+  "group": 1,
+  "title": "基本サービス",
+  "description": "SageMaker、Rekognition、Bedrock、Textract、Comprehend、Personalize",
+  "questionCount": 10,
+  "questions": [
+    {
+      "id": "d2_q1",
+      "type": "single",
+      "text": "Amazon SageMakerの主な用途として最も適切なものはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "データベース管理"
+        },
+        {
+          "label": "B",
+          "text": "機械学習モデルの構築、トレーニング、デプロイ"
+        },
+        {
+          "label": "C",
+          "text": "ウェブサイトのホスティング"
+        },
+        {
+          "label": "D",
+          "text": "ファイルストレージ"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "\n                <h5>詳細解説</h5>\n                <p>Amazon SageMakerは、機械学習の全ライフサイクルをカバーする統合プラットフォームです。</p>\n                <h5>主要機能</h5>\n                <ul>\n                    <li>SageMaker Studio: 統合開発環境</li>\n                    <li>SageMaker Training: 分散学習</li>\n                    <li>SageMaker Endpoints: モデルのホスティング</li>\n                    <li>SageMaker Pipelines: MLOps</li>\n                </ul>\n            <h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) データベース管理:</strong> SageMakerは機械学習プラットフォームであり、データベース管理はRDSやDynamoDBの役割です。</li><li><strong>C) ウェブサイトのホスティング:</strong> SageMakerは機械学習プラットフォームであり、ウェブホスティングはEC2やS3の役割です。</li><li><strong>D) ファイルストレージ:</strong> SageMakerは機械学習プラットフォームであり、ストレージはS3やEFSの役割です。</li></ul>",
+      "resources": [
+        {
+          "title": "Amazon SageMaker Developer Guide",
+          "url": "https://docs.aws.amazon.com/sagemaker/"
+        }
+      ]
+    },
+    {
+      "id": "d2_q2",
+      "type": "multiple",
+      "text": "スタートアップ企業が限られた予算（月$1,000）でMLプラットフォームを選定しています。Amazon SageMakerを選択する際の最も説得力のある利点を2つ選択してください。",
+      "choices": [
+        {
+          "label": "A",
+          "text": "SageMaker Studioによる統合開発環境で、Jupyter環境の管理コストを削減"
+        },
+        {
+          "label": "B",
+          "text": "マネージドスポットトレーニングで訓練コストを最大90%削減可能"
+        },
+        {
+          "label": "C",
+          "text": "常に最新のGPUインスタンスが利用できる"
+        },
+        {
+          "label": "D",
+          "text": "オンプレミスより必ず安価になる"
+        },
+        {
+          "label": "E",
+          "text": "自動モデルチューニング（HPO）により、手動での実験回数を削減"
+        }
+      ],
+      "correct": [
+        0,
+        1
+      ],
+      "explanation": "\n                <h5>詳細解説</h5>\n                <p>限られた予算では、コスト削減と効率化が重要です。</p>\n                <h5>コスト最適化の詳細</h5>\n                <ul>\n                    <li><strong>A:</strong> Jupyter環境の構築・管理が不要で、人的コストを削減</li>\n                    <li><strong>B:</strong> スポットインスタンスは中断可能だが、大幅なコスト削減が可能</li>\n                </ul>\n                <h5>コスト計算例</h5>\n                <pre><code>通常インスタンス: $500/月\nスポットインスタンス: $50-150/月（最大90%削減）\n節約額: $350-450/月</code></pre>\n            <h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>C) 常に最新のGPUインスタンスが利用できる:</strong> 最新GPUの利用は可能ですが、限られた予算のスタートアップにとっては、GPUインスタンスは高額であり、コスト削減の観点からは最優先事項ではありません。</li><li><strong>D) オンプレミスより必ず安価になる:</strong> これは誤った認識です。使用パターンによってはオンプレミスの方が安価になる場合もあり、特に常時稼働が必要な場合は注意が必要です。</li><li><strong>E) 自動モデルチューニング（HPO）により、手動での実験回数を削減:</strong> HPOは効率化に貢献しますが、HPO自体も追加のコンピューティングリソースを消費するため、予算が限られている場合は直接的なコスト削減効果は限定的です。</li></ul>",
+      "resources": []
+    },
+    {
+      "id": "d2_q3",
+      "type": "single",
+      "text": "画像から顔を検出し、感情分析を行いたい場合、最も適したAWSサービスはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Amazon Comprehend"
+        },
+        {
+          "label": "B",
+          "text": "Amazon Textract"
+        },
+        {
+          "label": "C",
+          "text": "Amazon Rekognition"
+        },
+        {
+          "label": "D",
+          "text": "Amazon Polly"
+        }
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "\n                <h5>詳細解説</h5>\n                <p>Amazon Rekognitionは画像・動画分析サービスで、顔検出と感情分析機能を提供します。</p>\n                <h5>Rekognitionの顔分析機能</h5>\n                <ul>\n                    <li>顔の検出と位置特定</li>\n                    <li>感情分析（喜び、悲しみ、怒りなど）</li>\n                    <li>年齢・性別の推定</li>\n                    <li>顔の比較と検索</li>\n                </ul>\n            <h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) Amazon Comprehend:</strong> Comprehendは自然言語処理（NLP）サービスで、テキストの分析に特化しています。画像分析機能はありません。</li><li><strong>B) Amazon Textract:</strong> Textractは文書からテキストやデータを抽出するサービスで、顔検出や感情分析機能はありません。</li><li><strong>D) Amazon Polly:</strong> Pollyはテキストを音声に変換するサービスで、画像分析機能はまったくありません。</li></ul>",
+      "resources": []
+    },
+    {
+      "id": "d2_q4",
+      "type": "single",
+      "text": "Amazon Bedrockを使用して企業向けチャットボットを構築する際、最も適切なアーキテクチャはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Bedrock + Lambda + API Gateway + S3（知識ベース）"
+        },
+        {
+          "label": "B",
+          "text": "Bedrock単体で全ての処理を実行"
+        },
+        {
+          "label": "C",
+          "text": "EC2上でオープンソースLLMを実行"
+        },
+        {
+          "label": "D",
+          "text": "SageMakerで独自のLLMを訓練"
+        }
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "\n                <h5>詳細解説</h5>\n                <p>エンタープライズアーキテクチャには、複数のAWSサービスの統合が必要です。</p>\n                <h5>アーキテクチャの詳細</h5>\n                <ul>\n                    <li><strong>Bedrock:</strong> LLMの推論エンジン</li>\n                    <li><strong>Lambda:</strong> ビジネスロジックとオーケストレーション</li>\n                    <li><strong>API Gateway:</strong> RESTful API、認証、レート制限</li>\n                    <li><strong>S3:</strong> 知識ベースドキュメントの保存</li>\n                </ul>\n                <h5>実装時の考慮事項</h5>\n                <ul>\n                    <li>API Gatewayでのレート制限設定</li>\n                    <li>Lambdaのコールドスタート対策</li>\n                    <li>S3のライフサイクルポリシー</li>\n                </ul>\n            <h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>B) Bedrock単体で全ての処理を実行:</strong> BedrockはLLMの推論エンジンですが、企業向けチャットボットにはAPIエンドポイント、認証、セッション管理、ログ収集などの付加機能が必要です。</li><li><strong>C) EC2上でオープンソースLLMを実行:</strong> EC2でのLLM実行はインフラ管理が複雑で、スケーリングやメンテナンスの負担が大きく、Bedrockのようなマネージドサービスの方が企業向けに適しています。</li><li><strong>D) SageMakerで独自のLLMを訓練:</strong> LLMの訓練は非常に高コストで時間がかかるため、一般的なチャットボット用途ではBedrockで提供される事前訓練済みモデルを使用する方が実用的です。</li></ul>",
+      "resources": [
+        {
+          "title": "Amazon Bedrock User Guide",
+          "url": "https://docs.aws.amazon.com/bedrock/"
+        }
+      ]
+    },
+    {
+      "id": "d2_q5",
+      "type": "multiple",
+      "text": "Amazon Bedrockでコスト最適化を実現する方法として適切なものを2つ選択してください。",
+      "choices": [
+        {
+          "label": "A",
+          "text": "プロビジョンドスループットを使用して予測可能なワークロードのコストを削減"
+        },
+        {
+          "label": "B",
+          "text": "常に最大のモデルサイズを使用する"
+        },
+        {
+          "label": "C",
+          "text": "プロンプトのキャッシングとバッチ処理を活用"
+        },
+        {
+          "label": "D",
+          "text": "全てのリクエストをリアルタイムで処理"
+        },
+        {
+          "label": "E",
+          "text": "モデルの選択を用途に応じて最適化（簡単なタスクには小さいモデル）"
+        }
+      ],
+      "correct": [
+        0,
+        4
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Bedrockのコスト最適化には、適切なプロビジョニングとモデル選択が重要です。正解はA「プロビジョンドスループットを使用して予測可能なワークロードのコストを削減」とE「モデルの選択を用途に応じて最適化」です。</p><h5>コスト最適化戦略の詳細</h5><ul><li><strong>A: プロビジョンドスループット（正解）</strong><ul><li>予測可能なワークロードで最大50%のコスト削減</li><li>コミットメント期間：1ヶ月または6ヶ月</li><li>安定したトラフィックパターンに最適</li><li>SLAの保証付き</li></ul></li><li><strong>E: モデルの適切な選択（正解）</strong><ul><li>簡単なタスク：Claude Instant、Titan Express（低コスト）</li><li>複雑なタスク：Claude 2、Titan Premier（高性能）</li><li>用途に応じた最適化で30-70%のコスト削減可能</li></ul></li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>B) 常に最大のモデルサイズを使用する:</strong> 不必要に高コストとなり、コスト最適化に反する</li><li><strong>C) プロンプトのキャッシングとバッチ処理を活用:</strong> Bedrockは現在キャッシング機能を提供していない</li><li><strong>D) 全てのリクエストをリアルタイムで処理:</strong> バッチ処理可能なタスクもリアルタイムで処理するのは非効率</li></ul><h5>コスト計算例</h5><pre><code># オンデマンド料金の例\nClaude 2: $0.01102/1Kトークン（入力）\nClaude Instant: $0.00163/1Kトークン（入力）\n\n# 月間100Mトークンの場合\nオンデマンド（Claude 2）: $1,102/月\nプロビジョンド（40%削減）: $661/月\nClaude Instant使用: $163/月（85%削減）</code></pre><h5>ベストプラクティス</h5><ul><li>ワークロードの分析と予測</li><li>タスクの複雑さに応じたモデル選択</li><li>定期的なコスト分析とモデルの見直し</li><li>CloudWatchによる使用量モニタリング</li></ul>",
+      "resources": []
+    },
+    {
+      "id": "d2_q6",
+      "type": "single",
+      "text": "Amazon SageMakerの主な用途として最も適切なものはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "データベース管理"
+        },
+        {
+          "label": "B",
+          "text": "機械学習モデルの構築、トレーニング、デプロイ"
+        },
+        {
+          "label": "C",
+          "text": "ウェブサイトのホスティング"
+        },
+        {
+          "label": "D",
+          "text": "ファイルストレージ"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon SageMakerは、AWSが提供する完全マネージド型の機械学習プラットフォームです。正解はB「機械学習モデルの構築、トレーニング、デプロイ」です。</p><h5>SageMakerは以下の主要な機能を提供します</h5><ul><li>データの準備と前処理</li><li>機械学習モデルの構築と開発</li><li>モデルのトレーニング（分散学習にも対応）</li><li>モデルのデプロイとホスティング</li><li>推論エンドポイントの管理</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) データベース管理:</strong> データベース管理はAmazon RDSやDynamoDBなどが担当</li><li><strong>C) ウェブサイトのホスティング:</strong> ウェブサイトのホスティングはAmazon S3やEC2などが適切</li><li><strong>D) ファイルストレージ:</strong> ファイルストレージはAmazon S3やEFSなどが適切</li></ul><p>SageMakerは機械学習のライフサイクル全体をカバーする統合プラットフォームとして設計されています。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q7",
+      "type": "single",
+      "text": "画像から顔を検出し、感情分析を行いたい場合、最も適したAWSサービスはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Amazon Comprehend"
+        },
+        {
+          "label": "B",
+          "text": "Amazon Textract"
+        },
+        {
+          "label": "C",
+          "text": "Amazon Rekognition"
+        },
+        {
+          "label": "D",
+          "text": "Amazon Polly"
+        }
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon Rekognitionは、AWSの画像および動画分析サービスで、顔検出と感情分析の両方の機能を提供します。正解はC「Amazon Rekognition」です。</p><h5>Rekognitionの主な機能</h5><ul><li>顔の検出と分析</li><li>感情分析（喜び、悲しみ、怒り、驚きなど）</li><li>年齢や性別の推定</li><li>顔の比較と検索</li><li>有名人の認識</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) Amazon Comprehend:</strong> Amazon Comprehendはテキスト分析サービスで、画像分析はできません</li><li><strong>B) Amazon Textract:</strong> Amazon Textractは文書からテキストを抽出するサービスで、顔検出はできません</li><li><strong>D) Amazon Polly:</strong> Amazon Pollyはテキストを音声に変換するサービスで、画像分析はできません</li></ul><p>Rekognitionはコンピュータビジョン技術を活用し、画像や動画から様々な情報を抽出できるサービスです。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q8",
+      "type": "single",
+      "text": "次のシナリオを考えてください： 「法律事務所が大量のPDF契約書から重要な条項を自動抽出したい」 このタスクに最も適したAWSサービスはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Amazon Textract"
+        },
+        {
+          "label": "B",
+          "text": "Amazon Transcribe"
+        },
+        {
+          "label": "C",
+          "text": "Amazon Lex"
+        },
+        {
+          "label": "D",
+          "text": "Amazon Forecast"
+        }
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon Textractは、スキャンされた文書からテキストとデータを自動的に抽出する機械学習サービスです。正解はA「Amazon Textract」です。</p><h5>Textractの主な機能</h5><ul><li>PDFや画像からのテキスト抽出</li><li>表やフォームの構造を維持したデータ抽出</li><li>キーバリューペアの認識</li><li>手書き文字の認識</li><li>複数ページのPDFの処理</li></ul><h5>法律事務所のシナリオにおいて</h5><ul><li>契約書の重要な条項（日付、金額、当事者名など）を自動抽出</li><li>大量のPDFを効率的に処理</li><li>抽出したデータを構造化してデータベースに保存</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>B) Amazon Transcribe:</strong> Amazon Transcribeは音声をテキストに変換するサービス</li><li><strong>C) Amazon Lex:</strong> Amazon Lexはチャットボットや音声対話インターフェースを構築するサービス</li><li><strong>D) Amazon Forecast:</strong> Amazon Forecastは時系列データの予測サービス</li></ul><p>TextractはOCRを超えた機能を提供し、文書のコンテキストを理解して情報を抽出できます。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q9",
+      "type": "single",
+      "text": "Amazon Comprehendが提供する機能として正しくないものはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "感情分析"
+        },
+        {
+          "label": "B",
+          "text": "エンティティ認識"
+        },
+        {
+          "label": "C",
+          "text": "音声からテキストへの変換"
+        },
+        {
+          "label": "D",
+          "text": "キーフレーズ抽出"
+        }
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon Comprehendは自然言語処理（NLP）サービスで、テキスト分析に特化しています。正解はC「音声からテキストへの変換」で、これはComprehendが提供しない機能です。</p><h5>Amazon Comprehendが提供する機能</h5><ul><li>A: 感情分析 - テキストのポジティブ/ネガティブ/ニュートラル/混合を判定</li><li>B: エンティティ認識 - 人名、場所、日付、組織などを抽出</li><li>D: キーフレーズ抽出 - テキストから重要なフレーズを抽出</li></ul><h5>その他のComprehendの機能</h5><ul><li>言語検出</li><li>トピックモデリング</li><li>カスタム分類</li><li>PII（個人識別情報）の検出とマスキング</li></ul><p>音声からテキストへの変換はAmazon Transcribeの機能です。Comprehendはテキストデータを入力として受け取り、その分析を行います。</p><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) 感情分析:</strong> 感情分析 - テキストのポジティブ/ネガティブ/ニュートラル/混合を判定</li><li><strong>B) エンティティ認識:</strong> エンティティ認識 - 人名、場所、日付、組織などを抽出</li><li><strong>D) キーフレーズ抽出:</strong> キーフレーズ抽出 - テキストから重要なフレーズを抽出</li></ul>",
+      "resources": []
+    },
+    {
+      "id": "d2_q10",
+      "type": "single",
+      "text": "Amazon Personalizeを使用する際の一般的なユースケースはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "時系列データの予測"
+        },
+        {
+          "label": "B",
+          "text": "パーソナライズされた商品推薦"
+        },
+        {
+          "label": "C",
+          "text": "画像内の物体検出"
+        },
+        {
+          "label": "D",
+          "text": "自然言語の翻訳"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon Personalizeは、リアルタイムのパーソナライゼーションとレコメンデーションを提供する機械学習サービスです。正解はB「パーソナライズされた商品推薦」です。</p><h5>Amazon Personalizeの主なユースケース</h5><ul><li>ECサイトでの商品レコメンデーション</li><li>動画ストリーミングサービスでのコンテンツ推薦</li><li>ニュース記事のパーソナライズ</li><li>マーケティングキャンペーンの最適化</li></ul><h5>Personalizeの特徴</h5><ul><li>ユーザーの行動履歴に基づいた推薦</li><li>リアルタイムでのパーソナライゼーション</li><li>A/Bテストのサポート</li><li>コールドスタート問題への対応</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) 時系列データの予測:</strong> 時系列データの予測はAmazon Forecastの機能</li><li><strong>C) 画像内の物体検出:</strong> 画像内の物体検出はAmazon Rekognitionの機能</li><li><strong>D) 自然言語の翻訳:</strong> 自然言語の翻訳はAmazon Translateの機能</li></ul><p>PersonalizeはAmazon.comで使用されているレコメンデーション技術をベースにしています。</p>",
+      "resources": []
+    }
+  ]
+}

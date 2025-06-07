@@ -1,0 +1,289 @@
+{
+  "domain": 2,
+  "group": 2,
+  "title": "音声・NLP応用",
+  "description": "Polly/Transcribe、Lex+Comprehend、Forecast、Ground Truth、Comprehend Medical、Translate、Autopilot",
+  "questionCount": 10,
+  "questions": [
+    {
+      "id": "d2_q11",
+      "type": "single",
+      "text": "Amazon Pollyと Amazon Transcribeの主な違いは何ですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pollyは音声認識、Transcribeはテキスト読み上げ"
+        },
+        {
+          "label": "B",
+          "text": "Pollyはテキスト読み上げ、Transcribeは音声認識"
+        },
+        {
+          "label": "C",
+          "text": "両方とも同じ機能を提供"
+        },
+        {
+          "label": "D",
+          "text": "Pollyは画像認識、Transcribeは動画認識"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon PollyとAmazon Transcribeは、音声とテキストの変換において正反対の機能を提供します。正解はB「Pollyはテキスト読み上げ、Transcribeは音声認識」です。</p><h5>Amazon Polly</h5><ul><li>テキストから音声への変換（Text-to-Speech: TTS）</li><li>自然な音声合成</li><li>複数の言語と音声オプション</li><li>SSML（Speech Synthesis Markup Language）のサポート</li></ul><h5>Amazon Transcribe</h5><ul><li>音声からテキストへの変換（Speech-to-Text: STT）</li><li>リアルタイムおよびバッチ処理</li><li>話者識別機能</li><li>カスタム語彙のサポート</li></ul><h5>覚え方</h5><ul><li>Polly = 「ポリー」が「読み上げる」（テキスト→音声）</li><li>Transcribe = 「転写」する（音声→テキスト）</li></ul><p>これらのサービスは、音声アシスタント、コールセンターソリューション、アクセシビリティ向上など、様々なユースケースで活用されています。</p><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) Pollyは音声認識、Transcribeはテキスト読み上げ:</strong> これは正反対です。Pollyはテキストを音声に変換し、Transcribeは音声をテキストに変換します。</li><li><strong>C) 両方とも同じ機能を提供:</strong> 両サービスは全く異なる機能を提供します。PollyはTTS（Text-to-Speech）、TranscribeはSTT（Speech-to-Text）です。</li><li><strong>D) Pollyは画像認識、Transcribeは動画認識:</strong> 両サービスとも音声関連のサービスであり、画像や動画認識機能はありません。画像認識はRekognitionの役割です。</li></ul>",
+      "resources": []
+    },
+    {
+      "id": "d2_q12",
+      "type": "single",
+      "text": "カスタマーサービスのチャットボットを構築する場合、最も適したAWSサービスの組み合わせはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Amazon Lex + Amazon Comprehend"
+        },
+        {
+          "label": "B",
+          "text": "Amazon Rekognition + Amazon Textract"
+        },
+        {
+          "label": "C",
+          "text": "Amazon Forecast + Amazon Personalize"
+        },
+        {
+          "label": "D",
+          "text": "Amazon Polly + Amazon SageMaker"
+        }
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "<h5>詳細解説</h5><p>カスタマーサービスのチャットボット構築には、会話インターフェースと自然言語理解の両方が必要です。正解はA「Amazon Lex + Amazon Comprehend」です。</p><h5>この組み合わせの役割</h5><h5>Amazon Lex</h5><ul><li>会話フローの管理</li><li>インテント（意図）の認識</li><li>スロット（パラメータ）の抽出</li><li>チャットボットのロジック実装</li></ul><h5>Amazon Comprehend</h5><ul><li>ユーザーの感情分析</li><li>エンティティ抽出（製品名、問題の種類など）</li><li>キーフレーズ抽出</li><li>カスタム分類（FAQへの振り分けなど）</li></ul><h5>実装例</h5><p>1. Lexがユーザーの入力を受け取り、意図を理解</p><p>2. Comprehendで感情分析を行い、対応の優先度を判断</p><p>3. 必要に応じて人間のオペレーターにエスカレーション</p><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>B) Amazon Rekognition + Amazon Textract:</strong> RekognitionとTextractは画像/文書処理用</li><li><strong>C) Amazon Forecast + Amazon Personalize:</strong> ForecastとPersonalizeは予測/推薦用</li><li><strong>D) Amazon Polly + Amazon SageMaker:</strong> Pollyは音声合成、SageMakerは汎用MLプラットフォーム</li></ul><p>この組み合わせにより、高度なカスタマーサービス体験を提供できます。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q13",
+      "type": "single",
+      "text": "Amazon Forecastが最も適している予測タスクはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "顧客の感情分析"
+        },
+        {
+          "label": "B",
+          "text": "商品の需要予測"
+        },
+        {
+          "label": "C",
+          "text": "画像の分類"
+        },
+        {
+          "label": "D",
+          "text": "テキストの要約"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon Forecastは、時系列データを使用して将来の予測を行う機械学習サービスです。正解はB「商品の需要予測」です。</p><h5>Amazon Forecastの主なユースケース</h5><ul><li>小売業の在庫計画</li><li>製造業の生産計画</li><li>電力需要の予測</li><li>Webトラフィックの予測</li><li>財務計画</li></ul><h5>Forecastの特徴</h5><ul><li>時系列データに特化したアルゴリズム</li><li>複数の予測モデルを自動選択</li><li>季節性やトレンドの考慮</li><li>外部要因（天候、イベントなど）の組み込み</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) 顧客の感情分析:</strong> 顧客の感情分析はAmazon Comprehendの機能</li><li><strong>C) 画像の分類:</strong> 画像の分類はAmazon RekognitionやSageMakerの機能</li><li><strong>D) テキストの要約:</strong> テキストの要約はAmazon Comprehendや大規模言語モデルの機能</li></ul><p>ForecastはAmazon.comで使用されている予測技術をベースにしており、高精度な需要予測が可能です。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q14",
+      "type": "single",
+      "text": "次のシナリオを考えてください： 「コールセンターが録音された通話内容を自動的にテキスト化し、その後感情分析を行いたい」 必要なAWSサービスの組み合わせはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Amazon Transcribe → Amazon Comprehend"
+        },
+        {
+          "label": "B",
+          "text": "Amazon Polly → Amazon Lex"
+        },
+        {
+          "label": "C",
+          "text": "Amazon Textract → Amazon Rekognition"
+        },
+        {
+          "label": "D",
+          "text": "Amazon Forecast → Amazon Personalize"
+        }
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "<h5>詳細解説</h5><p>コールセンターのシナリオでは、音声データをテキスト化し、その後感情分析を行うパイプラインが必要です。正解はA「Amazon Transcribe → Amazon Comprehend」です。</p><h5>処理の流れ</h5><h5>1. Amazon Transcribe</h5><ul><li>録音された通話音声をテキストに変換</li><li>話者分離機能でオペレーターと顧客を区別</li><li>タイムスタンプ付きの文字起こし</li></ul><h5>2. Amazon Comprehend</h5><ul><li>文字起こしされたテキストの感情分析</li><li>ポジティブ/ネガティブ/ニュートラルの判定</li><li>キーフレーズやエンティティの抽出</li></ul><h5>活用例</h5><ul><li>顧客満足度のモニタリング</li><li>問題のある通話の自動検出</li><li>オペレーターのパフォーマンス評価</li><li>コンプライアンス監視</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>B) Amazon Polly → Amazon Lex:</strong> Pollyはテキスト→音声、Lexはチャットボット構築用</li><li><strong>C) Amazon Textract → Amazon Rekognition:</strong> Textractは文書からのテキスト抽出、Rekognitionは画像分析</li><li><strong>D) Amazon Forecast → Amazon Personalize:</strong> Forecastは時系列予測、Personalizeはレコメンデーション</li></ul><p>このソリューションにより、コールセンターの品質管理と顧客体験の向上が実現できます。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q15",
+      "type": "single",
+      "text": "Amazon SageMakerのエンドポイントについて正しい説明はどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "データを保存するための場所"
+        },
+        {
+          "label": "B",
+          "text": "トレーニング済みモデルをホストしてリアルタイム推論を提供する"
+        },
+        {
+          "label": "C",
+          "text": "モデルの学習のみに使用される"
+        },
+        {
+          "label": "D",
+          "text": "ログファイルを保存する機能"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon SageMakerのエンドポイントは、トレーニング済みの機械学習モデルをホストし、リアルタイム推論を提供する機能です。正解はB「トレーニング済みモデルをホストしてリアルタイム推論を提供する」です。</p><h5>SageMakerエンドポイントの特徴</h5><ul><li>HTTPSエンドポイントとしてモデルを公開</li><li>リアルタイム推論リクエストの処理</li><li>自動スケーリング機能</li><li>A/Bテストのサポート</li><li>マルチモデルエンドポイント</li></ul><h5>エンドポイントの種類</h5><ul><li><strong>リアルタイムエンドポイント:</strong> 低レイテンシで単一推論</li><li><strong>バッチ変換ジョブ:</strong> 大量データの一括処理</li><li><strong>サーバーレス推論:</strong> オンデマンド推論</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) データを保存するための場所:</strong> データ保存はS3バケットの役割</li><li><strong>C) モデルの学習のみに使用される:</strong> モデルの学習はトレーニングジョブで実行</li><li><strong>D) ログファイルを保存する機能:</strong> ログファイル保存はCloudWatch Logsの役割</li></ul><p>エンドポイントはモデルを本番環境で使用するための重要なコンポーネントです。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q16",
+      "type": "single",
+      "text": "次のシナリオを考えてください： 「ECサイトで商品画像から自動的にタグを生成し、検索精度を向上させたい」 このタスクに最も適したAWSサービスはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Amazon Comprehend"
+        },
+        {
+          "label": "B",
+          "text": "Amazon Rekognition"
+        },
+        {
+          "label": "C",
+          "text": "Amazon Textract"
+        },
+        {
+          "label": "D",
+          "text": "Amazon Translate"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>ECサイトで商品画像から自動的にタグを生成するためには、画像分析サービスが必要です。正解はB「Amazon Rekognition」です。</p><h5>Rekognitionの画像タグ付け機能</h5><ul><li>物体やシーンの検出（例：「シャツ」「赤色」「コットン」）</li><li>複数のラベルを信頼度スコア付きで返す</li><li>カスタムラベル検出のトレーニングも可能</li><li>ブランドロゴの検出</li></ul><h5>ECサイトでの活用例</h5><p>1. 商品画像をRekognitionで分析</p><p>2. 自動的にタグを生成（色、素材、スタイルなど）</p><p>3. 検索インデックスにタグを追加</p><p>4. ユーザーの検索精度が向上</p><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) Amazon Comprehend:</strong> Amazon Comprehendはテキスト分析用</li><li><strong>C) Amazon Textract:</strong> Amazon Textractは文書からのテキスト抽出用</li><li><strong>D) Amazon Translate:</strong> Amazon Translateは言語翻訳用</li></ul><p>Rekognitionはコンピュータビジョン技術を使用して、画像内容を理解し、自動タグ付けを実現します。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q17",
+      "type": "single",
+      "text": "Amazon SageMaker Groundbreaking Truthの主な用途は何ですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "モデルの自動デプロイ"
+        },
+        {
+          "label": "B",
+          "text": "データのラベリングと人間によるレビュー"
+        },
+        {
+          "label": "C",
+          "text": "リアルタイム推論の実行"
+        },
+        {
+          "label": "D",
+          "text": "コスト最適化"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon SageMaker Ground Truthは、機械学習モデルのトレーニングデータを作成するためのデータラベリングサービスです。正解はB「データのラベリングと人間によるレビュー」です。</p><h5>Ground Truthの主な機能</h5><ul><li>画像、テキスト、動画のラベリング</li><li>組み込みワークフローとテンプレート</li><li>人間のレビューワーの管理</li><li>自動ラベリング機能（機械学習を使用）</li><li>品質管理と進捗追跡</li></ul><h5>ラベリングタスクの種類</h5><ul><li>画像分類</li><li>物体検出（バウンディングボックス）</li><li>セマンティックセグメンテーション</li><li>テキスト分類</li><li>固有表現認識</li></ul><h5>ワークフォースの選択肢</h5><ul><li>Amazon Mechanical Turk</li><li>プライベートワークフォース</li><li>AWS Marketplaceのベンダー</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) モデルの自動デプロイ:</strong> モデルの自動デプロイはSageMakerエンドポイントの機能</li><li><strong>C) リアルタイム推論の実行:</strong> リアルタイム推論はエンドポイントで実行</li><li><strong>D) コスト最適化:</strong> コスト最適化はSageMakerの別の機能</li></ul><p>Ground Truthは高品質なトレーニングデータを効率的に作成するための重要なツールです。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q18",
+      "type": "single",
+      "text": "Amazon Comprehend Medicalの特徴として正しいものはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "一般的なテキスト分析のみに対応"
+        },
+        {
+          "label": "B",
+          "text": "医療用語やPHI（保護対象保健情報）の抽出に特化"
+        },
+        {
+          "label": "C",
+          "text": "画像診断に使用される"
+        },
+        {
+          "label": "D",
+          "text": "音声認識に特化"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon Comprehend Medicalは、医療テキストから情報を抽出するために特化された自然言語処理サービスです。正解はB「医療用語やPHI（保護対象保健情報）の抽出に特化」です。</p><h5>Comprehend Medicalの主な機能</h5><ul><li>医療エンティティの抽出：</li><li>病名、症状</li><li>薬品名、投与量</li><li>検査結果</li><li>治療手順</li><li>解剖学的部位</li><li>PHIの検出と保護：</li><li>患者名</li><li>生年月日</li><li>住所</li><li>医療記録番号</li><li>医療オントロジーへのリンク：</li><li>ICD-10-CM（疾病分類）</li><li>RxNorm（薬品データベース）</li><li>SNOMED CT（医療用語）</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) 一般的なテキスト分析のみに対応:</strong> 一般的なテキスト分析は通常のComprehendの機能</li><li><strong>C) 画像診断に使用される:</strong> 画像診断はRekognitionや専門の医療画像サービス</li><li><strong>D) 音声認識に特化:</strong> 音声認識はTranscribeの機能</li></ul><p>Comprehend MedicalはHIPAA準拠で、医療機関での使用に適しています。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q19",
+      "type": "single",
+      "text": "次のシナリオを考えてください： 「ニュースメディアが多言語の記事を自動翻訳したい」 最も適したAWSサービスはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Amazon Transcribe"
+        },
+        {
+          "label": "B",
+          "text": "Amazon Translate"
+        },
+        {
+          "label": "C",
+          "text": "Amazon Comprehend"
+        },
+        {
+          "label": "D",
+          "text": "Amazon Lex"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon Translateは、ニューラル機械翻訳サービスで、多言語間のテキスト翻訳を提供します。正解はB「Amazon Translate」です。</p><h5>Amazon Translateの特徴</h5><ul><li>75以上の言語をサポート</li><li>リアルタイム翻訳とバッチ翻訳</li><li>カスタム用語集のサポート</li><li>ドメイン固有の翻訳品質</li><li>自動言語検出</li></ul><h5>ニュースメディアでの活用シナリオ</h5><p>1. 記事の自動翻訳パイプライン構築</p><p>2. リアルタイムでの多言語配信</p><p>3. カスタム用語集でメディア固有の表現を正確に翻訳</p><p>4. API統合による自動化</p><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) Amazon Transcribe:</strong> Amazon Transcribeは音声からテキストへの変換</li><li><strong>C) Amazon Comprehend:</strong> Amazon Comprehendはテキスト分析（翻訳機能なし）</li><li><strong>D) Amazon Lex:</strong> Amazon Lexはチャットボット構築用</li></ul><h5>Translateの利点</h5><ul><li>高精度なニューラル翻訳</li><li>コスト効率的（従量課金）</li><li>スケーラブルなアーキテクチャ</li><li>セキュリティとコンプライアンス</li></ul><p>ニュースメディアのグローバル展開に最適なソリューションです。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q20",
+      "type": "single",
+      "text": "Amazon SageMaker Autopilotの利点として正しいものはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "手動でのモデル選択が必須"
+        },
+        {
+          "label": "B",
+          "text": "自動的に最適なMLモデルを探索・構築する"
+        },
+        {
+          "label": "C",
+          "text": "画像処理のみに対応"
+        },
+        {
+          "label": "D",
+          "text": "リアルタイム推論はサポートしない"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon SageMaker Autopilotは、AutoML（自動機械学習）機能を提供し、最適なMLモデルを自動的に探索・構築します。正解はB「自動的に最適なMLモデルを探索・構築する」です。</p><h5>Autopilotの主な機能</h5><ul><li>データの自動前処理</li><li>複数のアルゴリズムを自動試行</li><li>ハイパーパラメータの最適化</li><li>モデルのランキングと比較</li><li>完全な可視性とコントロール</li></ul><h5>Autopilotのワークフロー</h5><ol><li>データセットをアップロード</li><li>ターゲット列を指定</li><li>Autopilotが自動で実行：<ul><li>データ分析</li><li>特徴エンジニアリング</li><li>モデル選択とトレーニング</li><li>ハイパーパラメータ調整</li></ul></li></ol><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) 手動でのモデル選択が必須:</strong> 手動選択は不要（自動化が目的）</li><li><strong>C) 画像処理のみに対応:</strong> 画像処理だけでなく、表形式データにも対応</li><li><strong>D) リアルタイム推論はサポートしない:</strong> リアルタイム推論もサポート</li></ul><h5>Autopilotの利点</h5><ul><li>ML専門知識がなくても使用可能</li><li>時間とコストの節約</li><li>モデルの解釈可能性</li><li>ノートブックの自動生成</li></ul><p>AutopilotはMLの民主化を促進し、より多くのユーザーがMLを活用できるようにします。</p>",
+      "resources": []
+    }
+  ]
+}

@@ -1,0 +1,289 @@
+{
+  "domain": 2,
+  "group": 3,
+  "title": "専門サービス",
+  "description": "Rekognition Custom Labels、Lookout for Equipment、Kendra、Data Wrangler、Fraud Detector、Transcribe Call Analytics、Neo、CodeGuru",
+  "questionCount": 10,
+  "questions": [
+    {
+      "id": "d2_q21",
+      "type": "single",
+      "text": "Amazon Rekognition Custom Labelsを使用する際の主な利点は何ですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "汎用的な物体検出のみ可能"
+        },
+        {
+          "label": "B",
+          "text": "独自のカスタムオブジェクトやシーンを検出できる"
+        },
+        {
+          "label": "C",
+          "text": "テキスト分析に使用される"
+        },
+        {
+          "label": "D",
+          "text": "音声認識の精度が向上する"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon Rekognition Custom Labelsは、独自のカスタムモデルをトレーニングして、特定のオブジェクトやシーンを検出できる機能です。正解はB「独自のカスタムオブジェクトやシーンを検出できる」です。</p><h5>Custom Labelsの主な利点</h5><ul><li>業界固有のオブジェクト検出</li><li>ブランドロゴや製品の識別</li><li>欠陥検出（製造業）</li><li>カスタムシーン分類</li><li>少数のトレーニング画像で開始可能</li></ul><h5>使用例</h5><ul><li>小売業：特定の商品パッケージ検出</li><li>製造業：製品の欠陥検査</li><li>農業：特定の作物や病害虫の識別</li><li>医療：特定の医療機器の識別</li></ul><h5>Custom Labelsのワークフロー</h5><p>1. トレーニング画像の準備とラベリング</p><p>2. モデルのトレーニング</p><p>3. モデルの評価と改善</p><p>4. モデルのデプロイ</p><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) 汎用的な物体検出のみ可能:</strong> 汎用的な物体検出は標準Rekognitionの機能</li><li><strong>C) テキスト分析に使用される:</strong> テキスト分析はComprehendの機能</li><li><strong>D) 音声認識の精度が向上する:</strong> 音声認識はTranscribeの機能</li></ul><p>Custom LabelsはMLの専門知識なしでカスタムモデルを作成できる点が大きな利点です。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q22",
+      "type": "single",
+      "text": "次のシナリオを考えてください： 「製造業で生産ラインの機器故障を予測したい」 このユースケースに最も適したAWSサービスの組み合わせはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Amazon Lookout for Equipment + Amazon Monitron"
+        },
+        {
+          "label": "B",
+          "text": "Amazon Rekognition + Amazon Comprehend"
+        },
+        {
+          "label": "C",
+          "text": "Amazon Lex + Amazon Polly"
+        },
+        {
+          "label": "D",
+          "text": "Amazon Textract + Amazon Translate"
+        }
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "<h5>詳細解説</h5><p>製造業の機器故障予測には、異常検知と予知保全に特化したAWSサービスが最適です。正解はA「Amazon Lookout for Equipment + Amazon Monitron」です。</p><h5>各サービスの役割</h5><h5>Amazon Lookout for Equipment</h5><ul><li>センサーデータの異常検出</li><li>機器の故障予測</li><li>ダウンタイムの削減</li><li>メンテナンスコストの最適化</li></ul><h5>Amazon Monitron</h5><ul><li>エンドツーエンドの機器監視ソリューション</li><li>センサー（振動、温度）の提供</li><li>モバイルアプリでの監視</li><li>簡単なセットアップ</li></ul><h5>統合ソリューションの利点</h5><ul><li>予知保全の実現</li><li>計画外停止の削減</li><li>保守コストの最適化</li><li>生産性の向上</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>B) Amazon Rekognition + Amazon Comprehend:</strong> Rekognition（画像分析）とComprehend（テキスト分析）</li><li><strong>C) Amazon Lex + Amazon Polly:</strong> Lex（チャットボット）とPolly（音声合成）</li><li><strong>D) Amazon Textract + Amazon Translate:</strong> Textract（文書抽出）とTranslate（翻訳）</li></ul><p>これらはいずれも機器故障予測には関連しません。</p><p>製造業のIoTデータを活用した予知保全には、専門的なサービスの組み合わせが重要です。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q23",
+      "type": "single",
+      "text": "Amazon Kendraの主な機能は何ですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "画像生成"
+        },
+        {
+          "label": "B",
+          "text": "MLモデルによるエンタープライズ検索"
+        },
+        {
+          "label": "C",
+          "text": "音声合成"
+        },
+        {
+          "label": "D",
+          "text": "ビデオ編集"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon Kendraは、機械学習を活用したエンタープライズ検索サービスです。正解はB「MLモデルによるエンタープライズ検索」です。</p><h5>Amazon Kendraの主な機能</h5><ul><li>自然言語による検索クエリ</li><li>意味的理解に基づく検索結果</li><li>コンテキストを考慮した回答</li><li>複数のデータソースに対応</li><li>FAQの自動抽出</li></ul><h5>対応データソース</h5><ul><li>S3バケット</li><li>SharePoint</li><li>Salesforce</li><li>ServiceNow</li><li>データベース</li><li>OneDrive</li></ul><h5>Kendraの利点</h5><ul><li>キーワード検索ではなく意味検索</li><li>質問応答形式の検索</li><li>ドキュメントのランキング</li><li>セキュリティとアクセス制御</li><li>カスタマイズ可能な検索体験</li></ul><h5>使用例</h5><ul><li>社内ナレッジベース</li><li>カスタマーサポートポータル</li><li>研究開発の情報検索</li><li>コンプライアンス文書の検索</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) 画像生成:</strong> 画像生成は別のサービスの機能</li><li><strong>C) 音声合成:</strong> 音声合成はPollyの機能</li><li><strong>D) ビデオ編集:</strong> ビデオ編集はKendraの機能ではない</li></ul><p>Kendraは「賢い検索」を実現し、情報へのアクセスを大幅に改善します。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q24",
+      "type": "single",
+      "text": "Amazon SageMaker Data Wranglerの用途として最も適切なものはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "モデルのデプロイメント"
+        },
+        {
+          "label": "B",
+          "text": "データの準備と特徴エンジニアリング"
+        },
+        {
+          "label": "C",
+          "text": "リアルタイム推論"
+        },
+        {
+          "label": "D",
+          "text": "コスト分析"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon SageMaker Data Wranglerは、機械学習のためのデータ準備を簡素化するビジュアルツールです。正解はB「データの準備と特徴エンジニアリング」です。</p><h5>Data Wranglerの主な機能</h5><ul><li>ビジュアルインターフェースでのデータ探索</li><li>300以上の組み込み変換</li><li>カスタム変換の作成</li><li>データ品質のレポート</li><li>特徴量の重要度分析</li></ul><h5>データ処理のワークフロー</h5><p>1. データソースの接続（S3、Athena、Redshiftなど）</p><p>2. データの探索と可視化</p><p>3. 変換の適用（欠損値処理、正規化など）</p><p>4. 特徴量の作成</p><p>5. 処理フローのエクスポート</p><h5>特徴エンジニアリング機能</h5><ul><li>カテゴリカルエンコーディング</li><li>数値スケーリング</li><li>テキスト処理</li><li>時系列特徴量の抽出</li><li>カスタムSQLクエリ</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) モデルのデプロイメント:</strong> モデルのデプロイメントはSageMakerエンドポイント</li><li><strong>C) リアルタイム推論:</strong> リアルタイム推論はエンドポイントの機能</li><li><strong>D) コスト分析:</strong> コスト分析はCost Explorerなどの役割</li></ul><p>Data WranglerはMLプロジェクトの80%を占めるデータ準備作業を大幅に効率化します。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q25",
+      "type": "single",
+      "text": "次のシナリオを考えてください： 「金融機関が取引の異常を検出したい」 最も適したAWSサービスはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Amazon Fraud Detector"
+        },
+        {
+          "label": "B",
+          "text": "Amazon Personalize"
+        },
+        {
+          "label": "C",
+          "text": "Amazon Forecast"
+        },
+        {
+          "label": "D",
+          "text": "Amazon Translate"
+        }
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon Fraud Detectorは、機械学習を使用してオンライン詐欺を検出するフルマネージドサービスです。正解はA「Amazon Fraud Detector」です。</p><h5>Fraud Detectorの主な機能</h5><ul><li>リアルタイム詐欺検出</li><li>カスタムルールの作成</li><li>機械学習モデルの自動構築</li><li>スコアリングとリスク評価</li><li>詐欺パターンの学習</li></ul><h5>金融機関での使用例</h5><ul><li>クレジットカード取引の異常検出</li><li>アカウント乗っ取りの防止</li><li>送金詐欺の検出</li><li>新規アカウントのリスク評価</li><li>マネーロンダリングの検出</li></ul><h5>検出モデルの種類</h5><ul><li><strong>オンライン詐欺インサイト（OFI）</strong></li><li><strong>トランザクション詐欺インサイト（TFI）</strong></li><li><strong>アカウント乗っ取りインサイト（ATI）</strong></li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>B) Amazon Personalize:</strong> Amazon Personalizeはレコメンデーション用</li><li><strong>C) Amazon Forecast:</strong> Amazon Forecastは時系列予測用</li><li><strong>D) Amazon Translate:</strong> Amazon Translateは言語翻訳用</li></ul><p>Fraud DetectorはAmazonの20年以上の詐欺検出経験を活用し、高精度な検出を実現します。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q26",
+      "type": "single",
+      "text": "Amazon Transcribe Call Analyticsの特徴として正しいものはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "一般的な音声認識のみ"
+        },
+        {
+          "label": "B",
+          "text": "コールセンター通話の分析に特化した機能を提供"
+        },
+        {
+          "label": "C",
+          "text": "画像分析に使用"
+        },
+        {
+          "label": "D",
+          "text": "テキスト生成に特化"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon Transcribe Call Analyticsは、コールセンター通話の分析に特化した機能を提供するサービスです。正解はB「コールセンター通話の分析に特化した機能を提供」です。</p><h5>Call Analyticsの主な機能</h5><ul><li>リアルタイムおよびポストコール分析</li><li>感情分析（ポジティブ/ネガティブ）</li><li>話者分離（オペレーターと顧客）</li><li>中断検出</li><li>沈黙時間の検出</li><li>話速分析</li></ul><h5>コールセンター固有の分析指標</h5><ul><li>カテゴリ分類（問い合わせ種別など）</li><li>コンプライアンス監視</li><li>スクリプト遵守率</li><li>解決率の追跡</li><li>カスタム語彙の認識</li></ul><h5>活用メリット</h5><ul><li>オペレーターのパフォーマンス向上</li><li>顧客満足度の改善</li><li>トレーニング機会の特定</li><li>問題通話の早期発見</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) 一般的な音声認識のみ:</strong> 一般的な音声認識は標準Transcribeの機能</li><li><strong>C) 画像分析に使用:</strong> 画像分析はRekognitionの機能</li><li><strong>D) テキスト生成に特化:</strong> テキスト生成は別のサービスの機能</li></ul><p>Call Analyticsはコールセンター業務の最適化に特化した強力なツールです。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q27",
+      "type": "single",
+      "text": "Amazon SageMaker Neoの主な利点は何ですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "データの自動収集"
+        },
+        {
+          "label": "B",
+          "text": "モデルを最適化してエッジデバイスでの推論を高速化"
+        },
+        {
+          "label": "C",
+          "text": "データのラベリング"
+        },
+        {
+          "label": "D",
+          "text": "モデルの自動学習"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon SageMaker Neoは、機械学習モデルを最適化してエッジデバイスでの推論を高速化するサービスです。正解はB「モデルを最適化してエッジデバイスでの推論を高速化」です。</p><h5>SageMaker Neoの主な機能</h5><ul><li>モデルのコンパイル最適化</li><li>推論速度の向上（最大10倍）</li><li>メモリ使用量の削減</li><li>複数のフレームワークに対応</li><li>多様なハードウェアプラットフォームのサポート</li></ul><h5>対応フレームワーク</h5><ul><li>TensorFlow</li><li>PyTorch</li><li>MXNet</li><li>ONNX</li><li>XGBoost</li></ul><h5>対応ハードウェア</h5><ul><li>NVIDIA GPU</li><li>Intelプロセッサ</li><li>ARMプロセッサ</li><li>Qualcomm</li><li>エッジデバイス（Raspberry Piなど）</li></ul><h5>エッジコンピューティングの利点</h5><ul><li>低レイテンシ</li><li>ネットワーク帯域幅の節約</li><li>プライバシー保護</li><li>オフライン動作</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) データの自動収集:</strong> データ収集は別のサービスの機能</li><li><strong>C) データのラベリング:</strong> データラベリングはGround Truthの機能</li><li><strong>D) モデルの自動学習:</strong> モデルの自動学習はAutopilotの機能</li></ul><p>NeoはIoTデバイスやエッジコンピューティングにおいて重要な役割を果たします。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q28",
+      "type": "single",
+      "text": "次のシナリオを考えてください： 「小売店が店舗内カメラで顧客の行動パターンを分析したい（プライバシーに配慮）」 適切なアプローチはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Amazon Rekognitionで個人を特定する"
+        },
+        {
+          "label": "B",
+          "text": "Amazon Rekognitionで人数カウントと動線分析（顔認識なし）"
+        },
+        {
+          "label": "C",
+          "text": "Amazon Comprehendで分析"
+        },
+        {
+          "label": "D",
+          "text": "Amazon Textractで分析"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>小売店での顧客行動分析では、プライバシーへの配慮が重要です。正解はB「Amazon Rekognitionで人数カウントと動線分析（顔認識なし）」です。</p><h5>プライバシーに配慮した分析方法</h5><ul><li>人数カウント：店内の混雑度把握</li><li>動線分析：顧客の移動パターン</li><li>滞留時間分析：特定エリアでの滞在時間</li><li>ヒートマップ作成：人気エリアの特定</li></ul><h5>プライバシー保護のポイント</h5><ul><li>顔認識機能を使用しない</li><li>個人を特定できる情報を収集しない</li><li>統計データのみを保存</li><li>GDPRや個人情報保護法に準拠</li></ul><h5>分析から得られるインサイト</h5><ul><li>最適な店舗レイアウト</li><li>スタッフ配置の最適化</li><li>マーケティング施策の効果測定</li><li>混雑時間帯の把握</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) Amazon Rekognitionで個人を特定する:</strong> 個人特定はプライバシーに反する</li><li><strong>C) Amazon Comprehendで分析:</strong> Comprehendはテキスト分析用</li><li><strong>D) Amazon Textractで分析:</strong> Textractは文書処理用</li></ul><p>このアプローチにより、プライバシーを守りながら有用なビジネスインサイトを得ることができます。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q29",
+      "type": "single",
+      "text": "Amazon Lookout for Visionの用途として最も適切なものはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "テキスト分析"
+        },
+        {
+          "label": "B",
+          "text": "製品の外観品質検査"
+        },
+        {
+          "label": "C",
+          "text": "音声認識"
+        },
+        {
+          "label": "D",
+          "text": "需要予測"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon Lookout for Visionは、コンピュータビジョンを使用して製品の外観品質検査を自動化するサービスです。正解はB「製品の外観品質検査」です。</p><h5>Lookout for Visionの主な機能</h5><ul><li>異常検出：欠陥、傷、へこみなど</li><li>少数の正常画像で学習開始可能</li><li>リアルタイム品質検査</li><li>ダッシュボードでの結果可視化</li><li>API統合による自動化</li></ul><h5>製造業での活用例</h5><ul><li>自動車部品の傷検査</li><li>電子部品のはんだ不良検出</li><li>食品パッケージの印刷不良</li><li>繊維製品の縫製不良</li><li>金属製品の表面欠陥</li></ul><h5>導入メリット</h5><ul><li>人的検査の負担軽減</li><li>検査精度の向上</li><li>24時間稼働可能</li><li>検査基準の統一</li><li>不良品の流出防止</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) テキスト分析:</strong> テキスト分析はComprehendの機能</li><li><strong>C) 音声認識:</strong> 音声認識はTranscribeの機能</li><li><strong>D) 需要予測:</strong> 需要予測はForecastの機能</li></ul><p>Lookout for Visionは製造業の品質管理をAIで革新するサービスです。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q30",
+      "type": "single",
+      "text": "Amazon CodeGuruの機械学習機能として正しいものはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "画像認識"
+        },
+        {
+          "label": "B",
+          "text": "コードレビューとパフォーマンス最適化の推奨"
+        },
+        {
+          "label": "C",
+          "text": "音声合成"
+        },
+        {
+          "label": "D",
+          "text": "自然言語翻訳"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon CodeGuruは、機械学習を使用してコードレビューとアプリケーションパフォーマンスの最適化を提供するサービスです。正解はB「コードレビューとパフォーマンス最適化の推奨」です。</p><h5>CodeGuruの2つの主要コンポーネント</h5><ol><li><strong>CodeGuru Reviewer</strong><ul><li>コード品質の問題検出</li><li>セキュリティ脆弱性の特定</li><li>ベストプラクティスの提案</li><li>リソースリークの検出</li><li>並行性の問題検出</li></ul></li><li><strong>CodeGuru Profiler</strong><ul><li>ランタイムパフォーマンス分析</li><li>CPU使用率の最適化</li><li>メモリ使用量の削減</li><li>コスト削減の提案</li><li>ボトルネックの特定</li></ul></li></ol><h5>機械学習の活用</h5><ul><li>Amazonのコードベースで学習</li><li>オープンソースプロジェクトからの学習</li><li>継続的な改善と学習</li></ul><h5>対応言語</h5><ul><li>Java</li><li>Python</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) 画像認識:</strong> 画像認識はRekognitionの機能</li><li><strong>C) 音声合成:</strong> 音声合成はPollyの機能</li><li><strong>D) 自然言語翻訳:</strong> 自然言語翻訳はTranslateの機能</li></ul><p>CodeGuruは開発者の生産性を向上させ、コード品質を改善する強力なツールです。</p>",
+      "resources": []
+    }
+  ]
+}

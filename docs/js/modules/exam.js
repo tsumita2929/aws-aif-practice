@@ -110,7 +110,7 @@ export async function finishExam() {
         }
     });
     
-    const score = Math.round((correct / 65) * 100);
+    const score = Math.round((correct / AppState.examQuestions.length) * 100);
     const passed = score >= 70;
     
     // 結果画面を表示
@@ -128,9 +128,9 @@ function showExamResults(correct, answered, score, passed) {
                     <div class="score-label">${passed ? '合格' : '不合格'}</div>
                 </div>
                 <div class="result-details">
-                    <p>正解数: ${correct}/65</p>
-                    <p>回答数: ${answered}/65</p>
-                    <p>未回答: ${65 - answered}問</p>
+                    <p>正解数: ${correct}/${AppState.examQuestions.length}</p>
+                    <p>回答数: ${answered}/${AppState.examQuestions.length}</p>
+                    <p>未回答: ${AppState.examQuestions.length - answered}問</p>
                     <p>合格ライン: 70%</p>
                 </div>
             </div>

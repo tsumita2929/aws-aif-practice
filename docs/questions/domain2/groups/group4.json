@@ -1,0 +1,289 @@
+{
+  "domain": 2,
+  "group": 4,
+  "title": "MLOps・統合",
+  "description": "Model Registry、A2I、Pipelines、Elastic Inference、Feature Store、DevOps Guru",
+  "questionCount": 10,
+  "questions": [
+    {
+      "id": "d2_q31",
+      "type": "single",
+      "text": "次のシナリオを考えてください： 「音楽ストリーミングサービスが、ユーザーの好みに基づいてプレイリストを自動生成したい」 最も適したAWSサービスはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Amazon Forecast"
+        },
+        {
+          "label": "B",
+          "text": "Amazon Personalize"
+        },
+        {
+          "label": "C",
+          "text": "Amazon Comprehend"
+        },
+        {
+          "label": "D",
+          "text": "Amazon Rekognition"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>音楽ストリーミングサービスでユーザーの好みに基づいたプレイリスト生成には、パーソナライゼーションサービスが最適です。正解はB「Amazon Personalize」です。</p><h5>Personalizeの音楽サービスでの活用</h5><ul><li>ユーザーの聴取履歴を分析</li><li>好みのジャンルやアーティストを学習</li><li>パーソナライズされたプレイリストを生成</li><li>リアルタイムでの推薦更新</li><li>類似ユーザーの傾向を参考</li></ul><h5>推薦アルゴリズムの種類</h5><ul><li>ユーザーパーソナライゼーション</li><li>関連アイテム推薦</li><li>人気ランキング</li><li>新着アイテムの推薦</li></ul><h5>実装メリット</h5><ul><li>ユーザーエンゲージメントの向上</li><li>再生時間の増加</li><li>新しい音楽の発見促進</li><li>サブスクリプション継続率の向上</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) Amazon Forecast:</strong> Amazon Forecastは時系列予測用</li><li><strong>C) Amazon Comprehend:</strong> Amazon Comprehendはテキスト分析用</li><li><strong>D) Amazon Rekognition:</strong> Amazon Rekognitionは画像/動画分析用</li></ul><p>PersonalizeはSpotifyやNetflixのようなパーソナライゼーション体験を実現します。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q32",
+      "type": "single",
+      "text": "Amazon SageMaker Model Registryの主な機能は何ですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "データの保存"
+        },
+        {
+          "label": "B",
+          "text": "MLモデルのバージョン管理とメタデータ管理"
+        },
+        {
+          "label": "C",
+          "text": "リアルタイム推論の実行"
+        },
+        {
+          "label": "D",
+          "text": "データのラベリング"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon SageMaker Model Registryは、MLモデルのバージョン管理とメタデータ管理を提供するサービスです。正解はB「MLモデルのバージョン管理とメタデータ管理」です。</p><h5>Model Registryの主な機能</h5><ul><li>モデルバージョンの管理</li><li>モデルメタデータの保存</li><li>モデルの承認ワークフロー</li><li>モデルグループの管理</li><li>デプロイ履歴の追跡</li></ul><h5>メタデータの種類</h5><ul><li>トレーニングパラメータ</li><li>パフォーマンスメトリクス</li><li>入出力スキーマ</li><li>トレーニングデータの情報</li><li>カスタムタグ</li></ul><h5>MLOpsでの活用</h5><ul><li>開発から本番への移行管理</li><li>モデルの承認プロセス</li><li>A/Bテストの管理</li><li>ロールバックの容易化</li><li>コンプライアンス管理</li></ul><h5>統合機能</h5><ul><li>SageMaker Pipelinesとの統合</li><li>エンドポイントへの自動デプロイ</li><li>CI/CDパイプラインとの連携</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) データの保存:</strong> データ保存はS3の役割</li><li><strong>C) リアルタイム推論の実行:</strong> リアルタイム推論はエンドポイントの機能</li><li><strong>D) データのラベリング:</strong> データラベリングはGround Truthの機能</li></ul><p>Model RegistryはMLモデルのライフサイクル管理に不可欠なコンポーネントです。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q33",
+      "type": "single",
+      "text": "Amazon Augmented AI (A2I)の用途として最も適切なものはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "完全自動化されたML推論"
+        },
+        {
+          "label": "B",
+          "text": "人間によるレビューが必要なML予測のワークフロー管理"
+        },
+        {
+          "label": "C",
+          "text": "データの自動収集"
+        },
+        {
+          "label": "D",
+          "text": "モデルの自動トレーニング"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon Augmented AI (A2I) は、機械学習の予測に対して人間によるレビューが必要な場合のワークフロー管理を行うサービスです。</p><h5>**正解（B）の理由：**</h5><ul><li>A2Iは「Human-in-the-loop」MLワークフローを構築するためのサービス</li><li>信頼度の低い予測や重要な決定に対して人間のレビューを組み込める</li><li>Amazon Textract、Amazon Rekognition、カスタムMLモデルと統合可能</li><li>レビュワーの管理、ワークフローの設計、結果の統合を簡素化</li><li>医療診断、金融取引、法的文書など高精度が求められる分野で活用</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) 完全自動化されたML推論:</strong> 完全自動化はA2Iの目的と正反対で、人間の介入を前提としています</li><li><strong>C) データの自動収集:</strong> データの自動収集はKinesis、IoT Coreなどの役割です</li><li><strong>D) モデルの自動トレーニング:</strong> モデルの自動トレーニングはSageMaker Autopilotなどの機能です</li></ul><p>A2Iは、AIの精度と人間の判断力を組み合わせることで、より信頼性の高い意思決定を実現する重要なサービスです。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q34",
+      "type": "single",
+      "text": "次のシナリオを考えてください： 「病院が患者の診療記録から重要な医療情報を抽出したい」 最も適したAWSサービスはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Amazon Comprehend Medical"
+        },
+        {
+          "label": "B",
+          "text": "Amazon Rekognition"
+        },
+        {
+          "label": "C",
+          "text": "Amazon Forecast"
+        },
+        {
+          "label": "D",
+          "text": "Amazon Personalize"
+        }
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "<h5>詳細解説</h5><p>病院が患者の診療記録から重要な医療情報を抽出する場合、Amazon Comprehend Medicalが最も適したサービスです。</p><h5>**正解（A）の理由：**</h5><ul><li>Comprehend Medicalは医療テキストの自然言語処理に特化したサービス</li><li>診療記録、医師のメモ、検査結果から医療情報を自動抽出</li><li>症状、診断、投薬、治療、検査結果などの医療エンティティを識別</li><li>PHI（Protected Health Information）の検出と匿名化をサポート</li><li>ICD-10-CMやRxNormなどの医療標準コードへのマッピング機能</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>B) Amazon Rekognition:</strong> Amazon Rekognitionは画像・動画の分析サービスで、テキスト処理には適していません</li><li><strong>C) Amazon Forecast:</strong> Amazon Forecastは時系列予測サービスで、情報抽出機能はありません</li><li><strong>D) Amazon Personalize:</strong> Amazon Personalizeは推薦システム構築用で、医療情報の抽出には対応していません</li></ul><p>Comprehend Medicalは、医療機関のデジタルトランスフォーメーションを支援し、非構造化医療データから価値ある洞察を得るための重要なツールです。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q35",
+      "type": "single",
+      "text": "Amazon SageMaker Pipelinesの主な利点は何ですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "データの手動処理"
+        },
+        {
+          "label": "B",
+          "text": "MLワークフローの自動化とCI/CDの実現"
+        },
+        {
+          "label": "C",
+          "text": "画像の生成"
+        },
+        {
+          "label": "D",
+          "text": "音声の合成"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon SageMaker Pipelinesは、機械学習ワークフローを自動化し、CI/CD（継続的インテグレーション/継続的デリバリー）を実現するためのフルマネージドサービスです。</p><h5>**正解（B）の理由：**</h5><ul><li>エンドツーエンドのMLワークフローを定義、実行、管理できる</li><li>データ準備、モデルトレーニング、評価、デプロイまでの全プロセスを自動化</li><li>ワークフローの再現性と追跡可能性を保証</li><li>GitOpsやMLOpsのベストプラクティスをサポート</li><li>パイプラインの各ステップをモジュール化し、再利用可能</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) データの手動処理:</strong> データの手動処理はPipelinesの目的と正反対で、自動化がその本質です</li><li><strong>C) 画像の生成:</strong> 画像の生成は生成AIモデルやStable Diffusionなどの役割です</li><li><strong>D) 音声の合成:</strong> 音声の合成はAmazon Pollyの機能です</li></ul><p>SageMaker Pipelinesは、MLモデルの開発から本番環境への展開までを効率化し、チーム間のコラボレーションを促進する重要なMLOpsツールです。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q36",
+      "type": "single",
+      "text": "Amazon Elastic Inferenceの用途として正しいものはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "モデルのトレーニングを高速化"
+        },
+        {
+          "label": "B",
+          "text": "推論コストを削減するためのGPUアクセラレーション"
+        },
+        {
+          "label": "C",
+          "text": "データの前処理"
+        },
+        {
+          "label": "D",
+          "text": "モデルの精度向上"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon Elastic Inference (EI) は、推論ワークロードのコストを削減するために設計されたサービスで、EC2インスタンスやSageMakerインスタンスにGPUアクセラレーションを付加します。</p><h5>**正解（B）の理由：**</h5><ul><li>Elastic Inferenceは推論専用のGPUアクセラレーションを提供</li><li>フルGPUインスタンスよりも最大75%のコスト削減が可能</li><li>必要な推論性能に応じて適切なサイズのアクセラレーターを選択可能</li><li>EC2、SageMaker、ECSタスクにアタッチして使用</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) モデルのトレーニングを高速化:</strong> モデルのトレーニング高速化はGPUインスタンスやSageMakerトレーニングジョブの役割で、EIは推論専用です</li><li><strong>C) データの前処理:</strong> データの前処理はSageMaker Processing JobsやGlueなどの役割です</li><li><strong>D) モデルの精度向上:</strong> モデルの精度向上は機械学習アルゴリズムやハイパーパラメータチューニングの領域で、EIの機能ではありません</li></ul><p>Elastic Inferenceは、推論ワークロードに必要十分なGPUリソースを提供することで、過剰なコストを抑えながら高速な推論を実現する効率的なソリューションです。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q37",
+      "type": "single",
+      "text": "次のシナリオを考えてください： 「オンライン教育プラットフォームが、講義動画に自動字幕を付けたい」 最も適したAWSサービスの組み合わせはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Amazon Transcribe + Amazon Translate（多言語対応の場合）"
+        },
+        {
+          "label": "B",
+          "text": "Amazon Rekognition + Amazon Comprehend"
+        },
+        {
+          "label": "C",
+          "text": "Amazon Textract + Amazon Polly"
+        },
+        {
+          "label": "D",
+          "text": "Amazon Lex + Amazon Forecast"
+        }
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "<h5>詳細解説</h5><p>オンライン教育プラットフォームで講義動画に自動字幕を付ける場合、Amazon Transcribeが最適なサービスです。多言語対応が必要な場合は、Amazon Translateと組み合わせて使用します。</p><h5>**正解（A）の理由：**</h5><ul><li>Amazon Transcribeは音声をテキストに自動変換する音声認識サービスで、動画の音声から字幕を生成するのに最適</li><li>リアルタイムおよびバッチ処理の両方に対応</li><li>複数の言語をサポートし、タイムスタンプ付きのトランスクリプトを生成</li><li>Amazon Translateと組み合わせることで、生成した字幕を他の言語に翻訳可能</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>B) Amazon Rekognition + Amazon Comprehend:</strong> Amazon Rekognitionは画像・動画の視覚的分析、Comprehendはテキスト分析のサービスで、音声の文字起こしには対応していません</li><li><strong>C) Amazon Textract + Amazon Polly:</strong> Amazon Textractは文書からテキストを抽出、Pollyはテキストを音声に変換するサービスで、音声認識の逆の機能です</li><li><strong>D) Amazon Lex + Amazon Forecast:</strong> Amazon Lexは対話型インターフェース構築、Forecastは時系列予測のサービスで、字幕生成とは無関係です</li></ul><p>教育コンテンツのアクセシビリティ向上において、自動字幕生成は重要な機能であり、TranscribeとTranslateの組み合わせが最も効果的なソリューションです。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q38",
+      "type": "single",
+      "text": "Amazon SageMaker Feature Storeの役割は何ですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "モデルの保存"
+        },
+        {
+          "label": "B",
+          "text": "機械学習の特徴量の一元管理とリアルタイム/バッチ提供"
+        },
+        {
+          "label": "C",
+          "text": "推論の実行"
+        },
+        {
+          "label": "D",
+          "text": "データのラベリング"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon SageMaker Feature Storeは、機械学習の特徴量（features）を一元的に管理し、リアルタイムおよびバッチでの特徴量提供を行うフルマネージドサービスです。</p><h5>**正解（B）の理由：**</h5><ul><li>Feature Storeは機械学習パイプラインにおける特徴量の保存、検索、共有を可能にします</li><li>オンラインストア（低レイテンシのリアルタイム推論用）とオフラインストア（トレーニング用のバッチアクセス）の両方を提供</li><li>特徴量の再利用性を高め、チーム間での一貫性を保証します</li><li>特徴量のバージョン管理と履歴追跡が可能</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) モデルの保存:</strong> モデルの保存はSageMaker Model Registryの役割です</li><li><strong>C) 推論の実行:</strong> 推論の実行はSageMaker Endpointやバッチ変換の機能です</li><li><strong>D) データのラベリング:</strong> データのラベリングはSageMaker Ground Truthの機能です</li></ul><p>Feature Storeは、特徴量エンジニアリングの成果を組織全体で共有し、MLワークフローの効率性と一貫性を向上させる重要なコンポーネントです。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q39",
+      "type": "single",
+      "text": "Amazon DevOps Guruの機械学習機能として正しいものはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "コード生成"
+        },
+        {
+          "label": "B",
+          "text": "運用上の問題を予測的に検出"
+        },
+        {
+          "label": "C",
+          "text": "画像分析"
+        },
+        {
+          "label": "D",
+          "text": "音声認識"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon DevOps Guruは、機械学習を使用してアプリケーションの運用上の問題を自動的に検出し、解決策を提案するサービスです。</p><h5>選択肢Bが正解である理由</h5><h5>DevOps Guruの主な機能</h5><ul><li>異常なアプリケーション動作の予測的検出</li><li>パフォーマンス低下の早期警告</li><li>運用上の問題の根本原因分析</li><li>問題解決のための具体的な推奨事項の提供</li><li>CloudFormationスタックやAWSリソースの自動監視</li></ul><h5>機械学習による検出内容</h5><ul><li>レイテンシーの異常な増加</li><li>エラー率の急上昇</li><li>リソース使用率の異常パターン</li><li>通常とは異なるトラフィックパターン</li><li>関連するメトリクスの相関分析</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) コード生成:</strong> コード生成はAmazon CodeWhispererやCodeCatalystの機能です</li><li><strong>C) 画像分析:</strong> 画像分析はAmazon Rekognitionが提供します</li><li><strong>D) 音声認識:</strong> 音声認識はAmazon Transcribeの機能です</li></ul><h5>DevOps Guruの利点</h5><ul><li>運用チームの負担軽減</li><li>MTTR（平均復旧時間）の短縮</li><li>予防的な問題対処が可能</li><li>AWSのベストプラクティスに基づいた推奨</li><li>CloudWatchやX-Rayとの統合</li></ul>",
+      "resources": []
+    },
+    {
+      "id": "d2_q40",
+      "type": "single",
+      "text": "次のシナリオを考えてください： 「保険会社が事故車両の損傷を画像から自動評価したい」 最も適したアプローチはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Amazon Rekognition Custom Labelsで損傷パターンを学習"
+        },
+        {
+          "label": "B",
+          "text": "Amazon Comprehendで分析"
+        },
+        {
+          "label": "C",
+          "text": "Amazon Forecastで予測"
+        },
+        {
+          "label": "D",
+          "text": "Amazon Personalizeで推薦"
+        }
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "<h5>詳細解説</h5><p>事故車両の損傷を画像から自動評価するには、カスタム画像分類モデルが必要です。</p><h5>選択肢Aが正解である理由</h5><h5>Amazon Rekognition Custom Labelsの特徴</h5><ul><li>独自のラベルでカスタムモデルをトレーニング可能</li><li>少量の画像データ（数十〜数百枚）から開始可能</li><li>損傷の種類（へこみ、傷、破損など）を分類</li><li>損傷の位置と範囲を検出</li><li>AutoMLにより専門知識なしでモデル作成</li></ul><h5>保険業界での活用方法</h5><ul><li>損傷部位の自動検出と分類</li><li>修理費用の見積もり支援</li><li>査定プロセスの迅速化</li><li>不正請求の検出支援</li><li>一貫した評価基準の確立</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>B) Amazon Comprehendで分析:</strong> Comprehendは自然言語処理サービスで、画像分析には対応していません</li><li><strong>C) Amazon Forecastで予測:</strong> Forecastは時系列予測サービスで、画像認識機能はありません</li><li><strong>D) Amazon Personalizeで推薦:</strong> Personalizeはレコメンデーションサービスで、画像による損傷評価には使用できません</li></ul><h5>実装のステップ</h5><p>1. 損傷タイプごとにラベル付けされた画像を準備</p><p>2. Rekognition Custom Labelsでモデルをトレーニング</p><p>3. APIを使用して新しい画像を分析</p><p>4. 結果を査定システムと統合</p>",
+      "resources": []
+    }
+  ]
+}

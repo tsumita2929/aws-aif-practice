@@ -100,7 +100,7 @@ export function initExamMode(questions) {
     resetState();
     AppState.examMode = true;
     AppState.examQuestions = questions;
-    AppState.examAnswers = new Array(65).fill(null);
+    AppState.examAnswers = new Array(questions.length).fill(null);
     AppState.examStartTime = Date.now();
     AppState.flaggedQuestions.clear();
 }

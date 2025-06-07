@@ -103,10 +103,18 @@ function updateQuestionHeader(currentDomain, totalQuestions) {
         document.getElementById('current-domain').textContent = `ランダム練習 (ドメイン${currentDomain})`;
     } else if (AppState.examMode) {
         document.getElementById('current-domain').textContent = `模擬試験`;
+    } else if (AppState.reviewMode) {
+        document.getElementById('current-domain').textContent = `復習 (ドメイン${currentDomain})`;
     } else {
         document.getElementById('current-domain').textContent = `ドメイン${currentDomain}`;
     }
-    document.getElementById('question-number').textContent = `問題 ${AppState.currentQuestionIndex + 1}/${totalQuestions}`;
+    
+    // 復習モードでは問題番号を表示しない
+    if (AppState.reviewMode) {
+        document.getElementById('question-number').textContent = `復習問題`;
+    } else {
+        document.getElementById('question-number').textContent = `問題 ${AppState.currentQuestionIndex + 1}/${totalQuestions}`;
+    }
 
     // シャッフルインジケーターの更新
     const shuffleIndicator = document.getElementById('shuffle-indicator');
@@ -126,6 +134,21 @@ function updateQuestionHeader(currentDomain, totalQuestions) {
 
 // 進捗インジケーターの更新
 function updateProgressIndicator(totalQuestions) {
+    // 復習モードでは進捗表示を完全に非表示にする
+    if (AppState.reviewMode) {
+        const progressIndicator = document.getElementById('progress-indicator');
+        if (progressIndicator) {
+            progressIndicator.style.display = 'none';
+        }
+        return;
+    }
+    
+    // 通常モードでは進捗表示を表示
+    const progressIndicator = document.getElementById('progress-indicator');
+    if (progressIndicator) {
+        progressIndicator.style.display = 'block';
+    }
+
     // 現在のドメインの完了問題数を計算
     let completedCount = 0;
 
@@ -133,8 +156,8 @@ function updateProgressIndicator(totalQuestions) {
         // ランダムモードの場合
         completedCount = AppState.currentQuestionIndex;
     } else if (AppState.examMode) {
-        // 試験モードの場合
-        completedCount = Object.keys(AppState.examAnswers).length;
+        // 試験モードの場合 - null以外の要素をカウント
+        completedCount = AppState.examAnswers.filter(answer => answer !== null && answer !== undefined).length;
     } else {
         // 通常モードの場合
         completedCount = Array.from(AppState.answeredQuestions.keys())
@@ -144,20 +167,35 @@ function updateProgressIndicator(totalQuestions) {
     const percentage = totalQuestions > 0 ? Math.round((completedCount / totalQuestions) * 100) : 0;
 
     // 進捗バーの更新
-    document.getElementById('progress-bar-fill').style.width = `${percentage}%`;
-    document.getElementById('progress-current').textContent = completedCount;
-    document.getElementById('progress-total').textContent = totalQuestions;
-    document.getElementById('progress-percentage').textContent = `(${percentage}%)`;
+    const progressBarFill = document.getElementById('progress-bar-fill');
+    const progressCurrent = document.getElementById('progress-current');
+    const progressTotal = document.getElementById('progress-total');
+    const progressPercentage = document.getElementById('progress-percentage');
+    
+    if (progressBarFill) {
+        progressBarFill.style.width = `${percentage}%`;
+    }
+    if (progressCurrent) {
+        progressCurrent.textContent = completedCount;
+    }
+    if (progressTotal) {
+        progressTotal.textContent = totalQuestions;
+    }
+    if (progressPercentage) {
+        progressPercentage.textContent = `(${percentage}%)`;
+    }
 
     // セグメントの作成（10問ごと、または試験モードは65問を10分割）
     const segmentsContainer = document.getElementById('progress-segments');
-    segmentsContainer.innerHTML = '';
+    if (segmentsContainer) {
+        segmentsContainer.innerHTML = '';
 
-    const segmentCount = Math.min(10, totalQuestions);
-    for (let i = 0; i < segmentCount; i++) {
-        const segment = document.createElement('div');
-        segment.className = 'progress-segment';
-        segmentsContainer.appendChild(segment);
+        const segmentCount = Math.min(10, totalQuestions);
+        for (let i = 0; i < segmentCount; i++) {
+            const segment = document.createElement('div');
+            segment.className = 'progress-segment';
+            segmentsContainer.appendChild(segment);
+        }
     }
 }
 
@@ -298,8 +336,19 @@ export async function submitAnswer() {
 
     // ボタン状態更新
     document.getElementById('submit-answer').style.display = 'none';
-    document.getElementById('next-question').style.display = 'block';
-    document.getElementById('next-question-bottom').style.display = 'block';
+    
+    if (AppState.reviewMode) {
+        // 復習モードでは「復習一覧に戻る」ボタンを表示
+        const nextBtn = document.getElementById('next-question');
+        const nextBtnBottom = document.getElementById('next-question-bottom');
+        nextBtn.style.display = 'block';
+        nextBtnBottom.style.display = 'block';
+        nextBtn.textContent = '復習一覧に戻る';
+        nextBtnBottom.textContent = '復習一覧に戻る';
+    } else {
+        document.getElementById('next-question').style.display = 'block';
+        document.getElementById('next-question-bottom').style.display = 'block';
+    }
 
     // 進捗を保存
     saveProgress();
@@ -377,6 +426,14 @@ function displayExplanation(question, isCorrect) {
 
 // 次の質問へ
 export async function nextQuestion() {
+    if (AppState.reviewMode) {
+        // 復習モードの場合は復習一覧に戻る
+        AppState.reviewMode = false;
+        const { showView } = await import('./ui.js');
+        showView('review');
+        return;
+    }
+    
     if (AppState.examMode) {
         // 試験モードの場合
         AppState.examAnswers[AppState.currentQuestionIndex] = AppState.selectedAnswers;
@@ -449,6 +506,12 @@ function resetQuestionButtons() {
         nextBtnBottom.style.display = 'block';
         nextBtn.textContent = AppState.currentQuestionIndex < 64 ? '次の問題' : '試験を終了';
         nextBtnBottom.textContent = AppState.currentQuestionIndex < 64 ? '次の問題' : '試験を終了';
+    } else if (AppState.reviewMode) {
+        // 復習モードでは「次の問題」ボタンを「復習一覧に戻る」に変更
+        submitBtn.disabled = true;
+        submitBtn.style.display = 'block';
+        nextBtn.style.display = 'none';
+        nextBtnBottom.style.display = 'none';
     } else {
         submitBtn.disabled = true;
         submitBtn.style.display = 'block';
@@ -461,6 +524,14 @@ function resetQuestionButtons() {
 
 // 練習終了
 export async function finishPractice() {
+    // 復習モードの場合は復習一覧に戻る
+    if (AppState.reviewMode) {
+        AppState.reviewMode = false;
+        const { showView } = await import('./ui.js');
+        showView('review');
+        return;
+    }
+    
     const elapsed = Date.now() - AppState.startTime;
     AppState.totalTime += elapsed;
     saveProgress();

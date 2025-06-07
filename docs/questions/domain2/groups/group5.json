@@ -1,0 +1,294 @@
+{
+  "domain": 2,
+  "group": 5,
+  "title": "高度な実装",
+  "description": "Debugger、Monitron、Clarify、Location Service統合、Panorama",
+  "questionCount": 10,
+  "questions": [
+    {
+      "id": "d2_q41",
+      "type": "single",
+      "text": "Amazon SageMaker Debuggerの主な機能は何ですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "コードのバグ修正"
+        },
+        {
+          "label": "B",
+          "text": "MLモデルのトレーニング中の問題を自動検出"
+        },
+        {
+          "label": "C",
+          "text": "データの収集"
+        },
+        {
+          "label": "D",
+          "text": "推論の高速化"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon SageMaker Debuggerは、機械学習モデルのトレーニング中の問題を自動的に検出するツールです。正解はB「MLモデルのトレーニング中の問題を自動検出」です。</p><h5>SageMaker Debuggerの主な機能</h5><ul><li>勾配消失・爆発の検出</li><li>過学習・未学習の早期発見</li><li>テンソルの値の異常を検出</li><li>トレーニングの進行状況をリアルタイム監視</li><li>自動的にトレーニングを停止して時間とコストを節約</li></ul><h5>検出可能な問題</h5><ul><li>重みが更新されない問題</li><li>損失関数が減少しない問題</li><li>データローダーのボトルネック</li><li>GPU/CPUの使用率の問題</li><li>メモリリークの検出</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) コードのバグ修正:</strong> コードのバグ修正は開発ツールやIDEの機能</li><li><strong>C) データの収集:</strong> データ収集はAWS Glue、Kinesisなどの役割</li><li><strong>D) 推論の高速化:</strong> 推論の高速化はSageMaker Neo、Inferentiaなどの機能</li></ul><h5>使用方法</h5><ul><li>ルールベースの自動監視</li><li>カスタムルールの定義も可能</li><li>CloudWatchとの統合でアラート送信</li><li>トレーニングジョブの自動停止による無駄なコストの削減</li></ul><p>DebuggerはML開発の生産性を大幅に向上させる重要なツールです。</p>",
+      "resources": []
+    },
+    {
+      "id": "d2_q42",
+      "type": "single",
+      "text": "Amazon Monitronの用途として最も適切なものはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "ウェブサイトの監視"
+        },
+        {
+          "label": "B",
+          "text": "産業機器の予知保全"
+        },
+        {
+          "label": "C",
+          "text": "ネットワークトラフィックの分析"
+        },
+        {
+          "label": "D",
+          "text": "アプリケーションのパフォーマンス監視"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon Monitronは、産業機器の状態監視と予知保全に特化したエンドツーエンドシステムです。</p><h5>選択肢Bが正解である理由</h5><h5>Monitronの主な機能</h5><ul><li>振動と温度センサーによる機器の状態監視</li><li>機械学習による異常検知</li><li>予知保全アラートの自動生成</li><li>機器の故障を事前に予測</li><li>設置と設定が簡単（コーディング不要）</li></ul><h5>対象となる産業機器</h5><ul><li>モーター</li><li>ポンプ</li><li>ファン</li><li>コンプレッサー</li><li>ギアボックス</li><li>その他の回転機器</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) ウェブサイトの監視:</strong> ウェブサイトの監視にはAmazon CloudWatchやAWS X-Rayが適しています</li><li><strong>C) ネットワークトラフィックの分析:</strong> ネットワークトラフィック分析にはVPC Flow LogsやAWS Network Firewall が使用されます</li><li><strong>D) アプリケーションのパフォーマンス監視:</strong> アプリケーションパフォーマンス監視にはCloudWatch Application InsightsやX-Rayが適しています</li></ul><h5>Monitronの利点</h5><ul><li>計画外のダウンタイムの削減</li><li>メンテナンスコストの最適化</li><li>機器寿命の延長</li><li>専門知識不要で導入可能</li><li>ISO認証取得済みのセンサー使用</li></ul>",
+      "resources": []
+    },
+    {
+      "id": "d2_q43",
+      "type": "single",
+      "text": "次のシナリオを考えてください： 「メディア企業が動画コンテンツから不適切なシーンを自動検出したい」 最も適したAWSサービスはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Amazon Comprehend"
+        },
+        {
+          "label": "B",
+          "text": "Amazon Rekognition Video"
+        },
+        {
+          "label": "C",
+          "text": "Amazon Textract"
+        },
+        {
+          "label": "D",
+          "text": "Amazon Transcribe"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>動画コンテンツから不適切なシーンを自動検出するには、動画解析に特化したサービスが必要です。</p><h5>選択肢Bが正解である理由</h5><h5>Amazon Rekognition Videoの機能</h5><ul><li>不適切なコンテンツの検出（暴力、成人向けコンテンツなど）</li><li>フレーム単位での分析が可能</li><li>信頼度スコアの提供により、検出精度を調整可能</li><li>動画全体を通じた時系列での検出結果を提供</li><li>APIによる自動化が容易</li></ul><h5>具体的な検出項目</h5><ul><li>露骨な成人向けコンテンツ</li><li>暴力的なシーン</li><li>示唆的なコンテンツ</li><li>視覚的に不適切な要素</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) Amazon Comprehend:</strong> Comprehendはテキスト分析サービスで、動画コンテンツは処理できません</li><li><strong>C) Amazon Textract:</strong> Textractは文書やフォームからのテキスト抽出に特化しており、動画分析には対応していません</li><li><strong>D) Amazon Transcribe:</strong> Transcribeは音声をテキストに変換するサービスで、視覚的な不適切コンテンツは検出できません</li></ul><h5>実装のベストプラクティス</h5><ul><li>動画をS3にアップロード</li><li>Rekognition Videoで非同期分析を実行</li><li>検出結果に基づいて自動フィルタリング</li><li>人間によるレビューと組み合わせて精度向上</li></ul>",
+      "resources": []
+    },
+    {
+      "id": "d2_q44",
+      "type": "single",
+      "text": "Amazon SageMaker Clarifyの用途として正しいものはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "データの暗号化"
+        },
+        {
+          "label": "B",
+          "text": "MLモデルのバイアス検出と説明可能性の向上"
+        },
+        {
+          "label": "C",
+          "text": "モデルのトレーニング高速化"
+        },
+        {
+          "label": "D",
+          "text": "データの収集"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon SageMaker Clarifyは、機械学習モデルの公平性と説明可能性を向上させるためのツールです。</p><h5>選択肢Bが正解である理由</h5><ul><li>バイアス検出: トレーニングデータとモデル予測の両方でバイアスを検出します</li><li>説明可能性: モデルの予測がどのような特徴量に基づいているかを説明します</li><li>公平性メトリクス: 人種、性別、年齢などの保護属性に対する公平性を評価します</li><li>SHAP値の計算: 各特徴量の重要度を定量的に示します</li></ul><h5>Clarifyの主な機能</h5><ul><li>データバイアスの検出（トレーニング前）</li><li>モデルバイアスの検出（トレーニング後）</li><li>特徴量の重要度分析</li><li>個別予測の説明</li><li>モデル監視によるドリフト検出</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) データの暗号化:</strong> データの暗号化はAWS KMSやS3の暗号化機能で行います</li><li><strong>C) モデルのトレーニング高速化:</strong> トレーニングの高速化はSageMakerの分散トレーニングやGPUインスタンスで実現します</li><li><strong>D) データの収集:</strong> データ収集はAWS Glue、Kinesis、またはカスタムアプリケーションで行います</li></ul><h5>活用例</h5><ul><li>採用AIシステムでの性別・人種バイアスの検出</li><li>ローン審査モデルの公平性確保</li><li>医療診断AIの判断根拠の説明</li></ul>",
+      "resources": []
+    },
+    {
+      "id": "d2_q45",
+      "type": "single",
+      "text": "次のシナリオを考えてください： 「物流会社が配送ルートの最適化と配送時間予測を行いたい」 最も適したAWSサービスの組み合わせはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Amazon Location Service + Amazon Forecast"
+        },
+        {
+          "label": "B",
+          "text": "Amazon Rekognition + Amazon Comprehend"
+        },
+        {
+          "label": "C",
+          "text": "Amazon Textract + Amazon Translate"
+        },
+        {
+          "label": "D",
+          "text": "Amazon Lex + Amazon Polly"
+        }
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "<h5>詳細解説</h5><p>物流会社の配送ルート最適化と配送時間予測には、地理空間データの処理と時系列予測が必要です。</p><h5>選択肢Aが正解である理由</h5><h5>Amazon Location Service</h5><ul><li>地図データとルーティング機能を提供</li><li>配送ルートの最適化計算が可能</li><li>ジオフェンシング機能で配送エリアの管理</li><li>リアルタイムの位置追跡</li><li>交通状況を考慮したルート計算</li></ul><h5>Amazon Forecast</h5><ul><li>過去の配送データから配送時間を予測</li><li>天候、交通パターン、季節性などの要因を考慮</li><li>機械学習による高精度な時系列予測</li><li>需要予測による配送リソースの最適化</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>B) Amazon Rekognition + Amazon Comprehend:</strong> Rekognition（画像認識）とComprehend（自然言語処理）は、配送ルート最適化には関係ありません</li><li><strong>C) Amazon Textract + Amazon Translate:</strong> Textract（文書処理）とTranslate（翻訳）も、このユースケースには不適切です</li><li><strong>D) Amazon Lex + Amazon Polly:</strong> Lex（チャットボット）とPolly（音声合成）は、顧客対応には使えますが、ルート最適化や時間予測には使用できません</li></ul><h5>実装例</h5><ul><li>Location Serviceで最適ルートを計算し、配送車両を追跡</li><li>Forecastで過去の配送データから到着時間を予測</li><li>両サービスを組み合わせて、効率的な配送計画を立案</li></ul>",
+      "resources": []
+    },
+    {
+      "id": "d2_q46",
+      "type": "single",
+      "text": "Amazon Bedrockを使用して企業向けチャットボットを構築する際、最も適切なアーキテクチャはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Bedrock + Lambda + API Gateway + S3（知識ベース）"
+        },
+        {
+          "label": "B",
+          "text": "Bedrock単体で全ての処理を実行"
+        },
+        {
+          "label": "C",
+          "text": "EC2上でオープンソースLLMを実行"
+        },
+        {
+          "label": "D",
+          "text": "SageMakerで独自のLLMを訓練"
+        }
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "<h5>詳細解説</h5><p>企業向けチャットボットの構築には、スケーラビリティ、セキュリティ、知識管理を考慮した包括的なアーキテクチャが必要です。</p><h5>選択肢Aが正解である理由</h5><ul><li>Bedrock: 基盤モデル（LLM）へのアクセスを提供し、テキスト生成や理解を担当</li><li>Lambda: サーバーレスでビジネスロジックを実行し、Bedrockへのリクエストを処理</li><li>API Gateway: RESTful APIエンドポイントを提供し、フロントエンドとの通信を管理</li><li>S3（知識ベース）: 企業固有のドキュメントを保存し、Bedrockのナレッジベース機能と連携してRAGを実現</li></ul><h5>このアーキテクチャの利点</h5><ul><li>サーバーレスによる自動スケーリングとコスト最適化</li><li>API Gatewayによる認証・認可の実装</li><li>企業知識の活用によるより正確な回答の生成</li><li>マネージドサービスによる運用負荷の軽減</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>B) Bedrock単体で全ての処理を実行:</strong> Bedrockだけでは、APIエンドポイントの提供や認証、ビジネスロジックの実装ができません</li><li><strong>C) EC2上でオープンソースLLMを実行:</strong> EC2でのLLM運用は、スケーリング、メンテナンス、コストの面で非効率的です</li><li><strong>D) SageMakerで独自のLLMを訓練:</strong> 独自LLMの訓練は時間とコストがかかり、企業向けチャットボットには過剰な投資となる場合が多いです</li></ul><h5>追加で考慮すべきコンポーネント</h5><ul><li>DynamoDB: 会話履歴の保存</li><li>CloudWatch: ログとモニタリング</li><li>Cognito: ユーザー認証</li></ul>",
+      "resources": []
+    },
+    {
+      "id": "d2_q47",
+      "type": "single",
+      "text": "Amazon Bedrockのナレッジベース機能について、正しい説明はどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "リアルタイムでウェブをクロールして情報を取得する"
+        },
+        {
+          "label": "B",
+          "text": "S3に保存された企業のドキュメントをベクトル化し、RAGを実現する"
+        },
+        {
+          "label": "C",
+          "text": "事前学習されたモデルの知識のみを使用する"
+        },
+        {
+          "label": "D",
+          "text": "ユーザーが手動でナレッジを入力する必要がある"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon Bedrockのナレッジベース機能は、企業の独自データを活用したRAG（Retrieval-Augmented Generation）を実現するマネージドサービスです。</p><h5>選択肢Bが正解である理由</h5><ul><li>S3に保存されたドキュメント（PDF、Word、テキストファイルなど）を自動的に取り込みます</li><li>ドキュメントをチャンクに分割し、埋め込みモデルを使用してベクトル化します</li><li>ベクトルデータはAmazon OpenSearch ServerlessやPineconeなどのベクトルデータベースに保存されます</li><li>ユーザーの質問に対して、関連するドキュメントを検索し、LLMが回答を生成する際のコンテキストとして使用します</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) リアルタイムでウェブをクロールして情報を取得する:</strong> リアルタイムのウェブクロールは行いません。事前にS3にアップロードされたドキュメントを使用します</li><li><strong>C) 事前学習されたモデルの知識のみを使用する:</strong> ナレッジベースは、事前学習されたモデルの知識に加えて、企業固有のドキュメントの情報を活用します</li><li><strong>D) ユーザーが手動でナレッジを入力する必要がある:</strong> ドキュメントは自動的に処理されるため、手動でナレッジを入力する必要はありません</li></ul><h5>ナレッジベースの主な利点</h5><ul><li>最新の企業情報を基にした回答の生成</li><li>ドキュメントの自動更新と同期</li><li>ソース情報の提供による回答の信頼性向上</li><li>マネージドサービスによる運用負荷の軽減</li></ul>",
+      "resources": []
+    },
+    {
+      "id": "d2_q48",
+      "type": "multiple",
+      "text": "【複数選択】 Amazon Bedrockでコスト最適化を実現する方法として適切なものを2つ選択してください。",
+      "choices": [
+        {
+          "label": "A",
+          "text": "プロビジョンドスループットを使用して予測可能なワークロードのコストを削減"
+        },
+        {
+          "label": "B",
+          "text": "常に最大のモデルサイズを使用する"
+        },
+        {
+          "label": "C",
+          "text": "プロンプトのキャッシングとバッチ処理を活用"
+        },
+        {
+          "label": "D",
+          "text": "全てのリクエストをリアルタイムで処理"
+        },
+        {
+          "label": "E",
+          "text": "モデルの選択を用途に応じて最適化（簡単なタスクには小さいモデル）"
+        }
+      ],
+      "correct": [
+        0,
+        4
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon Bedrockのコスト最適化には、適切なモデル選択と利用方法の最適化が重要です。</p><h5>選択肢AとEが正解である理由</h5><h5>A. プロビジョンドスループットを使用</h5><ul><li>予測可能なワークロードに対して、一定期間のスループットを事前に購入することで割引を受けられます</li><li>オンデマンド価格と比較して大幅なコスト削減が可能</li><li>安定したパフォーマンスも確保できます</li></ul><h5>E. 用途に応じたモデルの最適化</h5><ul><li>簡単なタスクには小さいモデル（例：Claude Instant）を使用</li><li>複雑なタスクにのみ大きいモデル（例：Claude 3 Opus）を使用</li><li>タスクの複雑さに応じてモデルを使い分けることで、コストとパフォーマンスのバランスを最適化</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>B) 常に最大のモデルサイズを使用する:</strong> 常に最大のモデルを使用すると、不必要にコストが増大します</li><li><strong>C) プロンプトのキャッシングとバッチ処理を活用:</strong> Bedrockは現在、プロンプトのキャッシング機能を提供していません</li><li><strong>D) 全てのリクエストをリアルタイムで処理:</strong> バッチ処理が可能な場合は、リアルタイム処理よりもコスト効率的です</li></ul><h5>その他のコスト最適化のベストプラクティス</h5><ul><li>プロンプトエンジニアリングによるトークン数の削減</li><li>不要なリクエストの削減</li><li>モニタリングによる使用状況の把握と最適化</li></ul>",
+      "resources": []
+    },
+    {
+      "id": "d2_q49",
+      "type": "single",
+      "text": "Amazon Kendraの主な用途として最も適切なものはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "画像認識と物体検出"
+        },
+        {
+          "label": "B",
+          "text": "インテリジェントな企業内検索サービス"
+        },
+        {
+          "label": "C",
+          "text": "時系列データの予測"
+        },
+        {
+          "label": "D",
+          "text": "音声からテキストへの変換"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>Amazon Kendraは、機械学習を活用したインテリジェントな企業内検索サービスです。</p><h5>選択肢Bが正解である理由</h5><ul><li>Kendraは自然言語処理を使用して、企業内の様々なデータソースから関連情報を検索します</li><li>ユーザーの質問の意図を理解し、最も関連性の高い回答を提供します</li><li>SharePoint、S3、データベース、Salesforceなど、複数のデータソースに対応しています</li><li>コンテキストを理解した高度な検索が可能で、単純なキーワード検索を超えた結果を提供します</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) 画像認識と物体検出:</strong> 画像認識にはAmazon Rekognitionが適しています</li><li><strong>C) 時系列データの予測:</strong> 時系列データの予測にはAmazon Forecastが使用されます</li><li><strong>D) 音声からテキストへの変換:</strong> 音声からテキストへの変換にはAmazon Transcribeが適しています</li></ul><h5>Kendraの主な特徴</h5><ul><li>機械学習モデルの事前トレーニングが不要</li><li>自然言語での質問に対応</li><li>ドキュメントのランキングと関連性スコアリング</li><li>FAQの自動抽出と回答</li><li>セキュアな企業データへのアクセス制御</li></ul>",
+      "resources": []
+    },
+    {
+      "id": "d2_q50",
+      "type": "single",
+      "text": "AWS Panoramaの主な用途として最も適切なものはどれですか？",
+      "choices": [
+        {
+          "label": "A",
+          "text": "クラウドベースの機械学習モデル訓練"
+        },
+        {
+          "label": "B",
+          "text": "エッジデバイスでのコンピュータビジョン推論"
+        },
+        {
+          "label": "C",
+          "text": "自然言語処理タスクの実行"
+        },
+        {
+          "label": "D",
+          "text": "データベースの管理と最適化"
+        }
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "<h5>詳細解説</h5><p>AWS Panoramaは、エッジデバイスでコンピュータビジョンアプリケーションを実行するためのマネージドサービスです。</p><h5>選択肢Bが正解である理由</h5><ul><li>AWS Panoramaは、既存のIPカメラにコンピュータビジョン機能を追加するために設計されています</li><li>エッジデバイス（Panoramaアプライアンス）で機械学習モデルを実行し、リアルタイムでビデオストリームを分析します</li><li>オンプレミスでの推論により、低レイテンシーとプライバシー保護を実現します</li></ul><h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) クラウドベースの機械学習モデル訓練:</strong> モデル訓練はAWS SageMakerなどのサービスで行います。Panoramaは訓練済みモデルの推論に特化しています</li><li><strong>C) 自然言語処理タスクの実行:</strong> 自然言語処理にはAmazon Comprehend、Textract、Transcribeなどが適しています</li><li><strong>D) データベースの管理と最適化:</strong> データベース管理にはAmazon RDS、DynamoDB、Auroraなどが使用されます</li></ul><h5>Panoramaの主な活用例</h5><ul><li>製造業での品質検査</li><li>小売店での在庫管理や顧客行動分析</li><li>物流倉庫での安全監視</li><li>スマートビルディングでの人流解析</li></ul>",
+      "resources": []
+    }
+  ]
+}
