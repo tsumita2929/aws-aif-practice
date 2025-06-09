@@ -792,6 +792,37 @@ body {
     font-weight: 600;
 }
 
+/* フラグボタン */
+#flag-btn {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+#flag-btn.flagged {
+    background-color: var(--primary-orange);
+    color: white;
+    border: 2px solid var(--primary-orange);
+    box-shadow: 0 2px 8px rgba(255, 153, 0, 0.3);
+    font-weight: 600;
+}
+
+[data-theme="dark"] #flag-btn.flagged {
+    background-color: #FF9900;
+    border-color: #FFB84D;
+    box-shadow: 0 2px 12px rgba(255, 153, 0, 0.5);
+}
+
+#flag-btn.flagged:hover {
+    background-color: #E67E00;
+    border-color: #E67E00;
+    box-shadow: 0 2px 12px rgba(230, 126, 0, 0.4);
+}
+
+[data-theme="dark"] #flag-btn.flagged:hover {
+    background-color: #CC7A00;
+    border-color: #FFB84D;
+}
+
 [data-theme="dark"] #shuffle-btn.active {
     background-color: #FF9900;
     border-color: #FFB84D;
