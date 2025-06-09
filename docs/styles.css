@@ -739,6 +739,7 @@ body {
     display: flex;
     gap: var(--spacing-md);
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 /* ボタン */
@@ -1137,7 +1138,10 @@ body {
 
 .explanation-buttons {
     margin-top: var(--spacing-lg);
-    text-align: center;
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* 段階的解説のスタイル */

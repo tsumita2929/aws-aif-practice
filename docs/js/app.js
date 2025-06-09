@@ -152,6 +152,14 @@ function setupEventListeners() {
         const question = await loadQuestionModule();
         return question.nextQuestion();
     });
+    document.getElementById('prev-question').addEventListener('click', async () => {
+        const question = await loadQuestionModule();
+        return question.prevQuestion();
+    });
+    document.getElementById('prev-question-bottom').addEventListener('click', async () => {
+        const question = await loadQuestionModule();
+        return question.prevQuestion();
+    });
     
     // フラグボタン
     document.getElementById('flag-btn').addEventListener('click', async () => {
@@ -284,6 +292,15 @@ function setupKeyboardShortcuts() {
                     if (nextVisible && nextVisible.style.display !== 'none') {
                         const questionMod = await loadQuestionModule();
                         await questionMod.nextQuestion();
+                    }
+                    break;
+                    
+                case 'ArrowLeft':  // ←キー
+                    e.preventDefault();
+                    const prevVisible = document.getElementById('prev-question');
+                    if (prevVisible && prevVisible.style.display !== 'none') {
+                        const questionMod = await loadQuestionModule();
+                        await questionMod.prevQuestion();
                     }
                     break;
                     
@@ -556,6 +573,7 @@ function showKeyboardHelp() {
     
 スペースキー: 回答の送信 / 次の問題へ
 →キー: 次の問題へ
+←キー: 前の問題へ
 1-5キー: 選択肢を選択
 Ctrl/Cmd + F: フラグの切り替え
 Shift + /: このヘルプを表示

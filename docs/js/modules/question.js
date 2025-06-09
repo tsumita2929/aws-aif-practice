@@ -343,6 +343,11 @@ export async function submitAnswer() {
     // ボタン状態更新
     document.getElementById('submit-answer').style.display = 'none';
     
+    // Previous buttonの表示制御
+    const showPrevButton = AppState.currentQuestionIndex > 0 && !AppState.reviewMode;
+    document.getElementById('prev-question').style.display = showPrevButton ? 'block' : 'none';
+    document.getElementById('prev-question-bottom').style.display = showPrevButton ? 'block' : 'none';
+    
     if (AppState.reviewMode) {
         // 復習モードでは「復習一覧に戻る」ボタンを表示
         const nextBtn = document.getElementById('next-question');
@@ -454,6 +459,27 @@ export async function nextQuestion() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// 前の質問へ
+export async function prevQuestion() {
+    if (AppState.reviewMode) {
+        // 復習モードの場合は復習一覧に戻る
+        AppState.reviewMode = false;
+        const { showView } = await import('./ui.js');
+        showView('review');
+        return;
+    }
+    
+    if (AppState.currentQuestionIndex > 0) {
+        AppState.currentQuestionIndex--;
+        AppState.selectedAnswers = [];
+
+        await displayQuestion();
+
+        // 画面上部にスクロール
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}
+
 // フラグの切り替え
 export function toggleFlag() {
     let questionId;
@@ -510,7 +536,14 @@ function resetQuestionButtons() {
     const submitBtn = document.getElementById('submit-answer');
     const nextBtn = document.getElementById('next-question');
     const nextBtnBottom = document.getElementById('next-question-bottom');
+    const prevBtn = document.getElementById('prev-question');
+    const prevBtnBottom = document.getElementById('prev-question-bottom');
     const explanationPanel = document.getElementById('explanation-panel');
+
+    // Previous buttonの表示/非表示制御
+    const showPrevButton = AppState.currentQuestionIndex > 0 && !AppState.reviewMode;
+    prevBtn.style.display = showPrevButton ? 'block' : 'none';
+    prevBtnBottom.style.display = showPrevButton ? 'block' : 'none';
 
     if (AppState.examMode) {
         submitBtn.style.display = 'none';
@@ -647,6 +680,12 @@ function handleSwipe() {
         const nextBtn = document.getElementById('next-question');
         if (nextBtn && nextBtn.style.display !== 'none') {
             nextQuestion();
+        }
+    } else if (swipeDistance > 0) {
+        // 右スワイプ - 前の問題へ
+        const prevBtn = document.getElementById('prev-question');
+        if (prevBtn && prevBtn.style.display !== 'none') {
+            prevQuestion();
         }
     }
 }
