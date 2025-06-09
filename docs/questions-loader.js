@@ -120,13 +120,15 @@ window.QuestionsLoader = {
         const questions = [];
         
         // 各グループから問題を読み込む
+        let questionIndex = 0;
         for (const groupInfo of index.groups) {
             const group = await this.loadGroup(domainNumber, groupInfo.id);
             if (group && group.questions) {
-                // 各問題にドメイン情報を追加
+                // 各問題にドメイン情報とインデックスを追加
                 const groupQuestions = group.questions.map(q => ({
                     ...q,
-                    domain: domainNumber
+                    domain: domainNumber,
+                    originalIndex: questionIndex++
                 }));
                 questions.push(...groupQuestions);
                 this.log(`Loaded ${groupQuestions.length} questions from group ${groupInfo.id}`);

@@ -276,6 +276,9 @@ export function selectChoice(index, isMultiple) {
         AppState.selectedAnswers = [index];
     }
 
+    // フラグの状態を再適用（AppStateから）
+    updateFlagStatus();
+
     // 回答ボタンの有効化（試験モードでは常に次へ進める）
     if (!AppState.examMode) {
         document.getElementById('submit-answer').disabled = AppState.selectedAnswers.length === 0;
@@ -289,6 +292,9 @@ export async function submitAnswer() {
 
     if (AppState.randomMode) {
         question = AppState.randomQuestions[AppState.currentQuestionIndex];
+        questionId = `d${question.domain}_q${question.originalIndex}`;
+    } else if (AppState.examMode) {
+        question = AppState.examQuestions[AppState.currentQuestionIndex];
         questionId = `d${question.domain}_q${question.originalIndex}`;
     } else {
         const questions = await window.getQuestionsForDomain(AppState.currentDomain);
@@ -455,6 +461,9 @@ export function toggleFlag() {
     if (AppState.randomMode) {
         const question = AppState.randomQuestions[AppState.currentQuestionIndex];
         questionId = `d${question.domain}_q${question.originalIndex}`;
+    } else if (AppState.examMode) {
+        const question = AppState.examQuestions[AppState.currentQuestionIndex];
+        questionId = `d${question.domain}_q${question.originalIndex}`;
     } else {
         const actualIndex = AppState.originalQuestionIndex !== null ? AppState.originalQuestionIndex : AppState.currentQuestionIndex;
         questionId = `d${AppState.currentDomain}_q${actualIndex}`;
@@ -479,6 +488,9 @@ function updateFlagStatus() {
 
     if (AppState.randomMode) {
         const question = AppState.randomQuestions[AppState.currentQuestionIndex];
+        questionId = `d${question.domain}_q${question.originalIndex}`;
+    } else if (AppState.examMode) {
+        const question = AppState.examQuestions[AppState.currentQuestionIndex];
         questionId = `d${question.domain}_q${question.originalIndex}`;
     } else {
         const actualIndex = AppState.originalQuestionIndex !== null ? AppState.originalQuestionIndex : AppState.currentQuestionIndex;
@@ -681,6 +693,9 @@ function toggleBookmark() {
     if (AppState.randomMode) {
         const question = AppState.randomQuestions[AppState.currentQuestionIndex];
         questionId = `d${question.domain}_q${question.originalIndex}`;
+    } else if (AppState.examMode) {
+        const question = AppState.examQuestions[AppState.currentQuestionIndex];
+        questionId = `d${question.domain}_q${question.originalIndex}`;
     } else {
         questionId = `d${AppState.currentDomain}_q${AppState.currentQuestionIndex}`;
     }
@@ -702,6 +717,9 @@ function updateBookmarkUI() {
 
     if (AppState.randomMode) {
         const question = AppState.randomQuestions[AppState.currentQuestionIndex];
+        questionId = `d${question.domain}_q${question.originalIndex}`;
+    } else if (AppState.examMode) {
+        const question = AppState.examQuestions[AppState.currentQuestionIndex];
         questionId = `d${question.domain}_q${question.originalIndex}`;
     } else {
         questionId = `d${AppState.currentDomain}_q${AppState.currentQuestionIndex}`;
@@ -763,6 +781,8 @@ function updateDifficultyDisplay(question, currentDomain, actualIndex) {
     let questionId;
 
     if (AppState.randomMode) {
+        questionId = `d${question.domain}_q${question.originalIndex}`;
+    } else if (AppState.examMode) {
         questionId = `d${question.domain}_q${question.originalIndex}`;
     } else {
         questionId = `d${currentDomain}_q${actualIndex}`;
@@ -950,6 +970,8 @@ function displayAverageTime(question, currentDomain, actualIndex) {
     let questionId;
 
     if (AppState.randomMode) {
+        questionId = `d${question.domain}_q${question.originalIndex}`;
+    } else if (AppState.examMode) {
         questionId = `d${question.domain}_q${question.originalIndex}`;
     } else {
         questionId = `d${currentDomain}_q${actualIndex}`;
@@ -1191,6 +1213,8 @@ function setupMemoFeature(question, currentDomain, actualIndex) {
     let questionId;
 
     if (AppState.randomMode) {
+        questionId = `d${question.domain}_q${question.originalIndex}`;
+    } else if (AppState.examMode) {
         questionId = `d${question.domain}_q${question.originalIndex}`;
     } else {
         questionId = `d${currentDomain}_q${actualIndex}`;
