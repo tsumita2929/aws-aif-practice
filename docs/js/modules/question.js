@@ -448,6 +448,13 @@ export async function nextQuestion() {
     if (AppState.examMode) {
         // 試験モードの場合
         AppState.examAnswers[AppState.currentQuestionIndex] = AppState.selectedAnswers;
+        
+        // 最後の問題かチェック
+        if (AppState.currentQuestionIndex >= AppState.examQuestions.length - 1) {
+            const { finishExam } = await import('./exam.js');
+            await finishExam();
+            return;
+        }
     }
 
     AppState.currentQuestionIndex++;
