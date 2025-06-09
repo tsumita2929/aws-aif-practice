@@ -2,41 +2,39 @@
   "domain": 1,
   "group": 3,
   "title": "高度な手法",
-  "description": "誤差逆伝播、医療AI評価、アンサンブル学習、時系列分析、解釈性vs精度、協調フィルタリング、正則化、生成AI、強化学習、半教師あり学習",
+  "description": "誤差逆伝播、評価指標、アンサンブル学習、時系列分析、解釈性vs精度、協調フィルタリング、正則化、生成AI、強化学習、半教師あり学習",
   "questionCount": 10,
   "questions": [
     {
-      "id": "d1_q21",
+      "id": "d1_q16_2",
       "type": "single",
-      "text": "ニューラルネットワークにおける「バックプロパゲーション」の役割は何ですか？",
+      "text": "ディープラーニングにおけるバックプロパゲーション（誤差逆伝播法）の役割は何ですか？",
       "choices": [
         {
           "label": "A",
-          "text": "データの前処理を行う"
+          "text": "データの前処理を自動化する"
         },
         {
           "label": "B",
-          "text": "誤差を逆伝播させて各層の重みを更新する"
+          "text": "出力層から入力層へ誤差を伝播し、各層の重みを更新する"
         },
         {
           "label": "C",
-          "text": "新しいデータを生成する"
+          "text": "新しい訓練データを生成する"
         },
         {
           "label": "D",
-          "text": "モデルの構造を自動的に決定する"
+          "text": "ネットワーク構造を自動的に最適化する"
         }
       ],
-      "correct": [
-        1
-      ],
-      "explanation": "\n                <h5>詳細解説</h5>\n                <p>バックプロパゲーション（誤差逆伝播法）は、ニューラルネットワークの学習における中核技術です。</p>\n                \n                <h5>バックプロパゲーションの仕組み</h5>\n                <ul>\n                    <li><strong>順伝播:</strong> 入力データがネットワークを通って出力を生成</li>\n                    <li><strong>誤差計算:</strong> 出力と正解ラベルの差（損失）を計算</li>\n                    <li><strong>逆伝播:</strong> 誤差を出力層から入力層へ逆向きに伝播</li>\n                    <li><strong>重み更新:</strong> 各層の重みを勾配に基づいて更新</li>\n                </ul>\n                \n                <h5>なぜ他の選択肢が誤りか</h5>\n                <ul>\n                    <li><strong>A:</strong> データの前処理は別の工程</li>\n                    <li><strong>C:</strong> データ生成はGANなど別のアーキテクチャの役割</li>\n                    <li><strong>D:</strong> モデル構造の決定はアーキテクチャ設計の段階</li>\n                </ul>\n                \n                <h5>実務での重要性</h5>\n                <p>深層学習フレームワーク（TensorFlow、PyTorch）では自動微分により実装されており、効率的な学習を可能にしています。</p>\n            <h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) データの前処理を行う:</strong> データの前処理は別の工程</li><li><strong>C) 新しいデータを生成する:</strong> データ生成はGANなど別のアーキテクチャの役割</li><li><strong>D) モデルの構造を自動的に決定する:</strong> モデル構造の決定はアーキテクチャ設計の段階</li></ul>",
+      "correct": [1],
+      "explanation": "<h5>詳細解説</h5><p>バックプロパゲーションは、ニューラルネットワークの学習の中核技術です。予測誤差を出力層から入力層へ逆向きに伝播させ、連鎖律を使って各層の重みに対する勾配を計算します。</p><h5>動作の仕組み</h5><ul><li><strong>順伝播:</strong> 入力から出力への計算</li><li><strong>誤差計算:</strong> 予測値と正解値の差分</li><li><strong>逆伝播:</strong> 誤差を各層に配分</li><li><strong>重み更新:</strong> 勾配降下法で最適化</li></ul><h5>なぜ他の選択肢が誤りなのか</h5><ul><li><strong>A:</strong> 前処理は別プロセス、バックプロパは学習アルゴリズム</li><li><strong>C:</strong> データ生成はGAN等の役割、バックプロパは重み更新</li><li><strong>D:</strong> 構造最適化はNAS等の技術、バックプロパは固定構造での学習</li></ul>",
       "resources": []
     },
     {
-      "id": "d1_q22",
+      "id": "d1_q17",
       "type": "single",
-      "text": "次のシナリオを考えてください： 「医療画像から腫瘍を検出するAIシステムを開発している。偽陰性（腫瘍があるのに見逃す）のコストが非常に高い」 この場合、どの評価指標を重視すべきですか？",
+      "text": "医療診断AIで腫瘍検出の偽陰性（見逃し）コストが高い場合、最も重視すべき評価指標はどれですか？",
       "choices": [
         {
           "label": "A",
@@ -44,7 +42,7 @@
         },
         {
           "label": "B",
-          "text": "再現率（Recall）"
+          "text": "再現率（Recall/感度）"
         },
         {
           "label": "C",
@@ -52,19 +50,17 @@
         },
         {
           "label": "D",
-          "text": "F1スコアのみ"
+          "text": "特異度（Specificity）"
         }
       ],
-      "correct": [
-        1
-      ],
-      "explanation": "\n                <h5>詳細解説</h5>\n                <p>医療診断システムでは、偽陰性（False Negative）のコストが患者の生命に関わるため、再現率（Recall）を最重視すべきです。</p>\n                \n                <h5>評価指標の意味</h5>\n                <ul>\n                    <li><strong>再現率（Recall）= TP / (TP + FN)</strong>\n                        <ul>\n                            <li>実際に陽性のものを、どれだけ正しく陽性と判定できたか</li>\n                            <li>偽陰性を最小化したい場合に重視</li>\n                        </ul>\n                    </li>\n                    <li><strong>適合率（Precision）= TP / (TP + FP)</strong>\n                        <ul>\n                            <li>陽性と判定したもののうち、実際に陽性だった割合</li>\n                            <li>偽陽性を最小化したい場合に重視</li>\n                        </ul>\n                    </li>\n                </ul>\n                \n                <h5>医療診断での実例</h5>\n                <ul>\n                    <li><strong>偽陰性のリスク:</strong> 腫瘍を見逃す → 治療の遅れ → 生命の危険</li>\n                    <li><strong>偽陽性のリスク:</strong> 健康な人を病気と診断 → 追加検査で解決可能</li>\n                </ul>\n                \n                <h5>実装時の対策</h5>\n                <ul>\n                    <li>決定閾値を低く設定（例：0.3）して感度を上げる</li>\n                    <li>クラス重み付けで陽性クラスを重視</li>\n                    <li>コスト考慮型学習の適用</li>\n                </ul>\n            <h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) 精度（Accuracy）:</strong> この選択肢はコスト最適化に寄与しません。</li><li><strong>C) 適合率（Precision）:</strong> この選択肢はコスト最適化に寄与しません。</li><li><strong>D) F1スコアのみ:</strong> この選択肢はコスト最適化に寄与しません。</li></ul>",
+      "correct": [1],
+      "explanation": "<h5>詳細解説</h5><p>偽陰性（実際は陽性なのに陰性と判定）のコストが高い医療診断では、再現率（感度）を最重視します。再現率 = TP/(TP+FN)で、実際の陽性をどれだけ正しく検出できたかを示します。</p><h5>医療における意味</h5><ul><li><strong>偽陰性の危険性:</strong> 腫瘍見逃し→治療遅延→生命危険</li><li><strong>偽陽性の影響:</strong> 追加検査で解決可能、コストは相対的に低い</li><li><strong>トレードオフ:</strong> 再現率向上のため、適合率をある程度犠牲にする</li></ul><h5>なぜ他の選択肢が不適切か</h5><ul><li><strong>A) 精度:</strong> 全体的指標で、少数クラス（腫瘍）の性能を反映しない</li><li><strong>C) 適合率:</strong> 偽陽性を重視する指標、見逃しリスクを考慮しない</li><li><strong>D) 特異度:</strong> 陰性の正確性、陽性の見逃しとは無関係</li></ul>",
       "resources": []
     },
     {
-      "id": "d1_q23",
+      "id": "d1_q18",
       "type": "single",
-      "text": "アンサンブル学習手法として正しくないものはどれですか？",
+      "text": "次の手法のうち、アンサンブル学習でないものはどれですか？",
       "choices": [
         {
           "label": "A",
@@ -72,111 +68,103 @@
         },
         {
           "label": "B",
-          "text": "ブースティング"
+          "text": "勾配ブースティング（XGBoost）"
         },
         {
           "label": "C",
-          "text": "バギング"
+          "text": "主成分分析（PCA）"
         },
         {
           "label": "D",
-          "text": "主成分分析"
+          "text": "バギング（Bootstrap Aggregating）"
         }
       ],
-      "correct": [
-        3
-      ],
-      "explanation": "\n                <h5>詳細解説</h5>\n                <p>主成分分析（PCA）は次元削減手法であり、アンサンブル学習手法ではありません。</p>\n                \n                <h5>アンサンブル学習手法の種類</h5>\n                <ul>\n                    <li><strong>ランダムフォレスト:</strong>\n                        <ul>\n                            <li>決定木を複数作成（バギング）</li>\n                            <li>各木で異なる特徴量のサブセットを使用</li>\n                        </ul>\n                    </li>\n                    <li><strong>ブースティング:</strong>\n                        <ul>\n                            <li>弱学習器を順次学習（AdaBoost、XGBoost、LightGBM）</li>\n                            <li>前の学習器の誤りを次の学習器が重点的に学習</li>\n                        </ul>\n                    </li>\n                    <li><strong>バギング:</strong>\n                        <ul>\n                            <li>ブートストラップサンプリング</li>\n                            <li>並列に複数モデルを学習</li>\n                        </ul>\n                    </li>\n                </ul>\n                \n                <h5>主成分分析（PCA）とは</h5>\n                <ul>\n                    <li>高次元データを低次元に変換</li>\n                    <li>分散を最大化する軸を見つける</li>\n                    <li>特徴量エンジニアリングの手法</li>\n                </ul>\n                \n                <h5>実務での使い分け</h5>\n                <p>PCAで次元削減した後、アンサンブル学習を適用することで、計算効率と精度の両立が可能です。</p>\n            <h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) ランダムフォレスト:</strong> ランダムフォレストは代表的なアンサンブル学習手法です。複数の決定木を組み合わせ、各木の予測を集約（多数決や平均）することで、単一の決定木より高い精度と安定性を実現します。</li><li><strong>B) ブースティング:</strong> ブースティングは重要なアンサンブル学習手法です。弱学習器を順次的に学習させ、前の学習器が間違えたデータに重みを付けて次の学習器が学習することで、段階的に性能を向上させます。</li><li><strong>C) バギング:</strong> バギング（Bootstrap Aggregating）は基本的なアンサンブル学習手法です。元のデータから複数のブートストラップサンプルを作成し、それぞれで学習したモデルの予測を集約します。ランダムフォレストはバギングの発展形です。</li></ul>",
+      "correct": [2],
+      "explanation": "<h5>詳細解説</h5><p>主成分分析（PCA）は次元削減手法であり、複数モデルを組み合わせるアンサンブル学習ではありません。</p><h5>アンサンブル学習の種類</h5><ul><li><strong>A) ランダムフォレスト:</strong> 複数の決定木をバギングで組み合わせ、特徴量もランダムサンプリング</li><li><strong>B) 勾配ブースティング:</strong> 弱学習器を順次追加し、前の誤差を修正</li><li><strong>D) バギング:</strong> ブートストラップサンプルで複数モデルを並列学習</li></ul><h5>PCAとは</h5><p>データの分散を最大化する方向（主成分）を見つけ、高次元データを低次元に圧縮する特徴量エンジニアリング手法。可視化、ノイズ除去、計算効率化に使用。</p>",
       "resources": []
     },
     {
-      "id": "d1_q24",
+      "id": "d1_q19",
       "type": "single",
-      "text": "時系列データの予測において考慮すべき重要な特性として適切でないものはどれですか？",
+      "text": "売上の時系列予測で考慮すべき重要な特性として不適切なものはどれですか？",
       "choices": [
         {
           "label": "A",
-          "text": "トレンド"
+          "text": "トレンド（長期的な増減傾向）"
         },
         {
           "label": "B",
-          "text": "季節性"
+          "text": "季節性（定期的な変動パターン）"
         },
         {
           "label": "C",
-          "text": "自己相関"
+          "text": "自己相関（過去値との相関）"
         },
         {
           "label": "D",
           "text": "画像の解像度"
         }
       ],
-      "correct": [
-        3
-      ],
-      "explanation": "\n                <h5>詳細解説</h5>\n                <p>時系列データの予測では、時間的な特性を考慮する必要があり、画像の解像度は無関係です。</p>\n                \n                <h5>時系列データの重要な特性</h5>\n                <ul>\n                    <li><strong>トレンド:</strong>\n                        <ul>\n                            <li>長期的な増加・減少傾向</li>\n                            <li>例：売上の成長トレンド</li>\n                        </ul>\n                    </li>\n                    <li><strong>季節性:</strong>\n                        <ul>\n                            <li>定期的に繰り返すパターン</li>\n                            <li>例：アイスクリームの夏季売上増</li>\n                        </ul>\n                    </li>\n                    <li><strong>自己相関:</strong>\n                        <ul>\n                            <li>過去の値と現在の値の相関</li>\n                            <li>例：昨日の株価は今日の株価に影響</li>\n                        </ul>\n                    </li>\n                </ul>\n                \n                <h5>時系列分析の手法</h5>\n                <ul>\n                    <li><strong>統計的手法:</strong> ARIMA、指数平滑化</li>\n                    <li><strong>機械学習:</strong> LSTM、GRU、Transformer</li>\n                    <li><strong>Prophet:</strong> Facebookの時系列予測ライブラリ</li>\n                </ul>\n                \n                <h5>実装のポイント</h5>\n                <ul>\n                    <li>データの定常性チェック（ADF検定）</li>\n                    <li>季節性の分解（STL分解）</li>\n                    <li>適切な検証方法（時系列分割）</li>\n                </ul>\n            <h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) トレンド:</strong> トレンドは時系列データの基本的な特性の一つです。データが時間とともに増加、減少、または一定の傾向を示すパターンを表し、長期的な予測において重要な要素です。</li><li><strong>B) 季節性:</strong> 季節性は時系列データの重要な特性です。月次、四半期、年次など、一定の周期で繰り返されるパターンを捉えることで、より正確な予測が可能になります。</li><li><strong>C) 自己相関:</strong> 自己相関は時系列データの本質的な特性です。現在の値が過去の値と相関を持つという性質で、ARIMAモデルなど多くの時系列予測手法の基礎となっています。</li></ul>",
+      "correct": [3],
+      "explanation": "<h5>詳細解説</h5><p>時系列分析では時間的特性が重要で、画像の解像度は全く無関係です。</p><h5>時系列の重要な特性</h5><ul><li><strong>A) トレンド:</strong> 売上の長期的な成長・衰退傾向</li><li><strong>B) 季節性:</strong> 月次・四半期・年次の周期的パターン（例：クリスマス商戦）</li><li><strong>C) 自己相関:</strong> 今日の売上は昨日の売上と相関（ARIMAモデルの基礎）</li></ul><h5>追加の重要特性</h5><ul><li><strong>周期性:</strong> 季節性以外の周期（経済サイクル等）</li><li><strong>不規則変動:</strong> ランダムなノイズ成分</li><li><strong>構造変化:</strong> 市場環境の急変（COVID-19等）</li></ul><h5>分析手法</h5><p>ARIMA、SARIMA、Prophet、LSTM等。各手法は異なる特性に対応。</p>",
       "resources": []
     },
     {
-      "id": "d1_q25",
+      "id": "d1_q20_2",
       "type": "single",
-      "text": "機械学習モデルの「解釈可能性」と「精度」のトレードオフについて、正しい説明はどれですか？",
+      "text": "金融機関のAI導入で「解釈可能性と精度のトレードオフ」について正しい説明はどれですか？",
       "choices": [
         {
           "label": "A",
-          "text": "複雑なモデルは常に解釈しやすい"
+          "text": "深層学習モデルは常に解釈しやすい"
         },
         {
           "label": "B",
-          "text": "線形モデルは解釈しやすいが、複雑な関係を捉えにくい場合がある"
+          "text": "線形モデルは解釈しやすいが、複雑な非線形関係を捉えにくい"
         },
         {
           "label": "C",
-          "text": "解釈可能性と精度は常に比例する"
+          "text": "解釈可能性と精度は常に比例関係にある"
         },
         {
           "label": "D",
-          "text": "ディープラーニングモデルは解釈が容易である"
+          "text": "規制業界では精度のみを重視すべき"
         }
       ],
-      "correct": [
-        1
-      ],
-      "explanation": "\n                <h5>詳細解説</h5>\n                <p>線形モデルは解釈しやすいが、非線形な関係を捉えにくいというトレードオフがあります。</p>\n                \n                <h5>解釈可能性と精度のトレードオフ</h5>\n                <ul>\n                    <li><strong>高解釈性・低複雑性:</strong>\n                        <ul>\n                            <li>線形回帰、ロジスティック回帰</li>\n                            <li>決定木（浅い木）</li>\n                            <li>係数や分岐を直接解釈可能</li>\n                        </ul>\n                    </li>\n                    <li><strong>低解釈性・高複雑性:</strong>\n                        <ul>\n                            <li>深層ニューラルネットワーク</li>\n                            <li>ランダムフォレスト（多数の木）</li>\n                            <li>複雑なパターンを学習可能</li>\n                        </ul>\n                    </li>\n                </ul>\n                \n                <h5>解釈可能性を高める技術</h5>\n                <ul>\n                    <li><strong>LIME:</strong> 局所的な線形近似</li>\n                    <li><strong>SHAP:</strong> ゲーム理論に基づく特徴量の貢献度</li>\n                    <li><strong>Attention機構:</strong> 重要な部分を可視化</li>\n                </ul>\n                \n                <h5>実務での選択基準</h5>\n                <ul>\n                    <li><strong>規制産業（金融・医療）:</strong> 解釈可能性を重視</li>\n                    <li><strong>画像認識・音声認識:</strong> 精度を重視</li>\n                    <li><strong>ビジネス分析:</strong> バランスを考慮</li>\n                </ul>\n            <h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) 複雑なモデルは常に解釈しやすい:</strong> これは完全に逆です。複雑なモデル（深層ニューラルネットワーク、アンサンブル手法など）は一般的に解釈が困難で、「ブラックボックス」と呼ばれることが多いです。</li><li><strong>C) 解釈可能性と精度は常に比例する:</strong> これは誤りです。実際には、解釈可能性と精度はしばしばトレードオフの関係にあります。高精度なモデルほど複雑で解釈が困難になる傾向があります。</li><li><strong>D) ディープラーニングモデルは解釈が容易である:</strong> これは誤りです。ディープラーニングモデルは多層構造と膨大なパラメータを持つため、最も解釈が困難なモデルの一つです。内部の動作を理解することは専門家でも困難です。</li></ul>",
+      "correct": [1],
+      "explanation": "<h5>詳細解説</h5><p>金融業界では規制要件により、モデルの判断根拠の説明が必要です。線形モデルは係数で影響度が明確ですが、複雑な非線形パターンの学習には限界があります。</p><h5>解釈可能性の重要性</h5><ul><li><strong>規制対応:</strong> 融資拒否理由の説明義務（GDPR、公正貸付法）</li><li><strong>リスク管理:</strong> モデルの挙動理解によるリスク制御</li><li><strong>信頼構築:</strong> 顧客・監査への説明責任</li></ul><h5>トレードオフの実例</h5><ul><li><strong>高解釈性:</strong> 線形回帰、決定木→係数や分岐が明確</li><li><strong>高精度:</strong> 深層NN、アンサンブル→「ブラックボックス」</li><li><strong>バランス型:</strong> GAM、解釈可能なNN</li></ul><h5>解決アプローチ</h5><p>LIME、SHAP等の事後説明手法、注意機構の可視化、規制要件に応じたモデル選択。</p>",
       "resources": []
     },
     {
-      "id": "d1_q26",
+      "id": "d1_q21",
       "type": "single",
-      "text": "次のシナリオを考えてください： 「ECサイトが商品推薦システムを構築したい。ユーザーの行動履歴は豊富だが、明示的な評価データは少ない」 この場合に適した手法はどれですか？",
+      "text": "動画配信サービスで視聴履歴は豊富だが明示的な評価（★評価）が少ない場合、最適な推薦手法はどれですか？",
       "choices": [
         {
           "label": "A",
-          "text": "協調フィルタリング（暗黙的フィードバック）"
+          "text": "暗黙的フィードバックを活用した協調フィルタリング"
         },
         {
           "label": "B",
-          "text": "教師あり学習による回帰分析のみ"
+          "text": "★評価のみに基づく回帰分析"
         },
         {
           "label": "C",
-          "text": "ルールベースシステムのみ"
+          "text": "コンテンツ情報を無視したランダム推薦"
         },
         {
           "label": "D",
-          "text": "ランダムな推薦"
+          "text": "視聴履歴を削除して★評価のみ使用"
         }
       ],
-      "correct": [
-        0
-      ],
-      "explanation": "\n                <h5>詳細解説</h5>\n                <p>行動履歴（暗黙的フィードバック）が豊富な場合、協調フィルタリングが最適です。</p>\n                \n                <h5>協調フィルタリングの種類</h5>\n                <ul>\n                    <li><strong>明示的フィードバック:</strong>\n                        <ul>\n                            <li>ユーザーの評価（★1-5）</li>\n                            <li>いいね・dislike</li>\n                        </ul>\n                    </li>\n                    <li><strong>暗黙的フィードバック:</strong>\n                        <ul>\n                            <li>閲覧履歴、購入履歴</li>\n                            <li>滞在時間、クリック数</li>\n                            <li>本シナリオに該当</li>\n                        </ul>\n                    </li>\n                </ul>\n                \n                <h5>実装アプローチ</h5>\n                <ul>\n                    <li><strong>ALS（交互最小二乗法）:</strong> 大規模データに適用可能</li>\n                    <li><strong>行列分解:</strong> ユーザー×アイテム行列を低ランク近似</li>\n                    <li><strong>深層学習:</strong> Neural Collaborative Filtering</li>\n                </ul>\n                \n                <h5>なぜ他の選択肢が不適切か</h5>\n                <ul>\n                    <li><strong>B:</strong> 明示的な評価データが少ない</li>\n                    <li><strong>C:</strong> 行動データを活用できない</li>\n                    <li><strong>D:</strong> ユーザー体験を損なう</li>\n                </ul>\n                \n                <h5>実装例（Python）</h5>\n                <pre><code># implicit libraryを使用\nimport implicit\nmodel = implicit.als.AlternatingLeastSquares()\nmodel.fit(user_item_matrix)</code></pre>\n            <h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>B) 教師あり学習による回帰分析のみ:</strong> 明示的な評価データが少ない</li><li><strong>C) ルールベースシステムのみ:</strong> 行動データを活用できない</li><li><strong>D) ランダムな推薦:</strong> ユーザー体験を損なう</li></ul>",
+      "correct": [0],
+      "explanation": "<h5>詳細解説</h5><p>暗黙的フィードバック（視聴時間、完了率、再視聴）は、明示的評価より豊富で偏りが少ないため、効果的な推薦が可能です。</p><h5>暗黙的フィードバックの活用</h5><ul><li><strong>視聴行動:</strong> 視聴時間、完了率、早送り/巻き戻し頻度</li><li><strong>エンゲージメント:</strong> 検索、お気に入り追加、共有</li><li><strong>コンテキスト:</strong> 視聴時間帯、デバイス、連続視聴</li></ul><h5>実装手法</h5><ul><li><strong>ALS（交互最小二乗法）:</strong> 暗黙フィードバック用の行列分解</li><li><strong>BPR（Bayesian Personalized Ranking）:</strong> ペアワイズ学習</li><li><strong>Neural CF:</strong> 深層学習ベースの協調フィルタリング</li></ul><h5>なぜ他が不適切か</h5><p>B,D: 貴重な視聴データを無視、C: ユーザー体験を損なう</p>",
       "resources": []
     },
     {
-      "id": "d1_q27",
+      "id": "d1_q22",
       "type": "single",
-      "text": "機械学習における「正則化」の主な目的は何ですか？",
+      "text": "機械学習における正則化の主な目的は何ですか？",
       "choices": [
         {
           "label": "A",
@@ -188,101 +176,93 @@
         },
         {
           "label": "C",
-          "text": "データ量を増やす"
+          "text": "訓練データを増やす"
         },
         {
           "label": "D",
-          "text": "モデルを複雑化する"
+          "text": "モデルをより複雑にする"
         }
       ],
-      "correct": [
-        1
-      ],
-      "explanation": "\n                <h5>詳細解説</h5>\n                <p>正則化は過学習を防ぎ、モデルの汎化性能を向上させる重要な技術です。</p>\n                \n                <h5>正則化の種類と効果</h5>\n                <ul>\n                    <li><strong>L1正則化（Lasso）:</strong>\n                        <ul>\n                            <li>パラメータの絶対値の和にペナルティ</li>\n                            <li>スパースな解（多くのパラメータが0）</li>\n                            <li>特徴選択の効果</li>\n                        </ul>\n                    </li>\n                    <li><strong>L2正則化（Ridge）:</strong>\n                        <ul>\n                            <li>パラメータの二乗和にペナルティ</li>\n                            <li>パラメータを小さくする</li>\n                            <li>多重共線性への対処</li>\n                        </ul>\n                    </li>\n                    <li><strong>Elastic Net:</strong>\n                        <ul>\n                            <li>L1とL2の組み合わせ</li>\n                            <li>両方の利点を活用</li>\n                        </ul>\n                    </li>\n                </ul>\n                \n                <h5>深層学習での正則化</h5>\n                <ul>\n                    <li><strong>Dropout:</strong> ランダムにニューロンを無効化</li>\n                    <li><strong>Early Stopping:</strong> 検証誤差が上昇し始めたら学習停止</li>\n                    <li><strong>データ拡張:</strong> 訓練データを人工的に増やす</li>\n                </ul>\n                \n                <h5>実装例</h5>\n                <pre><code># scikit-learnでの例\nfrom sklearn.linear_model import Ridge, Lasso\nridge_model = Ridge(alpha=1.0)  # L2正則化\nlasso_model = Lasso(alpha=1.0)  # L1正則化</code></pre>\n            <h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) 学習速度を向上させる:</strong> 正則化の主目的は学習速度の向上ではなく、過学習の防止です。学習速度の向上は最適化アルゴリズム（Adam、SGDなど）やバッチサイズの調整で行います。</li><li><strong>C) データ量を増やす:</strong> 正則化はモデルのパラメータに制約を加える手法であり、データ量の増加とは無関係です。データ拡張（Data Augmentation）と混同してはいけません。</li><li><strong>D) モデルを複雑化する:</strong> 正則化はむしろモデルの複雑さを制限する手法です。パラメータに制約を課すことで、モデルが過度に複雑になることを防ぎます。</li></ul>",
+      "correct": [1],
+      "explanation": "<h5>詳細解説</h5><p>正則化は、モデルの複雑さにペナルティを課すことで過学習を防ぎ、未知データへの汎化性能を向上させる重要技術です。</p><h5>主要な正則化手法</h5><ul><li><strong>L1正則化（Lasso）:</strong> スパースな解を生成、自動的な特徴選択効果</li><li><strong>L2正則化（Ridge）:</strong> パラメータを小さく保ち、多重共線性に対処</li><li><strong>Elastic Net:</strong> L1とL2の組み合わせ</li><li><strong>Dropout:</strong> 訓練時にランダムにニューロンを無効化</li></ul><h5>効果のメカニズム</h5><p>損失関数 = 元の損失 + λ×正則化項<br>λ（正則化強度）を調整して、精度と汎化のバランスを取る</p><h5>なぜ他が誤りか</h5><ul><li>A: 学習速度は最適化手法の役割</li><li>C: データ拡張とは別概念</li><li>D: 複雑さを制限するのが目的</li></ul>",
       "resources": []
     },
     {
-      "id": "d1_q28",
+      "id": "d1_q24",
       "type": "single",
-      "text": "生成AIモデル（Generative AI）と判別モデル（Discriminative Model）の違いとして正しいものはどれですか？",
+      "text": "生成AI（Generative AI）の代表的な手法でないものはどれですか？",
       "choices": [
         {
           "label": "A",
-          "text": "生成AIはデータの分布を学習し新しいデータを生成できる"
+          "text": "GAN（敵対的生成ネットワーク）"
         },
         {
           "label": "B",
-          "text": "判別モデルは新しいデータを生成できる"
+          "text": "VAE（変分オートエンコーダ）"
         },
         {
           "label": "C",
-          "text": "両者に違いはない"
+          "text": "ランダムフォレスト"
         },
         {
           "label": "D",
-          "text": "生成AIは分類タスクのみに使用される"
+          "text": "拡散モデル（Diffusion Models）"
         }
       ],
-      "correct": [
-        0
-      ],
-      "explanation": "\n                <h5>詳細解説</h5>\n                <p>生成AIはデータの分布を学習し、その分布から新しいデータを生成できる点が特徴です。</p>\n                \n                <h5>生成モデルと判別モデルの違い</h5>\n                <table border=\"1\">\n                    <tr>\n                        <th>特性</th>\n                        <th>生成モデル</th>\n                        <th>判別モデル</th>\n                    </tr>\n                    <tr>\n                        <td>学習内容</td>\n                        <td>P(X,Y) または P(X|Y)</td>\n                        <td>P(Y|X)</td>\n                    </tr>\n                    <tr>\n                        <td>主な用途</td>\n                        <td>新規データ生成</td>\n                        <td>分類・回帰</td>\n                    </tr>\n                    <tr>\n                        <td>例</td>\n                        <td>GAN、VAE、拡散モデル</td>\n                        <td>SVM、ロジスティック回帰</td>\n                    </tr>\n                </table>\n                \n                <h5>生成AIの応用例</h5>\n                <ul>\n                    <li><strong>画像生成:</strong> DALL-E、Stable Diffusion</li>\n                    <li><strong>テキスト生成:</strong> GPT、Claude</li>\n                    <li><strong>音声生成:</strong> WaveNet</li>\n                    <li><strong>データ拡張:</strong> 少数データの補強</li>\n                </ul>\n                \n                <h5>なぜ他の選択肢が誤りか</h5>\n                <ul>\n                    <li><strong>B:</strong> 判別モデルは新規データ生成不可</li>\n                    <li><strong>C:</strong> 根本的に異なるアプローチ</li>\n                    <li><strong>D:</strong> 生成AIも分類に使用可能（例：CLIP）</li>\n                </ul>\n            <h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>B) 判別モデルは新しいデータを生成できる:</strong> 判別モデルは新規データ生成不可</li><li><strong>C) 両者に違いはない:</strong> 根本的に異なるアプローチ</li><li><strong>D) 生成AIは分類タスクのみに使用される:</strong> 生成AIも分類に使用可能（例：CLIP）</li></ul>",
+      "correct": [2],
+      "explanation": "<h5>詳細解説</h5><p>ランダムフォレストは分類・回帰のためのアンサンブル学習手法で、新しいデータを生成する生成AIではありません。</p><h5>主要な生成AI手法</h5><ul><li><strong>A) GAN:</strong> GeneratorとDiscriminatorの敵対的学習で高品質な画像生成</li><li><strong>B) VAE:</strong> 潜在空間への符号化・復号化で連続的な生成が可能</li><li><strong>D) 拡散モデル:</strong> ノイズ除去プロセスの逆転で高品質生成（DALL-E 2、Stable Diffusion）</li></ul><h5>追加の生成AI</h5><ul><li><strong>Transformer系:</strong> GPT、BERT（テキスト生成）</li><li><strong>Flow-based:</strong> 可逆変換による厳密な尤度計算</li><li><strong>NeRF:</strong> 3D シーン生成</li></ul><h5>応用分野</h5><p>画像生成、テキスト生成、音楽生成、動画生成、3Dモデル生成等</p>",
       "resources": []
     },
     {
-      "id": "d1_q29",
+      "id": "d1_q27",
       "type": "single",
-      "text": "強化学習における「探索と活用のジレンマ」とは何を指しますか？",
+      "text": "強化学習がゲームAI開発に適している最大の理由は何ですか？",
       "choices": [
         {
           "label": "A",
-          "text": "データの収集方法の選択"
+          "text": "大量のラベル付きデータが利用可能だから"
         },
         {
           "label": "B",
-          "text": "既知の良い行動を取るか、新しい行動を試すかのバランス"
+          "text": "試行錯誤を通じて報酬を最大化する戦略を学習できるから"
         },
         {
           "label": "C",
-          "text": "モデルの学習速度の調整"
+          "text": "計算コストが最も低いから"
         },
         {
           "label": "D",
-          "text": "特徴量の選択方法"
+          "text": "教師あり学習より実装が簡単だから"
         }
       ],
-      "correct": [
-        1
-      ],
-      "explanation": "\n                <h5>詳細解説</h5>\n                <p>探索と活用のジレンマは、新しい行動を試すか、既知の良い行動を選ぶかのバランスを指します。</p>\n                \n                <h5>強化学習の基本概念</h5>\n                <ul>\n                    <li><strong>探索（Exploration）:</strong>\n                        <ul>\n                            <li>未知の行動を試す</li>\n                            <li>より良い戦略の発見可能性</li>\n                            <li>短期的な報酬を犠牲にする可能性</li>\n                        </ul>\n                    </li>\n                    <li><strong>活用（Exploitation）:</strong>\n                        <ul>\n                            <li>既知の最良行動を選択</li>\n                            <li>安定した報酬を獲得</li>\n                            <li>局所最適に陥る可能性</li>\n                        </ul>\n                    </li>\n                </ul>\n                \n                <h5>バランス戦略</h5>\n                <ul>\n                    <li><strong>ε-greedy:</strong> 確率εで探索、1-εで活用</li>\n                    <li><strong>UCB（Upper Confidence Bound）:</strong> 不確実性を考慮</li>\n                    <li><strong>Thompson Sampling:</strong> ベイズ的アプローチ</li>\n                </ul>\n                \n                <h5>実世界の例</h5>\n                <ul>\n                    <li><strong>レコメンドシステム:</strong> 新商品の推薦 vs 人気商品</li>\n                    <li><strong>広告配信:</strong> 新広告のテスト vs 実績のある広告</li>\n                    <li><strong>投資戦略:</strong> 新規投資先 vs 実績のある投資</li>\n                </ul>\n            <h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) データの収集方法の選択:</strong> 探索と活用のジレンマは行動選択に関する概念であり、データ収集方法とは異なります。データ収集は強化学習の前段階の作業です。</li><li><strong>C) モデルの学習速度の調整:</strong> 学習速度（learning rate）の調整は最適化の問題であり、探索・活用とは別の概念です。これは勾配降下法のステップサイズに関連します。</li><li><strong>D) 特徴量の選択方法:</strong> 特徴量選択は教師あり学習での前処理タスクです。強化学習の探索・活用は、エージェントの行動選択戦略に関する概念です。</li></ul>",
+      "correct": [1],
+      "explanation": "<h5>詳細解説</h5><p>強化学習は、エージェントが環境と相互作用し、報酬シグナルを通じて最適な行動方針（ポリシー）を学習します。ゲームは明確な報酬（スコア、勝敗）があり、シミュレーション環境で無限に試行できるため理想的です。</p><h5>ゲームAIでの成功例</h5><ul><li><strong>AlphaGo:</strong> 囲碁で人間のチャンピオンに勝利</li><li><strong>OpenAI Five:</strong> Dota 2でプロチームに勝利</li><li><strong>AlphaStar:</strong> StarCraft IIでグランドマスター級</li></ul><h5>強化学習の要素</h5><ul><li><strong>状態（State）:</strong> ゲームの現在の状況</li><li><strong>行動（Action）:</strong> 可能な操作</li><li><strong>報酬（Reward）:</strong> 行動の結果得られるスコア</li><li><strong>方策（Policy）:</strong> 状態から行動への写像</li></ul><h5>なぜ他が不適切か</h5><ul><li>A: ゲームに正解ラベルは存在しない</li><li>C: 実際は計算コストが高い</li><li>D: 実装はむしろ複雑</li></ul>",
       "resources": []
     },
     {
-      "id": "d1_q30",
+      "id": "d1_q23",
       "type": "single",
-      "text": "次のうち、半教師あり学習が有効な状況はどれですか？",
+      "text": "医療画像のラベル付けコストが高い場合、少量のラベル付きデータと大量のラベルなしデータを活用する最適な手法はどれですか？",
       "choices": [
         {
           "label": "A",
-          "text": "ラベル付きデータが豊富にある場合"
+          "text": "ラベル付きデータのみで教師あり学習"
         },
         {
           "label": "B",
-          "text": "ラベル付きデータが少なく、ラベルなしデータが大量にある場合"
+          "text": "半教師あり学習"
         },
         {
           "label": "C",
-          "text": "すべてのデータにラベルがない場合"
+          "text": "ラベルなしデータを破棄"
         },
         {
           "label": "D",
-          "text": "リアルタイム処理が不要な場合"
+          "text": "完全な教師なし学習"
         }
       ],
-      "correct": [
-        1
-      ],
-      "explanation": "\n                <h5>詳細解説</h5>\n                <p>半教師あり学習（Semi-Supervised Learning）は、少量のラベル付きデータと大量のラベルなしデータを組み合わせて学習する手法です。この手法は、ラベル付けコストが高い現実世界の問題に対して極めて有効なアプローチです。</p>\n                \n                <h5>半教師あり学習が最も効果的な状況</h5>\n                <p>選択肢Bが正解である理由は、以下の現実的な制約と利点のバランスにあります：</p>\n                <ul>\n                    <li><strong>ラベル付けの高コスト問題</strong>\n                        <ul>\n                            <li>医療画像診断：1枚あたり専門医による30分〜1時間の診断時間</li>\n                            <li>法律文書分類：専門知識を持つ弁護士による高額な分類作業</li>\n                            <li>音声データのアノテーション：音声の3〜5倍の時間が必要</li>\n                            <li>多言語データ：各言語の専門家が必要</li>\n                        </ul>\n                    </li>\n                    <li><strong>ラベルなしデータの入手容易性</strong>\n                        <ul>\n                            <li>ウェブクローリング：数百万ページを自動収集可能</li>\n                            <li>IoTセンサー：毎秒数千のデータポイント</li>\n                            <li>ソーシャルメディア：日々膨大な投稿データ</li>\n                            <li>企業内ログ：自動的に蓄積される大量データ</li>\n                        </ul>\n                    </li>\n                </ul>\n                \n                <h5>なぜ他の選択肢が不適切か</h5>\n                <ul>\n                    <li><strong>選択肢A（ラベル付きデータが豊富）</strong>\n                        <ul>\n                            <li>教師あり学習で十分な性能が得られる</li>\n                            <li>半教師あり学習の複雑性が不要なオーバーヘッド</li>\n                            <li>計算コストの無駄</li>\n                        </ul>\n                    </li>\n                    <li><strong>選択肢C（すべてラベルなし）</strong>\n                        <ul>\n                            <li>教師なし学習（クラスタリング等）の領域</li>\n                            <li>半教師あり学習は最低限のラベル付きデータが必要</li>\n                            <li>学習の方向性を示すガイドが存在しない</li>\n                        </ul>\n                    </li>\n                    <li><strong>選択肢D（リアルタイム処理が不要）</strong>\n                        <ul>\n                            <li>処理時間は学習手法の選択基準ではない</li>\n                            <li>半教師あり学習でもリアルタイム推論は可能</li>\n                            <li>データの性質とは無関係</li>\n                        </ul>\n                    </li>\n                </ul>\n                \n                <h5>半教師あり学習の主要アルゴリズム</h5>\n                <ul>\n                    <li><strong>自己学習（Self-Training）</strong>\n                        <ul>\n                            <li>初期モデルで高信頼度の予測を擬似ラベルとして使用</li>\n                            <li>反復的にモデルを改善</li>\n                            <li>実装例：<code>from sklearn.semi_supervised import SelfTrainingClassifier</code></li>\n                        </ul>\n                    </li>\n                    <li><strong>Co-Training</strong>\n                        <ul>\n                            <li>異なる特徴セットで複数のモデルを訓練</li>\n                            <li>互いに高信頼度の予測を共有</li>\n                            <li>マルチビューデータに効果的</li>\n                        </ul>\n                    </li>\n                    <li><strong>グラフベース手法</strong>\n                        <ul>\n                            <li>データ点間の類似性グラフを構築</li>\n                            <li>ラベル情報をグラフ上で伝播</li>\n                            <li>Label Propagation、Label Spreading</li>\n                        </ul>\n                    </li>\n                    <li><strong>生成モデルベース</strong>\n                        <ul>\n                            <li>VAE、GANを活用した半教師あり学習</li>\n                            <li>データ分布を学習してラベル推定</li>\n                            <li>Semi-Supervised GAN（SGAN）</li>\n                        </ul>\n                    </li>\n                </ul>\n                \n                <h5>実装例：自己学習の基本的な流れ</h5>\n                <pre><code># Python擬似コード\nfrom sklearn.semi_supervised import SelfTrainingClassifier\nfrom sklearn.svm import SVC\n\n# 基本分類器の定義\nbase_classifier = SVC(probability=True)\n\n# 自己学習分類器の作成\nself_training_model = SelfTrainingClassifier(\n    base_classifier,\n    threshold=0.75,  # 信頼度閾値\n    max_iter=10,     # 最大反復回数\n)\n\n# -1はラベルなしデータを示す\ny_train_combined = np.concatenate([y_labeled, np.full(len(X_unlabeled), -1)])\nX_train_combined = np.vstack([X_labeled, X_unlabeled])\n\n# モデルの訓練\nself_training_model.fit(X_train_combined, y_train_combined)\n</code></pre>\n                \n                <h5>実世界での成功事例</h5>\n                <ul>\n                    <li><strong>Google Speech Recognition</strong>\n                        <ul>\n                            <li>少量の書き起こしデータ＋大量の音声データ</li>\n                            <li>認識精度を大幅に向上</li>\n                        </ul>\n                    </li>\n                    <li><strong>Facebook の顔認識</strong>\n                        <ul>\n                            <li>タグ付き写真＋タグなし写真の組み合わせ</li>\n                            <li>認識精度97.35%を達成</li>\n                        </ul>\n                    </li>\n                    <li><strong>医療診断AI</strong>\n                        <ul>\n                            <li>専門医によるラベル付き画像（少量）</li>\n                            <li>病院の保存画像（大量）</li>\n                            <li>診断精度を専門医レベルまで向上</li>\n                        </ul>\n                    </li>\n                </ul>\n                \n                <h5>AWSでの実装</h5>\n                <p>Amazon SageMakerでは、半教師あり学習を以下の方法で実装できます：</p>\n                <ul>\n                    <li><strong>SageMaker Ground Truth</strong>：アクティブラーニングによる効率的なラベル付け</li>\n                    <li><strong>カスタムアルゴリズム</strong>：独自の半教師あり学習アルゴリズムの実装</li>\n                    <li><strong>AutoML</strong>：限られたラベル付きデータでの自動モデル構築</li>\n                </ul>\n                \n                <h5>重要な注意点</h5>\n                <ul>\n                    <li>ラベルなしデータの品質が重要（ノイズが多いと性能低下）</li>\n                    <li>初期のラベル付きデータは代表性が必要</li>\n                    <li>擬似ラベルの信頼度管理が成功の鍵</li>\n                    <li>定期的な人間による検証が推奨される</li>\n                </ul>\n                \n                <h5>半教師あり学習の手法</h5>\n                <ul>\n                    <li><strong>自己学習（Self-training）:</strong> 擬似ラベルの生成</li>\n                    <li><strong>Co-training:</strong> 複数の視点での学習</li>\n                    <li><strong>グラフベース手法:</strong> データ間の類似性を活用</li>\n                    <li><strong>生成モデル:</strong> VAE、GANを活用</li>\n                </ul>\n                \n                <h5>実装例</h5>\n                <pre><code># scikit-learnの半教師あり学習\nfrom sklearn.semi_supervised import LabelPropagation\nmodel = LabelPropagation()\n# -1はラベルなしデータを示す\nmodel.fit(X, y)  # yには-1が含まれる</code></pre>\n            <h5>なぜ他の選択肢が間違っているのか</h5><ul><li><strong>A) ラベル付きデータが豊富にある場合:</strong> ラベル付きデータが十分にある場合は、通常の教師あり学習で高い性能が得られるため、半教師あり学習の複雑な手法を使う必要がありません。計算コストも無駄になります。</li><li><strong>C) すべてのデータにラベルがない場合:</strong> 半教師あり学習には最低限のラベル付きデータが必要です。すべてラベルがない場合は教師なし学習（クラスタリング、次元削減など）の領域になります。</li><li><strong>D) リアルタイム処理が不要な場合:</strong> リアルタイム処理の要否は学習手法の選択とは無関係です。半教師あり学習でも、一度学習したモデルはリアルタイムで推論可能です。</li></ul>",
+      "correct": [1],
+      "explanation": "<h5>詳細解説</h5><p>半教師あり学習は、少量のラベル付きデータと大量のラベルなしデータを組み合わせて学習する手法で、医療画像のようなラベル付けコストが高い分野に最適です。</p><h5>半教師あり学習の手法</h5><ul><li><strong>自己学習（Self-training）:</strong> 高信頼度の予測を疑似ラベルとして使用</li><li><strong>Co-training:</strong> 複数の視点から独立に学習し、相互に教え合う</li><li><strong>整合性正則化:</strong> データ拡張への予測の一貫性を要求</li><li><strong>グラフベース手法:</strong> データ間の類似性を活用</li></ul><h5>医療画像での利点</h5><ul><li><strong>コスト削減:</strong> 専門医のアノテーション時間を大幅削減</li><li><strong>性能向上:</strong> ラベルなしデータから追加の情報を抽出</li><li><strong>実用性:</strong> 実際の医療現場のデータ状況に適合</li></ul><h5>実装例</h5><p>MixMatch、FixMatch、疑似ラベリング + 信頼度閾値</p>",
       "resources": []
     }
   ]
