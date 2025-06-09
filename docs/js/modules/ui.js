@@ -64,6 +64,15 @@ export async function showView(viewName) {
 
 // 復習問題の読み込み
 async function loadReviewQuestions() {
+    // フィルターボタンの初期状態を設定（「すべて」をアクティブに）
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    const allFilterBtn = document.querySelector('.filter-btn[data-filter="all"]');
+    if (allFilterBtn) {
+        allFilterBtn.classList.add('active');
+    }
+    
     await filterReviewQuestions('all');
 }
 
