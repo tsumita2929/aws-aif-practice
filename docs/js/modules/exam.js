@@ -9,8 +9,14 @@ export async function startExam() {
     initExamMode(examQuestions);
     
     // 試験画面を表示
-    document.getElementById('exam-view').style.display = 'none';
-    document.getElementById('question-view').style.display = 'block';
+    const examView = document.getElementById('exam-view');
+    const questionView = document.getElementById('question-view');
+    if (examView) {
+        examView.style.display = 'none';
+    }
+    if (questionView) {
+        questionView.style.display = 'block';
+    }
     
     // 試験タイマー開始
     startExamTimer();
@@ -81,8 +87,11 @@ export function startExamTimer() {
         const minutes = Math.floor(remaining / 60000);
         const seconds = Math.floor((remaining % 60000) / 1000);
         
-        document.getElementById('timer').textContent = 
-            `残り時間: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        const timerElement = document.getElementById('timer');
+        if (timerElement) {
+            timerElement.textContent = 
+                `残り時間: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
         
         // 時間切れ
         if (remaining === 0) {
@@ -158,7 +167,10 @@ async function showExamResults(correct, answered, score, passed) {
     `;
     
     // 試験結果コンテナに表示
-    document.getElementById('exam-result-container').innerHTML = resultsHTML;
+    const examResultContainer = document.getElementById('exam-result-container');
+    if (examResultContainer) {
+        examResultContainer.innerHTML = resultsHTML;
+    }
     
     // 試験結果ビューを表示
     const { showView } = await import('./ui.js');
@@ -223,7 +235,10 @@ export function reviewExamQuestions() {
     reviewHTML += '</div><div style="text-align: center;"><button class="btn btn-secondary" onclick="window.showExamResultsAgain()" style="margin-top: 20px;">結果に戻る</button></div></div>';
     
     // 試験結果コンテナに表示
-    document.getElementById('exam-result-container').innerHTML = reviewHTML;
+    const examResultContainer = document.getElementById('exam-result-container');
+    if (examResultContainer) {
+        examResultContainer.innerHTML = reviewHTML;
+    }
 }
 
 // 試験結果を再表示
@@ -256,7 +271,10 @@ window.showExamResultsAgain = function() {
             </div>
         `;
         
-        document.getElementById('exam-result-container').innerHTML = resultsHTML;
+        const examResultContainer = document.getElementById('exam-result-container');
+        if (examResultContainer) {
+            examResultContainer.innerHTML = resultsHTML;
+        }
     }
 }
 
@@ -311,5 +329,8 @@ window.reviewExamQuestion = function(index) {
         </div>
     `;
     
-    document.getElementById('exam-result-container').innerHTML = reviewHTML;
+    const examResultContainer = document.getElementById('exam-result-container');
+    if (examResultContainer) {
+        examResultContainer.innerHTML = reviewHTML;
+    }
 }

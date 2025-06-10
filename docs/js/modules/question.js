@@ -72,7 +72,8 @@ function restoreSavedAnswer() {
     
     // UIに反映
     const choices = document.querySelectorAll('.choice');
-    const isMultiple = document.getElementById('question-type').textContent.includes('複数選択');
+    const questionTypeElement = document.getElementById('question-type');
+    const isMultiple = questionTypeElement ? questionTypeElement.textContent.includes('複数選択') : false;
     
     savedAnswers.forEach(index => {
         if (choices[index]) {
@@ -82,7 +83,10 @@ function restoreSavedAnswer() {
     
     // 回答ボタンの有効化
     if (!AppState.examMode) {
-        document.getElementById('submit-answer').disabled = savedAnswers.length === 0;
+        const submitButton = document.getElementById('submit-answer');
+        if (submitButton) {
+            submitButton.disabled = savedAnswers.length === 0;
+        }
     }
 }
 
@@ -92,6 +96,15 @@ export async function displayQuestion() {
     let totalQuestions;
     let currentDomain;
     let actualIndex;
+    
+    // ナビゲーションバーの表示設定
+    const questionNavigation = document.getElementById('question-navigation');
+    const questionView = document.getElementById('question-view');
+    if (questionNavigation && (AppState.randomMode || AppState.examMode || AppState.currentDomain)) {
+        questionNavigation.style.display = 'block';
+        questionNavigation.classList.remove('answer-complete');
+        questionView.classList.add('has-navigation');
+    }
 
     if (AppState.randomMode) {
         question = AppState.randomQuestions[AppState.currentQuestionIndex];
@@ -127,7 +140,10 @@ export async function displayQuestion() {
     updateQuestionType(isMultiple);
 
     // 質問文
-    document.getElementById('question-text').textContent = question.text;
+    const questionTextElement = document.getElementById('question-text');
+    if (questionTextElement) {
+        questionTextElement.textContent = question.text;
+    }
 
     // 質問文にもキーワードハイライトを適用
     setTimeout(() => {
@@ -187,21 +203,27 @@ function updateBackButtonText() {
 
 // 質問ヘッダーの更新
 function updateQuestionHeader(currentDomain, totalQuestions) {
-    if (AppState.randomMode) {
-        document.getElementById('current-domain').textContent = `ランダム練習 (ドメイン${currentDomain})`;
-    } else if (AppState.examMode) {
-        document.getElementById('current-domain').textContent = `模擬試験`;
-    } else if (AppState.reviewMode) {
-        document.getElementById('current-domain').textContent = `復習 (ドメイン${currentDomain})`;
-    } else {
-        document.getElementById('current-domain').textContent = `ドメイン${currentDomain}`;
+    const currentDomainElement = document.getElementById('current-domain');
+    if (currentDomainElement) {
+        if (AppState.randomMode) {
+            currentDomainElement.textContent = `ランダム練習 (ドメイン${currentDomain})`;
+        } else if (AppState.examMode) {
+            currentDomainElement.textContent = `模擬試験`;
+        } else if (AppState.reviewMode) {
+            currentDomainElement.textContent = `復習 (ドメイン${currentDomain})`;
+        } else {
+            currentDomainElement.textContent = `ドメイン${currentDomain}`;
+        }
     }
     
     // 復習モードでは問題番号を表示しない
-    if (AppState.reviewMode) {
-        document.getElementById('question-number').textContent = `復習問題`;
-    } else {
-        document.getElementById('question-number').textContent = `問題 ${AppState.currentQuestionIndex + 1}/${totalQuestions}`;
+    const questionNumberElement = document.getElementById('question-number');
+    if (questionNumberElement) {
+        if (AppState.reviewMode) {
+            questionNumberElement.textContent = `復習問題`;
+        } else {
+            questionNumberElement.textContent = `問題 ${AppState.currentQuestionIndex + 1}/${totalQuestions}`;
+        }
     }
 
     // シャッフルインジケーターの更新
@@ -289,8 +311,11 @@ function updateProgressIndicator(totalQuestions) {
 
 // 質問タイプの更新
 function updateQuestionType(isMultiple) {
-    document.getElementById('question-type').textContent = isMultiple ? '複数選択（2つ選択）' : '単一選択';
-    document.getElementById('question-type').className = `question-type-badge ${isMultiple ? 'multiple' : ''}`;
+    const questionTypeElement = document.getElementById('question-type');
+    if (questionTypeElement) {
+        questionTypeElement.textContent = isMultiple ? '複数選択（2つ選択）' : '単一選択';
+        questionTypeElement.className = `question-type-badge ${isMultiple ? 'multiple' : ''}`;
+    }
 }
 
 // 選択肢の表示
@@ -369,7 +394,10 @@ export function selectChoice(index, isMultiple) {
 
     // 回答ボタンの有効化（試験モードでは常に次へ進める）
     if (!AppState.examMode) {
-        document.getElementById('submit-answer').disabled = AppState.selectedAnswers.length === 0;
+        const submitButton = document.getElementById('submit-answer');
+        if (submitButton) {
+            submitButton.disabled = AppState.selectedAnswers.length === 0;
+        }
     }
 }
 
@@ -429,24 +457,19 @@ export async function submitAnswer() {
     recommendSimilarQuestions(question);
 
     // ボタン状態更新
-    document.getElementById('submit-answer').style.display = 'none';
+    const submitButton = document.getElementById('submit-answer');
+    if (submitButton) {
+        submitButton.style.display = 'none';
+    }
     
-    // Previous buttonの表示制御
-    const showPrevButton = AppState.currentQuestionIndex > 0 && !AppState.reviewMode;
-    document.getElementById('prev-question').style.display = showPrevButton ? 'block' : 'none';
-    document.getElementById('prev-question-bottom').style.display = showPrevButton ? 'block' : 'none';
-    
-    if (AppState.reviewMode) {
-        // 復習モードでは「復習一覧に戻る」ボタンを表示
-        const nextBtn = document.getElementById('next-question');
-        const nextBtnBottom = document.getElementById('next-question-bottom');
-        nextBtn.style.display = 'block';
-        nextBtnBottom.style.display = 'block';
-        nextBtn.textContent = '復習一覧に戻る';
-        nextBtnBottom.textContent = '復習一覧に戻る';
-    } else {
-        document.getElementById('next-question').style.display = 'block';
-        document.getElementById('next-question-bottom').style.display = 'block';
+    // ナビゲーションバーの状態更新と強調
+    const questionNavigation = document.getElementById('question-navigation');
+    const nextBtn = document.getElementById('nav-next-question');
+    if (questionNavigation) {
+        questionNavigation.classList.add('answer-complete');
+    }
+    if (AppState.reviewMode && nextBtn) {
+        nextBtn.textContent = '一覧へ';
     }
 
     // 進捗を保存
@@ -525,6 +548,12 @@ function displayExplanation(question, isCorrect) {
 
 // 次の質問へ
 export async function nextQuestion() {
+    // ナビゲーションバーのボタンが無効の場合は何もしない
+    const nextBtn = document.getElementById('nav-next-question');
+    if (nextBtn && nextBtn.disabled) {
+        return;
+    }
+    
     if (AppState.reviewMode) {
         // 復習モードの場合は復習一覧に戻る
         AppState.reviewMode = false;
@@ -556,6 +585,12 @@ export async function nextQuestion() {
 
 // 前の質問へ
 export async function prevQuestion() {
+    // ナビゲーションバーのボタンが無効の場合は何もしない
+    const prevBtn = document.getElementById('nav-prev-question');
+    if (prevBtn && prevBtn.disabled) {
+        return;
+    }
+    
     if (AppState.reviewMode) {
         // 復習モードの場合は復習一覧に戻る
         AppState.reviewMode = false;
@@ -632,37 +667,74 @@ function updateFlagStatus() {
 // ボタン状態のリセット
 function resetQuestionButtons() {
     const submitBtn = document.getElementById('submit-answer');
-    const nextBtn = document.getElementById('next-question');
-    const nextBtnBottom = document.getElementById('next-question-bottom');
-    const prevBtn = document.getElementById('prev-question');
-    const prevBtnBottom = document.getElementById('prev-question-bottom');
     const explanationPanel = document.getElementById('explanation-panel');
+    const questionNavigation = document.getElementById('question-navigation');
+    const nextBtn = document.getElementById('nav-next-question');
+    const prevBtn = document.getElementById('nav-prev-question');
+    const questionView = document.getElementById('question-view');
 
-    // Previous buttonの表示/非表示制御
-    const showPrevButton = AppState.currentQuestionIndex > 0 && !AppState.reviewMode;
-    prevBtn.style.display = showPrevButton ? 'block' : 'none';
-    prevBtnBottom.style.display = showPrevButton ? 'block' : 'none';
+    // 固定ナビゲーションバーの表示
+    if (questionNavigation) {
+        questionNavigation.style.display = 'block';
+        questionView.classList.add('has-navigation');
+        
+        // ナビゲーションバーの進捗更新
+        updateNavigationProgress();
+        
+        // Previous buttonの有効/無効制御
+        const showPrevButton = AppState.currentQuestionIndex > 0 && !AppState.reviewMode;
+        prevBtn.disabled = !showPrevButton;
+        
+        // Next buttonのテキスト更新
+        if (AppState.examMode) {
+            nextBtn.textContent = AppState.currentQuestionIndex < 64 ? '次へ' : '終了';
+        } else if (AppState.reviewMode) {
+            nextBtn.textContent = '一覧へ';
+        } else {
+            nextBtn.textContent = '次へ';
+        }
+    }
 
     if (AppState.examMode) {
         submitBtn.style.display = 'none';
-        nextBtn.style.display = 'block';
-        nextBtnBottom.style.display = 'block';
-        nextBtn.textContent = AppState.currentQuestionIndex < 64 ? '次の問題' : '試験を終了';
-        nextBtnBottom.textContent = AppState.currentQuestionIndex < 64 ? '次の問題' : '試験を終了';
     } else if (AppState.reviewMode) {
-        // 復習モードでは「次の問題」ボタンを「復習一覧に戻る」に変更
         submitBtn.disabled = true;
         submitBtn.style.display = 'block';
-        nextBtn.style.display = 'none';
-        nextBtnBottom.style.display = 'none';
     } else {
         submitBtn.disabled = true;
         submitBtn.style.display = 'block';
-        nextBtn.style.display = 'none';
-        nextBtnBottom.style.display = 'none';
     }
 
     explanationPanel.style.display = 'none';
+}
+
+// ナビゲーションバーの進捗更新
+function updateNavigationProgress() {
+    const navCurrent = document.getElementById('nav-current-question');
+    const navTotal = document.getElementById('nav-total-questions');
+    const navProgressFill = document.getElementById('nav-progress-fill');
+    
+    if (AppState.randomMode) {
+        navCurrent.textContent = AppState.currentQuestionIndex + 1;
+        navTotal.textContent = AppState.randomQuestions.length;
+        const progress = ((AppState.currentQuestionIndex + 1) / AppState.randomQuestions.length) * 100;
+        navProgressFill.style.width = `${progress}%`;
+    } else if (AppState.examMode) {
+        navCurrent.textContent = AppState.currentQuestionIndex + 1;
+        navTotal.textContent = AppState.examQuestions.length;
+        const progress = ((AppState.currentQuestionIndex + 1) / AppState.examQuestions.length) * 100;
+        navProgressFill.style.width = `${progress}%`;
+    } else {
+        // 通常モードでは進捗インジケーターの情報を使用
+        const progressCurrent = document.getElementById('progress-current');
+        const progressTotal = document.getElementById('progress-total');
+        if (progressCurrent && progressTotal) {
+            navCurrent.textContent = AppState.currentQuestionIndex + 1;
+            navTotal.textContent = progressTotal.textContent;
+            const progress = ((AppState.currentQuestionIndex + 1) / parseInt(progressTotal.textContent)) * 100;
+            navProgressFill.style.width = `${progress}%`;
+        }
+    }
 }
 
 // 練習終了
@@ -775,14 +847,14 @@ function handleSwipe() {
 
     if (swipeDistance < 0) {
         // 左スワイプ - 次の問題へ
-        const nextBtn = document.getElementById('next-question');
-        if (nextBtn && nextBtn.style.display !== 'none') {
+        const nextBtn = document.getElementById('nav-next-question');
+        if (nextBtn && !nextBtn.disabled) {
             nextQuestion();
         }
     } else if (swipeDistance > 0) {
         // 右スワイプ - 前の問題へ
-        const prevBtn = document.getElementById('prev-question');
-        if (prevBtn && prevBtn.style.display !== 'none') {
+        const prevBtn = document.getElementById('nav-prev-question');
+        if (prevBtn && !prevBtn.disabled) {
             prevQuestion();
         }
     }
@@ -883,7 +955,10 @@ function displayPreviousAttempt(question, currentDomain) {
         questionId = `d${question.domain}_q${question.originalIndex}`;
     } else if (AppState.examMode) {
         // 試験モードでは履歴を表示しない
-        document.getElementById('previous-attempt').style.display = 'none';
+        const previousAttemptDiv = document.getElementById('previous-attempt');
+        if (previousAttemptDiv) {
+            previousAttemptDiv.style.display = 'none';
+        }
         return;
     } else {
         const actualIndex = AppState.originalQuestionIndex !== null ? AppState.originalQuestionIndex : AppState.currentQuestionIndex;

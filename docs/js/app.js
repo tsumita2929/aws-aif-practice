@@ -114,7 +114,10 @@ function setupEventListeners() {
     });
     
     // テーマ切り替え
-    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
     
     // ドメイン選択
     document.querySelectorAll('.domain-card').forEach(card => {
@@ -125,57 +128,108 @@ function setupEventListeners() {
     });
     
     // ランダム5問練習
-    document.getElementById('random-practice').addEventListener('click', startRandomPractice);
+    const randomPracticeBtn = document.getElementById('random-practice');
+    if (randomPracticeBtn) {
+        randomPracticeBtn.addEventListener('click', startRandomPractice);
+    }
     
     // 戻るボタン
-    document.getElementById('back-to-domains').addEventListener('click', () => {
-        if (AppState.reviewMode) {
-            // 復習モードの場合は復習画面に戻る
-            showView('review');
-            AppState.reviewMode = false; // フラグをリセット
-        } else {
-            // 通常の練習モードの場合はドメイン選択に戻る
-            showView('practice');
-        }
-    });
+    const backToDomainsBtn = document.getElementById('back-to-domains');
+    if (backToDomainsBtn) {
+        backToDomainsBtn.addEventListener('click', () => {
+            if (AppState.reviewMode) {
+                // 復習モードの場合は復習画面に戻る
+                showView('review');
+                AppState.reviewMode = false; // フラグをリセット
+            } else {
+                // 通常の練習モードの場合はドメイン選択に戻る
+                showView('practice');
+            }
+        });
+    }
     
     // 回答送信
-    document.getElementById('submit-answer').addEventListener('click', async () => {
-        const question = await loadQuestionModule();
-        return question.submitAnswer();
-    });
-    document.getElementById('next-question').addEventListener('click', async () => {
-        const question = await loadQuestionModule();
-        return question.nextQuestion();
-    });
-    document.getElementById('next-question-bottom').addEventListener('click', async () => {
-        const question = await loadQuestionModule();
-        return question.nextQuestion();
-    });
-    document.getElementById('prev-question').addEventListener('click', async () => {
-        const question = await loadQuestionModule();
-        return question.prevQuestion();
-    });
-    document.getElementById('prev-question-bottom').addEventListener('click', async () => {
-        const question = await loadQuestionModule();
-        return question.prevQuestion();
-    });
+    const submitBtn = document.getElementById('submit-answer');
+    if (submitBtn) {
+        submitBtn.addEventListener('click', async () => {
+            const question = await loadQuestionModule();
+            return question.submitAnswer();
+        });
+    }
+    
+    const nextBtn = document.getElementById('next-question');
+    if (nextBtn) {
+        nextBtn.addEventListener('click', async () => {
+            const question = await loadQuestionModule();
+            return question.nextQuestion();
+        });
+    }
+    
+    const nextBtnBottom = document.getElementById('next-question-bottom');
+    if (nextBtnBottom) {
+        nextBtnBottom.addEventListener('click', async () => {
+            const question = await loadQuestionModule();
+            return question.nextQuestion();
+        });
+    }
+    
+    const prevBtn = document.getElementById('prev-question');
+    if (prevBtn) {
+        prevBtn.addEventListener('click', async () => {
+            const question = await loadQuestionModule();
+            return question.prevQuestion();
+        });
+    }
+    
+    const prevBtnBottom = document.getElementById('prev-question-bottom');
+    if (prevBtnBottom) {
+        prevBtnBottom.addEventListener('click', async () => {
+            const question = await loadQuestionModule();
+            return question.prevQuestion();
+        });
+    }
+    
+    // ナビゲーションバーのボタン
+    const navPrevBtn = document.getElementById('nav-prev-question');
+    if (navPrevBtn) {
+        navPrevBtn.addEventListener('click', async () => {
+            const question = await loadQuestionModule();
+            return question.prevQuestion();
+        });
+    }
+    
+    const navNextBtn = document.getElementById('nav-next-question');
+    if (navNextBtn) {
+        navNextBtn.addEventListener('click', async () => {
+            const question = await loadQuestionModule();
+            return question.nextQuestion();
+        });
+    }
     
     // フラグボタン
-    document.getElementById('flag-btn').addEventListener('click', async () => {
-        const question = await loadQuestionModule();
-        return question.toggleFlag();
-    });
+    const flagBtn = document.getElementById('flag-btn');
+    if (flagBtn) {
+        flagBtn.addEventListener('click', async () => {
+            const question = await loadQuestionModule();
+            return question.toggleFlag();
+        });
+    }
     
     // シャッフルボタン
-    document.getElementById('shuffle-btn').addEventListener('click', handleShuffleToggle);
+    const shuffleBtn = document.getElementById('shuffle-btn');
+    if (shuffleBtn) {
+        shuffleBtn.addEventListener('click', handleShuffleToggle);
+    }
     setupShuffleLongPress();
     
     // 模擬試験開始
-    document.getElementById('start-exam').addEventListener('click', async () => {
-        const exam = await loadExamModule();
-        return exam.startExam();
-    });
+    const startExamBtn = document.getElementById('start-exam');
+    if (startExamBtn) {
+        startExamBtn.addEventListener('click', async () => {
+            const exam = await loadExamModule();
+            return exam.startExam();
+        });
+    }
     
     // 復習フィルター
     document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -548,7 +602,7 @@ function createLoadingElement() {
 
 // タイマーの開始
 function startTimer() {
-    const timerEl = document.getElementById('elapsed-time');
+    const timerEl = document.getElementById('timer');
     if (!timerEl) return;
     
     let startTime = Date.now();

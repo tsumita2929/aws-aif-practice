@@ -10,6 +10,16 @@ export async function showView(viewName) {
             view.style.display = 'none';
         });
         
+        // 固定ナビゲーションバーを非表示（question-view以外の場合）
+        const questionNavigation = document.getElementById('question-navigation');
+        const questionView = document.getElementById('question-view');
+        if (questionNavigation && viewName !== 'question') {
+            questionNavigation.style.display = 'none';
+            if (questionView) {
+                questionView.classList.remove('has-navigation');
+            }
+        }
+        
         // ナビゲーションボタンの状態更新
         document.querySelectorAll('.nav-btn').forEach(btn => {
             btn.classList.remove('active');
@@ -102,6 +112,7 @@ export function updateThemeToggle(theme) {
 // 視覚的フィードバック
 export function showFeedback(isCorrect) {
     const feedbackIcon = document.getElementById('feedback-icon');
+    if (!feedbackIcon) return;
     
     // アイコンの設定
     feedbackIcon.innerHTML = isCorrect ? '✓' : '✗';
@@ -137,7 +148,9 @@ function shouldShowConfetti() {
 // 紙吹雪エフェクト
 function showConfetti() {
     const canvas = document.getElementById('confetti-canvas');
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
+    if (!ctx) return;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     canvas.style.display = 'block';
@@ -194,8 +207,13 @@ function showConfetti() {
 // 成果表示
 export function showAchievement(title, description) {
     const toast = document.getElementById('achievement-toast');
-    document.getElementById('achievement-title').textContent = title;
-    document.getElementById('achievement-desc').textContent = description;
+    const titleElement = document.getElementById('achievement-title');
+    const descElement = document.getElementById('achievement-desc');
+    
+    if (!toast || !titleElement || !descElement) return;
+    
+    titleElement.textContent = title;
+    descElement.textContent = description;
     
     toast.style.display = 'block';
     setTimeout(() => {
@@ -254,8 +272,11 @@ export function startTimer() {
         const elapsed = Math.floor((Date.now() - AppState.startTime) / 1000);
         const minutes = Math.floor(elapsed / 60);
         const seconds = elapsed % 60;
-        document.getElementById('timer').textContent = 
-            `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        const timerElement = document.getElementById('timer');
+        if (timerElement) {
+            timerElement.textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
     }, 1000);
 }
 
