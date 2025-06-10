@@ -23,7 +23,14 @@ export const AppState = {
     questionDifficulties: new Map(), // 問題ごとの難易度を保存
     questionTimes: new Map(), // 問題ごとの解答時間を保存
     currentQuestionStartTime: null, // 現在の問題の開始時刻
-    questionMemos: new Map() // 問題ごとのメモを保存
+    questionMemos: new Map(), // 問題ごとのメモを保存
+    // 各モードでのナビゲーション時の一時的な回答保存用
+    practiceAnswers: new Map(), // 練習モード用
+    randomAnswers: [], // ランダムモード用
+    groupAnswers: new Map(), // グループモード用
+    reviewAnswers: new Map(), // レビューモード用
+    groupMode: false, // グループモードフラグ
+    currentGroup: null // 現在のグループ
 };
 
 // ローカルストレージのキー
@@ -70,6 +77,13 @@ export function resetState() {
     AppState.examMode = false;
     AppState.randomMode = false;
     AppState.reviewMode = false;
+    AppState.groupMode = false;
+    AppState.currentGroup = null;
+    // 一時的な回答をクリア
+    AppState.practiceAnswers.clear();
+    AppState.randomAnswers = [];
+    AppState.groupAnswers.clear();
+    AppState.reviewAnswers.clear();
 }
 
 // 練習モードの初期化
@@ -92,6 +106,7 @@ export function initRandomMode(questions) {
     resetState();
     AppState.randomMode = true;
     AppState.randomQuestions = questions;
+    AppState.randomAnswers = new Array(questions.length).fill(null);
     AppState.startTime = Date.now();
 }
 
@@ -147,6 +162,22 @@ export function resetShuffledOrder(domain = null) {
         AppState.shuffledOrder = {};
     }
     saveShuffleSettings();
+}
+
+// グループモードの初期化
+export function initGroupMode(domain, group) {
+    resetState();
+    AppState.groupMode = true;
+    AppState.currentDomain = domain;
+    AppState.currentGroup = group;
+    AppState.startTime = Date.now();
+}
+
+// レビューモードの初期化
+export function initReviewMode() {
+    resetState();
+    AppState.reviewMode = true;
+    AppState.startTime = Date.now();
 }
 
 // シャッフルの切り替え

@@ -3,6 +3,89 @@ import { AppState, saveProgress, getActualQuestionIndex } from './state.js';
 import { showFeedback, announceToScreenReader } from './ui.js';
 import { checkAchievements } from './progress.js';
 
+// 現在の問題IDを取得するヘルパー関数
+function getCurrentQuestionId() {
+    if (AppState.randomMode) {
+        const question = AppState.randomQuestions[AppState.currentQuestionIndex];
+        return `d${question.domain}_q${question.originalIndex}`;
+    } else if (AppState.examMode) {
+        const question = AppState.examQuestions[AppState.currentQuestionIndex];
+        return `d${question.domain}_q${question.originalIndex}`;
+    } else {
+        const actualIndex = AppState.originalQuestionIndex !== null ? AppState.originalQuestionIndex : AppState.currentQuestionIndex;
+        return `d${AppState.currentDomain}_q${actualIndex}`;
+    }
+}
+
+// 現在の回答を保存する関数
+function saveCurrentAnswer() {
+    if (AppState.examMode) {
+        // 試験モードは既存の処理を使用
+        AppState.examAnswers[AppState.currentQuestionIndex] = AppState.selectedAnswers.length > 0 ? AppState.selectedAnswers : null;
+    } else if (AppState.randomMode) {
+        // ランダムモード用の保存
+        if (!AppState.randomAnswers[AppState.currentQuestionIndex]) {
+            AppState.randomAnswers[AppState.currentQuestionIndex] = [];
+        }
+        AppState.randomAnswers[AppState.currentQuestionIndex] = [...AppState.selectedAnswers];
+    } else if (AppState.groupMode) {
+        // グループモード用の保存
+        const questionId = getCurrentQuestionId();
+        AppState.groupAnswers.set(questionId, [...AppState.selectedAnswers]);
+    } else if (AppState.reviewMode) {
+        // レビューモード用の保存
+        const questionId = getCurrentQuestionId();
+        AppState.reviewAnswers.set(questionId, [...AppState.selectedAnswers]);
+    } else {
+        // 練習モード用の保存
+        const questionId = getCurrentQuestionId();
+        AppState.practiceAnswers.set(questionId, [...AppState.selectedAnswers]);
+    }
+}
+
+// 保存された回答を復元する関数
+function restoreSavedAnswer() {
+    let savedAnswers = [];
+    
+    if (AppState.examMode) {
+        // 試験モードは既存の処理で対応済み
+        return;
+    } else if (AppState.randomMode) {
+        // ランダムモード用の復元
+        savedAnswers = AppState.randomAnswers[AppState.currentQuestionIndex] || [];
+    } else if (AppState.groupMode) {
+        // グループモード用の復元
+        const questionId = getCurrentQuestionId();
+        savedAnswers = AppState.groupAnswers.get(questionId) || [];
+    } else if (AppState.reviewMode) {
+        // レビューモード用の復元
+        const questionId = getCurrentQuestionId();
+        savedAnswers = AppState.reviewAnswers.get(questionId) || [];
+    } else {
+        // 練習モード用の復元
+        const questionId = getCurrentQuestionId();
+        savedAnswers = AppState.practiceAnswers.get(questionId) || [];
+    }
+    
+    // 保存された回答を復元
+    AppState.selectedAnswers = [...savedAnswers];
+    
+    // UIに反映
+    const choices = document.querySelectorAll('.choice');
+    const isMultiple = document.getElementById('question-type').textContent.includes('複数選択');
+    
+    savedAnswers.forEach(index => {
+        if (choices[index]) {
+            choices[index].classList.add('selected');
+        }
+    });
+    
+    // 回答ボタンの有効化
+    if (!AppState.examMode) {
+        document.getElementById('submit-answer').disabled = savedAnswers.length === 0;
+    }
+}
+
 // 質問の表示
 export async function displayQuestion() {
     let question;
@@ -62,6 +145,11 @@ export async function displayQuestion() {
 
     // 選択状態をリセット
     AppState.selectedAnswers = [];
+    
+    // 保存された回答を復元（試験モード以外）
+    if (!AppState.examMode) {
+        restoreSavedAnswer();
+    }
 
     // 前回の解答履歴を表示
     displayPreviousAttempt(question, currentDomain);
@@ -445,10 +533,10 @@ export async function nextQuestion() {
         return;
     }
     
+    // 現在の回答を保存
+    saveCurrentAnswer();
+    
     if (AppState.examMode) {
-        // 試験モードの場合
-        AppState.examAnswers[AppState.currentQuestionIndex] = AppState.selectedAnswers;
-        
         // 最後の問題かチェック
         if (AppState.currentQuestionIndex >= AppState.examQuestions.length - 1) {
             const { finishExam } = await import('./exam.js');
@@ -477,6 +565,9 @@ export async function prevQuestion() {
     }
     
     if (AppState.currentQuestionIndex > 0) {
+        // 現在の回答を保存
+        saveCurrentAnswer();
+        
         AppState.currentQuestionIndex--;
         AppState.selectedAnswers = [];
 
@@ -1127,17 +1218,6 @@ async function recommendSimilarQuestions(currentQuestion) {
 
     if (topSimilar.length > 0) {
         displaySimilarQuestions(topSimilar);
-    }
-}
-
-// 現在の問題IDを取得
-function getCurrentQuestionId() {
-    if (AppState.randomMode) {
-        const question = AppState.randomQuestions[AppState.currentQuestionIndex];
-        return `d${question.domain}_q${question.originalIndex}`;
-    } else {
-        const actualIndex = AppState.originalQuestionIndex !== null ? AppState.originalQuestionIndex : AppState.currentQuestionIndex;
-        return `d${AppState.currentDomain}_q${actualIndex}`;
     }
 }
 
